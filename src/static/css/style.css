@@ -1,0 +1,18 @@
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+i.fas,
+i.fab {
+    width: 20px;
+    text-align: center;
+    padding-right: 2%;
+}
+
+.card {
+    box-shadow: 0 0 3px;
+}
+
+.card.no-shadow {
+    box-shadow: none;
+}

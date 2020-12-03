@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <img src="{% static 'images/kindergarten_large.png' %}" alt="kindergarten_large.png" style="width: 75%">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="jumbotron">
+                <h1 class="display-4">Dobrodošli na Kindergarten stranice!</h1>
+                <p class="lead">Ovaj je projekt stvoren u sklopu kolegija Programsko inženjerstvo na Odjelu za informatiku, Sveučilište u Rijeci</p>
+                <hr class="my-4">
+                <p>Članovi tima:</p>
+                <ul class="list">
+                    <li class="list-item">Voditelj: David Janeš</li>
+                    <li class="list-item">Projektant: Karlo Molnar</li>
+                    <li class="list-item">Programer: Andrea Hrelja</li>
+                    <li class="list-item">Tester: Toni Percan</li>
+                </ul>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Saznajte više</a>
+                </p>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card no-shadow h-100">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3 class="h3">{{ vrtic.naziv }}</h3>
+                    </div>
+                    <hr class="my-4">
+                    <p class="lead">Kindergarten je vrtić izgrađen 1998. godine čija je misija pripremiti djecu predškolske, vrtićke i jasličke dobi na život nakon vrtića</p>
+                    <br>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span><a class="text-dark font-weight-bold" href="https://www.google.com/maps/place/Ul.+Janka+Poli%C4%87a+Kamova+5,+51000,+Rijeka">{{ vrtic.adresa }}, Rijeka</a></span>
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <span><a class="text-dark font-weight-bold" href="mailto:{{ vrtic.kontakt_email }}">{{ vrtic.kontakt_email }}</a></span>
+                    </p>
+                    <p>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>{{ vrtic.kontakt_broj }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
