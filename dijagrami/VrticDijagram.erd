@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="VrticDijagram-5.erd">
+	<entities>
+		<data-source id="postgres-jdbc-17604e108b2-48ab95934ca46ca9">
+			<entity id="1" name="djeca_dijete" fq-name="public.djeca_dijete" order="0" x="862" y="493">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="2" name="djeca_dijetenapredak" fq-name="public.djeca_dijetenapredak" order="1" x="1146" y="489">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="3" name="djeca_dobnaskupina" fq-name="public.djeca_dobnaskupina" order="2" x="318" y="716">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="4" name="dogadjaji_dogadjaj" fq-name="public.dogadjaji_dogadjaj" order="3" x="57" y="527">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="5" name="financije_placadjelatnik" fq-name="public.financije_placadjelatnik" order="4" x="1126" y="31">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="6" name="financije_racunclanarina" fq-name="public.financije_racunclanarina" order="5" x="853" y="30">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="7" name="programi_program" fq-name="public.programi_program" order="6" x="607" y="367">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="8" name="programi_program_radna_vremena" fq-name="public.programi_program_radna_vremena" order="7" x="270" y="379">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="9" name="programi_radnovrijeme" fq-name="public.programi_radnovrijeme" order="8" x="46" y="367">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="10" name="programi_tipprograma" fq-name="public.programi_tipprograma" order="9" x="585" y="513">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="11" name="programi_tipprograma_dobne_skupine" fq-name="public.programi_tipprograma_dobne_skupine" order="10" x="535" y="730">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="12" name="programi_tipprograma_dogadjaji" fq-name="public.programi_tipprograma_dogadjaji" order="11" x="279" y="531">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="13" name="programi_vrstaprograma" fq-name="public.programi_vrstaprograma" order="12" x="585" y="210">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="14" name="racuni_djelatnik" fq-name="public.racuni_djelatnik" order="13" x="1450" y="518">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="15" name="racuni_roditelj" fq-name="public.racuni_roditelj" order="14" x="880" y="730">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="16" name="racuni_tipdjelatnika" fq-name="public.racuni_tipdjelatnika" order="15" x="1450" y="43">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+			<entity id="17" name="vrtic_vrtic" fq-name="public.vrtic_vrtic" order="16" x="619" y="11">
+				<path name="public"/>
+				<path name="kindergarten"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="djeca_dijetenapredak_dijete_id_93575ea5_fk_djeca_dijete_id" fq-name="public.djeca_dijetenapredak.djeca_dijetenapredak_dijete_id_93575ea5_fk_djeca_dijete_id" type="fk" pk-ref="1" fk-ref="2"/>
+		<relation name="financije_racunclanarina_dijete_id_7a8fe64f_fk_djeca_dijete_id" fq-name="public.financije_racunclanarina.financije_racunclanarina_dijete_id_7a8fe64f_fk_djeca_dijete_id" type="fk" pk-ref="1" fk-ref="6"/>
+		<relation name="programi_tipprograma_dobnaskupina_id_da4f6b64_fk_djeca_dob" fq-name="public.programi_tipprograma_dobne_skupine.programi_tipprograma_dobnaskupina_id_da4f6b64_fk_djeca_dob" type="fk" pk-ref="3" fk-ref="11"/>
+		<relation name="programi_tipprograma_dogadjaj_id_aee8cd18_fk_dogadjaji" fq-name="public.programi_tipprograma_dogadjaji.programi_tipprograma_dogadjaj_id_aee8cd18_fk_dogadjaji" type="fk" pk-ref="4" fk-ref="12"/>
+		<relation name="programi_program_rad_program_id_1e08cbaf_fk_programi_" fq-name="public.programi_program_radna_vremena.programi_program_rad_program_id_1e08cbaf_fk_programi_" type="fk" pk-ref="7" fk-ref="8"/>
+		<relation name="programi_tipprograma_program_id_8b185415_fk_programi_program_id" fq-name="public.programi_tipprograma.programi_tipprograma_program_id_8b185415_fk_programi_program_id" type="fk" pk-ref="7" fk-ref="10"/>
+		<relation name="programi_program_rad_radnovrijeme_id_ca5775cc_fk_programi_" fq-name="public.programi_program_radna_vremena.programi_program_rad_radnovrijeme_id_ca5775cc_fk_programi_" type="fk" pk-ref="9" fk-ref="8"/>
+		<relation name="djeca_dijete_tip_programa_id_8eba3141_fk_programi_" fq-name="public.djeca_dijete.djeca_dijete_tip_programa_id_8eba3141_fk_programi_" type="fk" pk-ref="10" fk-ref="1"/>
+		<relation name="programi_tipprograma_tipprograma_id_eb729dc9_fk_programi_" fq-name="public.programi_tipprograma_dobne_skupine.programi_tipprograma_tipprograma_id_eb729dc9_fk_programi_" type="fk" pk-ref="10" fk-ref="11"/>
+		<relation name="programi_tipprograma_tipprograma_id_8e2d6e2d_fk_programi_" fq-name="public.programi_tipprograma_dogadjaji.programi_tipprograma_tipprograma_id_8e2d6e2d_fk_programi_" type="fk" pk-ref="10" fk-ref="12"/>
+		<relation name="racuni_tipdjelatnika_tip_programa_id_742abf0e_fk_programi_" fq-name="public.racuni_tipdjelatnika.racuni_tipdjelatnika_tip_programa_id_742abf0e_fk_programi_" type="fk" pk-ref="10" fk-ref="16"/>
+		<relation name="programi_program_vrsta_programa_id_dd334ac2_fk_programi_" fq-name="public.programi_program.programi_program_vrsta_programa_id_dd334ac2_fk_programi_" type="fk" pk-ref="13" fk-ref="7"/>
+		<relation name="djeca_dijetenapredak_djelatnik_id_bdd4fd9d_fk_racuni_dj" fq-name="public.djeca_dijetenapredak.djeca_dijetenapredak_djelatnik_id_bdd4fd9d_fk_racuni_dj" type="fk" pk-ref="14" fk-ref="2"/>
+		<relation name="djeca_dijete_roditelj_id_4d0e933d_fk_racuni_roditelj_id" fq-name="public.djeca_dijete.djeca_dijete_roditelj_id_4d0e933d_fk_racuni_roditelj_id" type="fk" pk-ref="15" fk-ref="1"/>
+		<relation name="financije_placadjela_tip_djelatnika_id_051c4070_fk_racuni_ti" fq-name="public.financije_placadjelatnik.financije_placadjela_tip_djelatnika_id_051c4070_fk_racuni_ti" type="fk" pk-ref="16" fk-ref="5"/>
+		<relation name="racuni_djelatnik_tip_djelatnika_id_b48c5866_fk_racuni_ti" fq-name="public.racuni_djelatnik.racuni_djelatnik_tip_djelatnika_id_b48c5866_fk_racuni_ti" type="fk" pk-ref="16" fk-ref="14"/>
+		<relation name="programi_vrstaprograma_vrtic_id_0ccebb80_fk_vrtic_vrtic_id" fq-name="public.programi_vrstaprograma.programi_vrstaprograma_vrtic_id_0ccebb80_fk_vrtic_vrtic_id" type="fk" pk-ref="17" fk-ref="13"/>
+	</relations>
+</diagram>
