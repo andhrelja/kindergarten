@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Popis svih računa" %}
+
+{% for racun in object_list %}
+
+{{ racun }}
+
+{% endfor %}
+
+{% endblock body %}

@@ -30,7 +30,7 @@ class PlacaDjelatnik(models.Model):
     neto      = models.FloatField("Neto iznos plaće")
     
     # Vanjski ključevi
-    tip_djelatnika = models.ForeignKey("racuni.TipDjelatnika", verbose_name="Tip djelatnika", on_delete=models.CASCADE)
+    tip_djelatnika = models.ForeignKey("racuni.TipRacuna", verbose_name="Tip djelatnika", on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Plaća - djelatnik"

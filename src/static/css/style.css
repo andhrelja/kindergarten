@@ -16,3 +16,29 @@ i.fab {
 .card.no-shadow {
     box-shadow: none;
 }
+
+
+.navbar-dark .dropdown-toggle {
+    color: #fff !important;
+    border-radius: 16px;
+    transition: all 0.2s;
+}
+
+
+.navbar-dark a.dropdown-toggle[aria-expaned="true"],
+.navbar-dark a.dropdown-toggle:hover,
+.navbar-dark .dropdown-item:hover i {
+    color: #343a40 !important;
+    background-color: #fff;
+    padding: 7px;
+    box-shadow: inset 1px 1px 1px 1px;
+}
+
+
+.navbar-dark .dropdown-item i {
+    color: #fff;
+}
+
+.navbar-dark .dropdown .dropdown-item i {
+    color: #343a40;
+}

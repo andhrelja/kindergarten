@@ -10,8 +10,7 @@ class Dijete(models.Model):
     dodatne_informacije = models.TextField("Dodatne informacije") 
 
     # Vanjski ključevi
-    roditelj        = models.ForeignKey("racuni.Roditelj", verbose_name="Roditelj", on_delete=models.CASCADE)
-    tip_programa    = models.ForeignKey("programi.TipPrograma", verbose_name="Program", on_delete=models.CASCADE)
+    roditelj        = models.ForeignKey("racuni.Racun", verbose_name="Roditelj", on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Dijete"
@@ -45,7 +44,7 @@ class DijeteNapredak(models.Model):
     
     # Vanjski ključevi
     dijete      = models.ForeignKey("djeca.Dijete", verbose_name="Dijete", on_delete=models.CASCADE)
-    djelatnik   = models.ForeignKey("racuni.Djelatnik", verbose_name="Djelatnik", on_delete=models.CASCADE)
+    djelatnik   = models.ForeignKey("racuni.Racun", verbose_name="Djelatnik", on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Dijete - napredak"

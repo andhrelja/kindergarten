@@ -11,8 +11,17 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#">Početna</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Programi</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="programiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Programi
+                </a>
+                <div class="dropdown-menu" aria-labelledby="programiDropdown">
+                    {% for vrsta_programa in vrtic.vrstaprograma_set.all %}
+                    <a class="dropdown-item" href="#">
+                        {{ vrsta_programa }}
+                    </a>
+                    {% endfor %}
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Događaji</a>
@@ -25,16 +34,23 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
+
             {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" href="#">{{ user.get_full_name }}</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="racunDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ user.get_full_name }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="racunDropdown">
+                    <a class="dropdown-item" href="{% url 'racuni:odjava' %}">Odjava</a>
+                    
+                </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'racuni:odjava' %}">Odjava</a>
+                <a class="nav-link" href="{% url 'racuni:popis' %}">Računi</a>
             </li>
             {% else %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'racuni:prijava' %}">Prijava</a>
+                <a class="dropdown-item" href="{% url 'racuni:prijava' %}">Prijava</a>
             </li>
             {% endif %}
             
