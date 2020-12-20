@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title=title type="list" type_name="programi" %}
+
+<div class="container">
+    <div class="row mb-3">
+    {% for program in object_list %}
+            <div class="col-lg-3">
+                <div class="card h-100" >
+                    <div class="card-body card-hover">
+                        <h4 class="h4 font-weight-bold card-title">
+                            {{ program.naziv }}
+                        </h4>
+                        <h6 class="card-subtitle text-muted">
+                            Radno vrijeme:
+                        </h6>
+                        <ul class="pl-3">
+                            {% for radno_vrijeme in program.radna_vremena.all %}
+                            <li>{{ radno_vrijeme.vrijeme_od_do }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% if user.is_authenticated and user.is_superuser %}
+                    <div class="card-footer text-center">
+                        <a href="#" class="card-link text-primary w-50">
+                            <i class="fas fa-pen"></i>
+                            <span>Uredi</span>
+                        </a>
+                        <a href="#" class="card-link text-danger w-50">
+                            <i class="fas fa-trash"></i>
+                            <span>Izbriši</span>
+                        </a>
+                    </div>
+                    {% endif %}
+                    
+                </div>
+            </div>
+
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock body %}

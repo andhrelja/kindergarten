@@ -57,9 +57,9 @@ class DijeteNapredak(models.Model):
 
 class DobnaSkupina(models.Model):
 
-    naziv      = models.CharField("Naziv", max_length=128)
-    godine_min = models.IntegerField("Donja granica godina")
-    godine_max = models.IntegerField("Gornja granica godina")
+    naziv       = models.CharField("Naziv", max_length=128)
+    godine_min = models.FloatField("Donja granica - godine", help_text="Minimalna dob dijeteta u godinama")
+    godine_max = models.FloatField("Gornja granica - godine", help_text="Maksimalna dob dijeteta u godinama")
 
     class Meta:
         verbose_name = "Dobna skupina"

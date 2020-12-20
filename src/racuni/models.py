@@ -39,7 +39,7 @@ class Racun(models.Model):
         return string.strip()
 
     def get_absolute_url(self):
-        return reverse("racuni:pregled", kwargs={"pk": self.pk})
+        return reverse("racuni:prikaz", kwargs={"pk": self.pk})
 
 
 class TipRacuna(models.Model):

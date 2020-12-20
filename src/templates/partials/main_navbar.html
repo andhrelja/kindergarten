@@ -1,6 +1,8 @@
 {% load static %}
+{% load vrtic_extras %}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{% url 'vrtic:home' %}">
         <img src="{% static 'images/kindergarten_logo.png' %}" alt="kindergarten_logo.png" width="30" height="30">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,15 +11,15 @@
     <div class="collapse navbar-collapse" id="navbarMain">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Početna</a>
+                <a class="nav-link" href="{% url 'vrtic:home' %}">Početna</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="programiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Programi
                 </a>
                 <div class="dropdown-menu" aria-labelledby="programiDropdown">
-                    {% for vrsta_programa in vrtic.vrstaprograma_set.all %}
-                    <a class="dropdown-item" href="#">
+                    {% for vrsta_programa in "Kindergarten"|vrste_programa %}
+                    <a class="dropdown-item" href="{% url 'programi:popis-programa' vrsta_programa.id %}">
                         {{ vrsta_programa }}
                     </a>
                     {% endfor %}
@@ -26,9 +28,16 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Događaji</a>
             </li>
+            {% if user.is_authenticated and user.is_staff %}
             <li class="nav-item">
-                <a class="nav-link" href="#">Upisi</a>
+                <a class="nav-link" href="{% url 'racuni:upisi-popis' %}">Upisi</a>
             </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'racuni:upisi-stvori' %}">Upisi</a>
+            </li>
+            {% endif %}
+            
             <li class="nav-item">
                 <a class="nav-link" href="#">O nama</a>
             </li>

@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Novi zahtjev za upis" type="form" %}
+
+<div class="container">
+    <form method="post" action="">{% csrf_token %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h4 class="h4 font-weight-bold">Podaci o roditelju</h4>
+                        </div>
+                        {% for field in form.visible_fields %}
+                        {% if forloop.counter <= 4 %}
+                        <div class="form-group">
+                            {% if field.errors %}
+                            <ul class="ml-0">
+                            {% for error in field.errors %}
+                                <li class="text-danger">{{ error }}</li>
+                            {% endfor %}
+                            </ul>
+                            {% endif %}
+                            <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+                            
+                            {% if field.help_text %}
+                            
+                            <ul>
+                                <li class="text-info">
+                                    <small class="help">{{ field.help_text|safe }}</small>
+                                </li>
+                            </ul>
+                            {% endif %}
+                            {{ field }}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h4 class="h4 font-weight-bold">Podaci o djetetu</h4>
+                        </div>
+                        {% for field in form.visible_fields %}
+                        {% if forloop.counter > 4 and forloop.counter < 7 %}
+                        <div class="form-group">
+                            {% if field.errors %}
+                            <ul class="ml-0">
+                            {% for error in field.errors %}
+                                <li class="text-danger">{{ error }}</li>
+                            {% endfor %}
+                            </ul>
+                            {% endif %}
+                            <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+                            
+                            {% if field.help_text %}
+                            
+                            <ul>
+                                <li class="text-info">
+                                    <small class="help">{{ field.help_text|safe }}</small>
+                                </li>
+                            </ul>
+                            {% endif %}
+                            {{ field }}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h4 class="h4 font-weight-bold">Obrazloženje rješenja</h4>
+                        </div>
+                        {% for field in form.visible_fields %}
+                        {% if forloop.counter >= 7 %}
+                        <div class="form-group">
+                            {% if field.errors %}
+                            <ul class="ml-0">
+                            {% for error in field.errors %}
+                                <li class="text-danger">{{ error }}</li>
+                            {% endfor %}
+                            </ul>
+                            {% endif %}
+                            <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+                            
+                            {% if field.help_text %}
+                            
+                            <ul>
+                                <li class="text-info">
+                                    <small class="help">{{ field.help_text|safe }}</small>
+                                </li>
+                            </ul>
+                            {% endif %}
+                            {{ field }}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        <button type="submit" class="btn btn-primary mt-3">
+                            Spremi
+                        </button>
+                        <a href="{% url 'vrtic:home' %}" class="btn btn-outline-danger mt-3">
+                            Odustani
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock body %}

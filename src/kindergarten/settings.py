@@ -75,14 +75,14 @@ WSGI_APPLICATION = 'kindergarten.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'local': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'kindergarten',
         'USER': 'andrea',
         'PASSWORD': 'user',
         'HOST': 'localhost'
     },
-    'heroku': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'df3nnsseb06mro',
         'USER': 'cvvxlygafgryjr',

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Popis svih upisa" type="list" type_name="racuni" %}
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Broj</th>
+                <th>Roditelj</th>
+                <th>Dijete</th>
+                <th>Datum rođenja djeteta</th>
+                <th class="text-center">Odobri</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for upis in object_list %}
+            <tr class="row-hover" onclick="location.href='{% url 'racuni:upisi-prikaz' upis.id %}'">
+                <td>{{ upis.id }}</td>
+                <td>{{ upis.roditelj_puno_ime }}</td>
+                <td>{{ upis.dijete_puno_ime }}</td>
+                <td>{{ upis.dijete_datum_rodjenja }}</td>
+                <td class="text-center">
+                    <a class="btn text-success" href="#">
+                        <i class="fas fa-check-circle"></i>
+                    </a>
+                    <a class="btn text-danger" href="#">
+                        <i class="fas fa-times-circle"></i>
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock body %}

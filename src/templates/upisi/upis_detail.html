@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Zahtjev za upis" type="detail" type_name="upisi" %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h5 class="h5 font-weight-bold">Upisnica br. <strong>{{ object.id }}</strong></h5>
+                    </div>
+                    <div class="card-subtitle text-muted">
+                        <h6 class="h6">Datum stvaranja: <strong>{{ object.created_at }}</strong></h6>
+                    </div>
+                    
+                    {% if object.created_at|date:"dmYHi" != object.updated_at|date:"dmYHi" %}
+                    <div class="card-subtitle text-muted">
+                        <h6 class="h6">Datum uređivanja: <strong>{{ object.updated_at }}</strong></h6>
+                    </div>
+                    {% endif %}
+                
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+
+                            <div class="card-title">
+                                <h4 class="h4 font-weight-bold">Podaci o roditelju</h4>
+                            </div>
+                            {% for field in detail_form.visible_fields %}
+                            {% if forloop.counter <= 4 %}
+                            <div class="form-group">
+                                <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-title">
+                                <h4 class="h4 font-weight-bold">Podaci o djetetu</h4>
+                            </div>
+                            {% for field in detail_form.visible_fields %}
+                            {% if forloop.counter > 4 %}
+                            <div class="form-group">
+                                <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

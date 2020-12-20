@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/kindergarten_logo.png' %}">
+    <title>Kindergarten | Logout</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;700&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+    {% include 'messages.html' %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="text-center">
+                    <img src="{% static 'images/kindergarten_large.png' %}" alt="Kindergarten.png" class="p-3" style="width: 70%">
+                </div>
+                <div class="card p-4">
+                    <div class="card-title text-center">
+                        <h3 class="h3">Uspješno ste odjavljeni</h3>
+                    </div>
+                    <div class="card-body">
+                        <a href="btn btn-primary" href="{% url 'racuni:login' %}">
+                            Ponovna prijava
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://kit.fontawesome.com/4951590161.js" crossorigin="anonymous"></script>
+
+</html>

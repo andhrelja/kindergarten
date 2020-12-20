@@ -74,7 +74,7 @@ class TipPrograma(models.Model):
     program         = models.ForeignKey(
         "programi.Program", verbose_name="Program", on_delete=models.CASCADE)
     dogadjaji       = models.ManyToManyField(
-        "dogadjaji.Dogadjaj", verbose_name="Događaji")
+        "dogadjaji.Dogadjaj", verbose_name="Događaji", blank=True)
     dobne_skupine   = models.ManyToManyField(
         "djeca.DobnaSkupina", verbose_name="Dobne skupine")
 
@@ -100,5 +100,12 @@ class RadnoVrijeme(models.Model):
         verbose_name_plural = "Radna vremena"
 
     def __str__(self):
-        naziv = "{}: {} - {}".format(self.naziv_smjene, self.vrijeme_start, self.vrijeme_kraj)
+        naziv = "{}: {}".format(self.naziv_smjene, self.vrijeme_od_do())
         return naziv.strip()
+
+    def vrijeme_od_do(self):
+        vrijeme_od = self.vrijeme_start.strftime("%H:%M")
+        vrijeme_do = self.vrijeme_kraj.strftime("%H:%M")
+        return "{} - {}".format(vrijeme_od, vrijeme_do)
+
+        

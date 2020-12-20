@@ -1,27 +1,22 @@
 @media (min-width: 580px) {
-    .card {
-        padding: 5%;
-    }
 
-    .subnavbar {
-        width: 85%;
-    }
 }
 
 @media (max-width: 580px) {
-    .card {
-        padding: 3%;
-    }
-
-    .subnavbar {
-        width: 100%;
-    }
+    
 }
 
 
 * {
     font-family: 'Ubuntu', sans-serif;
 }
+
+
+.row {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
 
 i.fas,
 i.fab {
@@ -36,6 +31,17 @@ i.fab {
 
 .card.no-shadow {
     box-shadow: none;
+}
+
+.card-hover {
+    cursor: pointer;
+    border-top-left-radius: .25em;
+    border-top-right-radius: .25em;
+    transition: all 0.2s ease;
+}
+
+.card-hover:hover {
+    box-shadow: 0 0 6px;
 }
 
 
@@ -65,4 +71,12 @@ i.fab {
 
 .navbar-dark .dropdown .dropdown-item i {
     color: #343a40;
+}
+
+.row-hover {
+    cursor: pointer;
+}
+
+.row-hover:hover {
+    background-color: lightyellow;
 }
