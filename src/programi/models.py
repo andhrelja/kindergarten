@@ -1,6 +1,15 @@
 from django.db import models
 from django.urls import reverse
+from vrtic.models import Vrtic
 
+VRTIC = Vrtic.objects.get(id=1)
+VRSTE_PROGRAMA = (
+    ("Redoviti programi", 2400, VRTIC),
+    ("Obogaćeni programi", 2600, VRTIC),
+    ("Posebni programi", 2800, VRTIC),
+    ("Kraći programi", 1800, VRTIC),
+    ("Predškolski", 2400, VRTIC),
+)
 
 class VrstaPrograma(models.Model):
 
@@ -16,6 +25,16 @@ class VrstaPrograma(models.Model):
     class Meta:
         verbose_name = "Vrsta programa"
         verbose_name_plural = "Vrste programa"
+    
+
+    def create(self):
+        for vrsta_programa in VRSTE_PROGRAMA:
+            defaults = {
+                'naziv': vrsta_programa[0],
+                'clanstvo_cijena': vrsta_programa[1],
+                'vrtic': vrsta_programa[2],
+            }
+            VrstaPrograma.objects.get_or_create(**defaults)
 
     def __str__(self):
         return self.naziv
@@ -27,7 +46,7 @@ class VrstaPrograma(models.Model):
 class Program(models.Model):
 
     # Atributi
-    naziv           = models.CharField("Naziv tipa programa", max_length=128)
+    naziv           = models.CharField("Naziv programa", max_length=128)
     dodatni_boravak = models.BooleanField("Dostupnost dodatnog boravka")
 
     # Vanjski ključevi

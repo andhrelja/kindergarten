@@ -1,12 +1,71 @@
 {% extends 'base.html' %}
 
 {% block body %}
-{% include 'partials/sub_navbar.html' with title="Popis svih računa" %}
+{% include 'partials/sub_navbar.html' with title="Popis svih računa" type="list" type_name="racuni" %}
 
-{% for racun in object_list %}
+<div class="container">
+    {% comment %}
+        {% for racun in object_list %}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            {{ racun.user.get_full_name }}
+                        </div>
+                        <h6 class="card-subtitle text-muted">
+                            {{ racun.tip_racuna }}
+                        </h6>
+                        <a href="#" class="card-link text-primary">
+                            <i class="fas fa-pen"></i>
+                            <span>Uredi</span>
+                        </a>
+                        <a href="#" class="card-link text-danger">
+                            <i class="fas fa-trash"></i>
+                            <span>Izbriši</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-{{ racun }}
+        {% endfor %}
+    {% endcomment %}
 
-{% endfor %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ime i prezime</th>
+                <th class="text-center">Djelatnik</th>
+                <th>Tip računa</th>
+                <th>Akcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for racun in object_list %}
+            <tr>
+                <td>{{ racun.user.get_full_name }}</td>
+                <td class="text-center">
+                    {% if racun.je_djelatnik %}
+                    <input type="checkbox" class="form-check-input" checked disabled>
+                    {% else %}
+                    <input type="checkbox" class="form-check-input" disabled>
+                    {% endif %}
+                </td>
+                <td>{{ racun.tip_racuna}}</td>
+                <td class="justify-space-between">
+                    <a class="text-primary" href="#">
+                        <i class="fas fa-pen"></i>
+                    </a>
+                    <a class="text-danger" href="#">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 {% endblock body %}

@@ -16,10 +16,16 @@
         </ul>
         {% endif %}
         <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
-        {{ field }}
+        
         {% if field.help_text %}
-        <p class="help">{{ field.help_text|safe }}</p>
+        
+        <ul>
+            <li class="text-info">
+                <small class="help">{{ field.help_text|safe }}</small>
+            </li>
+        </ul>
         {% endif %}
+        {{ field }}
     </div>
 {% endfor %}
 {% for field in form.hidden_fields %}

@@ -1,16 +1,17 @@
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-2" style="border-radius: 20px">
+<div class="container-fluid mt-2 mb-2 pr-2 pl-2">
+    <nav class="navbar subnavbar navbar-expand-lg navbar-dark bg-dark m-auto" style="border-radius: 20px;">
 
         <a class="navbar-brand" href="#">
             {{ title }}
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSubnav" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-angle-down"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarMain">
+        <div class="collapse navbar-collapse" id="navbarSubnav">
             <ul class="navbar-nav ml-auto">
 
-                {% if user.is_authenticated %}
+            {% if user.is_authenticated %}
+                {% if type == "list" and type_name == "racuni" %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="racunDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-plus-circle"></i>
@@ -31,12 +32,17 @@
                 <li class="nav-item">
                     
                 </li>
-                {% else %}
-
+                {% elif type == "form" %}
                 {% endif %}
+                
+            {% else %}
+
+            {% endif %}
                 
             </ul>
         </div>
         
     </nav>
 </div>
+
+{% include 'messages.html' %}

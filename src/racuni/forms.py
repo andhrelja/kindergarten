@@ -1,7 +1,8 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import AuthenticationForm
-from racuni.models import Racun
+from django.db.models import Q
+from racuni.models import Racun, TipRacuna
 
 class DateInput(forms.DateInput):
     input_type = "date"
@@ -68,14 +69,48 @@ class RacunForm(forms.ModelForm):
         help_text="Unesite istu lozinku",
     )
 
+    je_roditelj = forms.BooleanField(label="Roditelj", required=False, widget=forms.HiddenInput())
+    je_djelatnik = forms.BooleanField(label="Djelatnik", required=False, widget=forms.HiddenInput())
+    je_voditelj = forms.BooleanField(label="Voditelj", required=False, widget=forms.CheckboxInput(attrs={'class': 'form-control'}))
+    je_strucni_tim = forms.BooleanField(label="Stručni tim", required=False, widget=forms.CheckboxInput(attrs={'class': 'form-control'}))    
+
     class Meta:
         model = Racun
-        fields = ('first_name', 'last_name', 'telefon', 'datum_rodjenja', 'email', 'password1', 'password2', 'tip_racuna')
+        fields = (
+            'first_name', 
+            'last_name', 
+            'tip_racuna', 
+            'je_voditelj', 
+            'je_strucni_tim', 
+            'telefon', 
+            'datum_rodjenja', 
+            'email', 
+            'password1', 
+            'password2', 
+            'je_roditelj', 
+            'je_djelatnik'
+        )
         widgets = {
-            'telefon': forms.TextInput(attrs={'class': 'form-control'}),
-            'datum_rodjenja': DateInput(attrs={'class': 'form-control'}),
-            'tip_racuna': forms.Select(attrs={'class': 'custom-select'}),
+            'telefon':          forms.TextInput(attrs={'class': 'form-control'}),
+            'datum_rodjenja':   DateInput(attrs={'class': 'form-control'}),
+            'tip_racuna':       forms.Select(attrs={'class': 'custom-select'}),
         }
+    
+    def __init__(self, *args, **kwargs):
+        super(RacunForm, self).__init__(*args, **kwargs)
+        je_djelatnik = kwargs['initial']['je_djelatnik']
+        je_roditelj = kwargs['initial']['je_roditelj']
+
+        self.fields['je_roditelj'].initial = je_roditelj
+        self.fields['je_djelatnik'].initial = je_djelatnik
+
+        if je_djelatnik and not je_roditelj:
+            self.fields['tip_racuna'].queryset = TipRacuna.objects.filter(~Q(naziv="Roditelj"))
+        elif not je_djelatnik and je_roditelj:
+            self.fields['tip_racuna'].initial = TipRacuna.objects.get(naziv="Roditelj")
+            self.fields['tip_racuna'].widget = forms.HiddenInput()
+            self.fields['je_voditelj'].widget = forms.HiddenInput()
+            self.fields['je_strucni_tim'].widget = forms.HiddenInput()
     
     
     def clean_first_name(self):

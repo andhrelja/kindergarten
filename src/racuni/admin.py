@@ -5,8 +5,8 @@ from .models import (
     TipRacuna
 )
 
+admin.site.register(Racun)
 admin.site.register(TipRacuna)
-
 
 class CustomRacunAdmin(UserAdmin):
     model = Racun

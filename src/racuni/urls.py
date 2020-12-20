@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 app_name = 'racuni'
@@ -7,6 +7,7 @@ urlpatterns = [
     path('odjava/',  views.LogoutView.as_view(), name="odjava"),
     
     path('djelatnik/', views.DjelatnikCreateView.as_view(), name="stvori-djelatnik"),    
-    path('roditelj/', views.RoditeljCreateView.as_view(), name="stvori-roditelj"),    
+    path('roditelj/', views.RoditeljCreateView.as_view(), name="stvori-roditelj"),
+    path('prikaz/<int:pk>', views.RacunDetailView.as_view(), name="prikaz"),
     path('',        views.RacunListView.as_view(), name="popis"),
 ]
