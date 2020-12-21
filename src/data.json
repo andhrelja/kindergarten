@@ -1,462 +1,5 @@
 [
 {
-    "model": "auth.group",
-    "pk": 1,
-    "fields": {
-        "name": "Djelatnici",
-        "permissions": [
-            [
-                "view_dijete",
-                "djeca",
-                "dijete"
-            ],
-            [
-                "add_dijetenapredak",
-                "djeca",
-                "dijetenapredak"
-            ],
-            [
-                "change_dijetenapredak",
-                "djeca",
-                "dijetenapredak"
-            ],
-            [
-                "delete_dijetenapredak",
-                "djeca",
-                "dijetenapredak"
-            ],
-            [
-                "view_dijetenapredak",
-                "djeca",
-                "dijetenapredak"
-            ]
-        ]
-    }
-},
-{
-    "model": "auth.group",
-    "pk": 2,
-    "fields": {
-        "name": "Roditelji",
-        "permissions": [
-            [
-                "view_dijete",
-                "djeca",
-                "dijete"
-            ],
-            [
-                "view_dijetenapredak",
-                "djeca",
-                "dijetenapredak"
-            ],
-            [
-                "view_dogadjaj",
-                "dogadjaji",
-                "dogadjaj"
-            ],
-            [
-                "view_racunclanarina",
-                "financije",
-                "racunclanarina"
-            ],
-            [
-                "view_vrtic",
-                "vrtic",
-                "vrtic"
-            ]
-        ]
-    }
-},
-{
-    "model": "auth.group",
-    "pk": 3,
-    "fields": {
-        "name": "Administratori",
-        "permissions": [
-            [
-                "add_logentry",
-                "admin",
-                "logentry"
-            ],
-            [
-                "change_logentry",
-                "admin",
-                "logentry"
-            ],
-            [
-                "delete_logentry",
-                "admin",
-                "logentry"
-            ],
-            [
-                "view_logentry",
-                "admin",
-                "logentry"
-            ],
-            [
-                "add_group",
-                "auth",
-                "group"
-            ],
-            [
-                "change_group",
-                "auth",
-                "group"
-            ],
-            [
-                "delete_group",
-                "auth",
-                "group"
-            ],
-            [
-                "view_group",
-                "auth",
-                "group"
-            ],
-            [
-                "add_permission",
-                "auth",
-                "permission"
-            ],
-            [
-                "change_permission",
-                "auth",
-                "permission"
-            ],
-            [
-                "delete_permission",
-                "auth",
-                "permission"
-            ],
-            [
-                "view_permission",
-                "auth",
-                "permission"
-            ],
-            [
-                "add_user",
-                "auth",
-                "user"
-            ],
-            [
-                "change_user",
-                "auth",
-                "user"
-            ],
-            [
-                "delete_user",
-                "auth",
-                "user"
-            ],
-            [
-                "view_user",
-                "auth",
-                "user"
-            ],
-            [
-                "add_contenttype",
-                "contenttypes",
-                "contenttype"
-            ],
-            [
-                "change_contenttype",
-                "contenttypes",
-                "contenttype"
-            ],
-            [
-                "delete_contenttype",
-                "contenttypes",
-                "contenttype"
-            ],
-            [
-                "view_contenttype",
-                "contenttypes",
-                "contenttype"
-            ],
-            [
-                "add_dijete",
-                "djeca",
-                "dijete"
-            ],
-            [
-                "change_dijete",
-                "djeca",
-                "dijete"
-            ],
-            [
-                "delete_dijete",
-                "djeca",
-                "dijete"
-            ],
-            [
-                "view_dijete",
-                "djeca",
-                "dijete"
-            ],
-            [
-                "add_dijetenapredak",
-                "djeca",
-                "dijetenapredak"
-            ],
-            [
-                "change_dijetenapredak",
-                "djeca",
-                "dijetenapredak"
-            ],
-            [
-                "delete_dijetenapredak",
-                "djeca",
-                "dijetenapredak"
-            ],
-            [
-                "view_dijetenapredak",
-                "djeca",
-                "dijetenapredak"
-            ],
-            [
-                "add_dobnaskupina",
-                "djeca",
-                "dobnaskupina"
-            ],
-            [
-                "change_dobnaskupina",
-                "djeca",
-                "dobnaskupina"
-            ],
-            [
-                "delete_dobnaskupina",
-                "djeca",
-                "dobnaskupina"
-            ],
-            [
-                "view_dobnaskupina",
-                "djeca",
-                "dobnaskupina"
-            ],
-            [
-                "add_dogadjaj",
-                "dogadjaji",
-                "dogadjaj"
-            ],
-            [
-                "change_dogadjaj",
-                "dogadjaji",
-                "dogadjaj"
-            ],
-            [
-                "delete_dogadjaj",
-                "dogadjaji",
-                "dogadjaj"
-            ],
-            [
-                "view_dogadjaj",
-                "dogadjaji",
-                "dogadjaj"
-            ],
-            [
-                "add_placadjelatnik",
-                "financije",
-                "placadjelatnik"
-            ],
-            [
-                "change_placadjelatnik",
-                "financije",
-                "placadjelatnik"
-            ],
-            [
-                "delete_placadjelatnik",
-                "financije",
-                "placadjelatnik"
-            ],
-            [
-                "view_placadjelatnik",
-                "financije",
-                "placadjelatnik"
-            ],
-            [
-                "add_racunclanarina",
-                "financije",
-                "racunclanarina"
-            ],
-            [
-                "change_racunclanarina",
-                "financije",
-                "racunclanarina"
-            ],
-            [
-                "delete_racunclanarina",
-                "financije",
-                "racunclanarina"
-            ],
-            [
-                "view_racunclanarina",
-                "financije",
-                "racunclanarina"
-            ],
-            [
-                "add_program",
-                "programi",
-                "program"
-            ],
-            [
-                "change_program",
-                "programi",
-                "program"
-            ],
-            [
-                "delete_program",
-                "programi",
-                "program"
-            ],
-            [
-                "view_program",
-                "programi",
-                "program"
-            ],
-            [
-                "add_radnovrijeme",
-                "programi",
-                "radnovrijeme"
-            ],
-            [
-                "change_radnovrijeme",
-                "programi",
-                "radnovrijeme"
-            ],
-            [
-                "delete_radnovrijeme",
-                "programi",
-                "radnovrijeme"
-            ],
-            [
-                "view_radnovrijeme",
-                "programi",
-                "radnovrijeme"
-            ],
-            [
-                "add_tipprograma",
-                "programi",
-                "tipprograma"
-            ],
-            [
-                "change_tipprograma",
-                "programi",
-                "tipprograma"
-            ],
-            [
-                "delete_tipprograma",
-                "programi",
-                "tipprograma"
-            ],
-            [
-                "view_tipprograma",
-                "programi",
-                "tipprograma"
-            ],
-            [
-                "add_vrstaprograma",
-                "programi",
-                "vrstaprograma"
-            ],
-            [
-                "change_vrstaprograma",
-                "programi",
-                "vrstaprograma"
-            ],
-            [
-                "delete_vrstaprograma",
-                "programi",
-                "vrstaprograma"
-            ],
-            [
-                "view_vrstaprograma",
-                "programi",
-                "vrstaprograma"
-            ],
-            [
-                "add_racun",
-                "racuni",
-                "racun"
-            ],
-            [
-                "change_racun",
-                "racuni",
-                "racun"
-            ],
-            [
-                "delete_racun",
-                "racuni",
-                "racun"
-            ],
-            [
-                "view_racun",
-                "racuni",
-                "racun"
-            ],
-            [
-                "add_tipracuna",
-                "racuni",
-                "tipracuna"
-            ],
-            [
-                "change_tipracuna",
-                "racuni",
-                "tipracuna"
-            ],
-            [
-                "delete_tipracuna",
-                "racuni",
-                "tipracuna"
-            ],
-            [
-                "view_tipracuna",
-                "racuni",
-                "tipracuna"
-            ],
-            [
-                "add_session",
-                "sessions",
-                "session"
-            ],
-            [
-                "change_session",
-                "sessions",
-                "session"
-            ],
-            [
-                "delete_session",
-                "sessions",
-                "session"
-            ],
-            [
-                "view_session",
-                "sessions",
-                "session"
-            ],
-            [
-                "add_vrtic",
-                "vrtic",
-                "vrtic"
-            ],
-            [
-                "change_vrtic",
-                "vrtic",
-                "vrtic"
-            ],
-            [
-                "delete_vrtic",
-                "vrtic",
-                "vrtic"
-            ],
-            [
-                "view_vrtic",
-                "vrtic",
-                "vrtic"
-            ]
-        ]
-    }
-},
-{
     "model": "auth.user",
     "pk": 1,
     "fields": {
@@ -565,14 +108,6 @@
     }
 },
 {
-    "model": "sessions.session",
-    "pk": "jwquir434wg9iqfd9odtrqipz16ffjhm",
-    "fields": {
-        "session_data": ".eJxVy0EOwiAQQNG7sDYNA4TOuDTxHGQYxkDULoqsjHfXJl3U7X_5b5N4vGoaXdfUijkbMKdjyyx3XTZYWcbSpj306frk9rjs_PdU7vU3eLlFziUqzFmRCvrisTCJszojS2QExxTQiSPricEFIspBFSxgMJ8v2VQytg:1kqwWl:36OYTyLhebi26z94okVk-QqRKsVJ3YSfX07pCLWLcEg",
-        "expire_date": "2021-01-03T11:05:27.269Z"
-    }
-},
-{
     "model": "vrtic.vrtic",
     "pk": 1,
     "fields": {
@@ -588,121 +123,7 @@
     "fields": {
         "naziv": "Redoviti programi",
         "clanstvo_cijena": 2400.0,
-        "vrtic": 1
-    }
-},
-{
-    "model": "programi.vrstaprograma",
-    "pk": 2,
-    "fields": {
-        "naziv": "Obogaćeni programi",
-        "clanstvo_cijena": 2600.0,
-        "vrtic": 1
-    }
-},
-{
-    "model": "programi.vrstaprograma",
-    "pk": 3,
-    "fields": {
-        "naziv": "Posebni programi",
-        "clanstvo_cijena": 2800.0,
-        "vrtic": 1
-    }
-},
-{
-    "model": "programi.vrstaprograma",
-    "pk": 4,
-    "fields": {
-        "naziv": "Kraći programi",
-        "clanstvo_cijena": 1800.0,
-        "vrtic": 1
-    }
-},
-{
-    "model": "programi.vrstaprograma",
-    "pk": 5,
-    "fields": {
-        "naziv": "Predškolski",
-        "clanstvo_cijena": 2400.0,
-        "vrtic": 1
-    }
-},
-{
-    "model": "programi.program",
-    "pk": 1,
-    "fields": {
-        "naziv": "Poludnevni",
-        "dodatni_boravak": false,
-        "vrsta_programa": 1,
-        "radna_vremena": [
-            1
-        ]
-    }
-},
-{
-    "model": "programi.program",
-    "pk": 2,
-    "fields": {
-        "naziv": "Cjelodnevni",
-        "dodatni_boravak": false,
-        "vrsta_programa": 1,
-        "radna_vremena": [
-            1,
-            2
-        ]
-    }
-},
-{
-    "model": "programi.tipprograma",
-    "pk": 1,
-    "fields": {
-        "naziv": "Jaslička dob",
-        "broj_sati": 10,
-        "max_broj_djece": 32,
-        "program": 2,
-        "dogadjaji": [],
-        "dobne_skupine": [
-            1
-        ]
-    }
-},
-{
-    "model": "programi.tipprograma",
-    "pk": 2,
-    "fields": {
-        "naziv": "Mlađa vrtićka dob",
-        "broj_sati": 10,
-        "max_broj_djece": 15,
-        "program": 2,
-        "dogadjaji": [],
-        "dobne_skupine": [
-            2
-        ]
-    }
-},
-{
-    "model": "programi.tipprograma",
-    "pk": 3,
-    "fields": {
-        "naziv": "Starija vrtićka dob",
-        "broj_sati": 10,
-        "max_broj_djece": 12,
-        "program": 2,
-        "dogadjaji": [],
-        "dobne_skupine": [
-            3
-        ]
-    }
-},
-{
-    "model": "programi.tipprograma",
-    "pk": 4,
-    "fields": {
-        "naziv": "Jaslička i vrtićka dob (mješovita skupina)",
-        "broj_sati": 10,
-        "max_broj_djece": 8,
-        "program": 2,
-        "dogadjaji": [],
+        "vrtic": 1,
         "dobne_skupine": [
             1,
             2,
@@ -711,7 +132,84 @@
     }
 },
 {
-    "model": "programi.radnovrijeme",
+    "model": "programi.vrstaprograma",
+    "pk": 2,
+    "fields": {
+        "naziv": "Obogaćeni programi",
+        "clanstvo_cijena": 2600.0,
+        "vrtic": 1,
+        "dobne_skupine": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "programi.vrstaprograma",
+    "pk": 3,
+    "fields": {
+        "naziv": "Posebni programi",
+        "clanstvo_cijena": 2800.0,
+        "vrtic": 1,
+        "dobne_skupine": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "programi.vrstaprograma",
+    "pk": 4,
+    "fields": {
+        "naziv": "Kraći programi",
+        "clanstvo_cijena": 1800.0,
+        "vrtic": 1,
+        "dobne_skupine": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "programi.vrstaprograma",
+    "pk": 5,
+    "fields": {
+        "naziv": "Predškolski",
+        "clanstvo_cijena": 2400.0,
+        "vrtic": 1,
+        "dobne_skupine": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "programi.program",
+    "pk": 1,
+    "fields": {
+        "naziv": "Poludnevni",
+        "dodatni_boravak": true,
+        "max_broj_djece": 10,
+        "vrsta_programa": 1
+
+    }
+},
+{
+    "model": "programi.program",
+    "pk": 2,
+    "fields": {
+        "naziv": "Cjelodnevni",
+        "dodatni_boravak": false,
+        "max_broj_djece": 10,
+        "vrsta_programa": 1
+    }
+},
+{
+    "model": "smjene.smjena",
     "pk": 1,
     "fields": {
         "naziv_smjene": "Jutarnja",
@@ -720,7 +218,7 @@
     }
 },
 {
-    "model": "programi.radnovrijeme",
+    "model": "smjene.smjena",
     "pk": 2,
     "fields": {
         "naziv_smjene": "Popodnevna",
@@ -813,8 +311,7 @@
     "pk": 1,
     "fields": {
         "naziv": "Roditelj",
-        "placa": 0.0,
-        "tip_programa": []
+        "satnica": 0.0
     }
 },
 {
@@ -822,8 +319,7 @@
     "pk": 2,
     "fields": {
         "naziv": "Voditeljica",
-        "placa": 8000.0,
-        "tip_programa": []
+        "satnica": 60.0
     }
 },
 {
@@ -831,8 +327,7 @@
     "pk": 3,
     "fields": {
         "naziv": "Stručna suradnica pedagoginja",
-        "placa": 6400.0,
-        "tip_programa": []
+        "satnica": 50.0
     }
 },
 {
@@ -840,8 +335,7 @@
     "pk": 4,
     "fields": {
         "naziv": "Stručna suradnica psihologinja",
-        "placa": 6400.0,
-        "tip_programa": []
+        "satnica": 50.0
     }
 },
 {
@@ -849,8 +343,7 @@
     "pk": 5,
     "fields": {
         "naziv": "Stručna suradnica rehabilitatorica",
-        "placa": 6400.0,
-        "tip_programa": []
+        "satnica": 50.0
     }
 },
 {
@@ -858,8 +351,7 @@
     "pk": 6,
     "fields": {
         "naziv": "Stručna suradnica psihologinja za djecu s teškoćama",
-        "placa": 6400.0,
-        "tip_programa": []
+        "satnica": 50.0
     }
 },
 {
@@ -867,8 +359,7 @@
     "pk": 7,
     "fields": {
         "naziv": "Zdravstvena voditeljica",
-        "placa": 5600.0,
-        "tip_programa": []
+        "satnica": 55
     }
 },
 {
@@ -928,420 +419,6 @@
         "naziv": "od 3 godine do polaska u školu",
         "godine_min": 3.0,
         "godine_max": 7.0
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 1,
-    "fields": {
-        "action_time": "2020-12-20T11:06:02.563Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "vrtic",
-            "vrtic"
-        ],
-        "object_id": "1",
-        "object_repr": "Kindergarten",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 2,
-    "fields": {
-        "action_time": "2020-12-20T11:13:08.766Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "auth",
-            "user"
-        ],
-        "object_id": "1",
-        "object_repr": "admin",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"First name\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 3,
-    "fields": {
-        "action_time": "2020-12-20T11:21:51.143Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "auth",
-            "group"
-        ],
-        "object_id": "1",
-        "object_repr": "Djelatnici",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 4,
-    "fields": {
-        "action_time": "2020-12-20T11:22:44.794Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "auth",
-            "group"
-        ],
-        "object_id": "2",
-        "object_repr": "Roditelji",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 5,
-    "fields": {
-        "action_time": "2020-12-20T11:22:56.810Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "auth",
-            "group"
-        ],
-        "object_id": "3",
-        "object_repr": "Administratori",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 6,
-    "fields": {
-        "action_time": "2020-12-20T17:04:45.403Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "programi",
-            "radnovrijeme"
-        ],
-        "object_id": "1",
-        "object_repr": "Jutarnja: 06:00:00 - 14:00:00",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 7,
-    "fields": {
-        "action_time": "2020-12-20T17:05:09.904Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "programi",
-            "radnovrijeme"
-        ],
-        "object_id": "2",
-        "object_repr": "Popodnevna: 13:00:00 - 21:00:00",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 8,
-    "fields": {
-        "action_time": "2020-12-20T17:06:24.850Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "programi",
-            "program"
-        ],
-        "object_id": "1",
-        "object_repr": "Poludnevni",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 9,
-    "fields": {
-        "action_time": "2020-12-20T17:06:36.129Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "programi",
-            "program"
-        ],
-        "object_id": "2",
-        "object_repr": "Cijelodnevni",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 10,
-    "fields": {
-        "action_time": "2020-12-20T17:06:44.834Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "programi",
-            "program"
-        ],
-        "object_id": "1",
-        "object_repr": "Poludnevni",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Radna vremena\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 11,
-    "fields": {
-        "action_time": "2020-12-20T17:14:13.447Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "djeca",
-            "dobnaskupina"
-        ],
-        "object_id": "1",
-        "object_repr": "od 6 mjeseci do navršenih 12 mjeseci",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 12,
-    "fields": {
-        "action_time": "2020-12-20T17:14:32.610Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "djeca",
-            "dobnaskupina"
-        ],
-        "object_id": "2",
-        "object_repr": "od 1 godine do 3 godine",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 13,
-    "fields": {
-        "action_time": "2020-12-20T17:14:51.190Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "djeca",
-            "dobnaskupina"
-        ],
-        "object_id": "3",
-        "object_repr": "od 3 godine do polaska u školu",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 14,
-    "fields": {
-        "action_time": "2020-12-20T17:15:57.193Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "djeca",
-            "dobnaskupina"
-        ],
-        "object_id": "4",
-        "object_repr": "jaslička i vrtićka dob (mješovita skupina)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 15,
-    "fields": {
-        "action_time": "2020-12-20T17:20:20.068Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "programi",
-            "tipprograma"
-        ],
-        "object_id": "1",
-        "object_repr": "Cjelodnevni",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 16,
-    "fields": {
-        "action_time": "2020-12-20T17:23:51.619Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "programi",
-            "tipprograma"
-        ],
-        "object_id": "1",
-        "object_repr": "Rani program",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Naziv tipa programa\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 17,
-    "fields": {
-        "action_time": "2020-12-20T17:25:01.975Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "programi",
-            "tipprograma"
-        ],
-        "object_id": "2",
-        "object_repr": "Mlađa vrtićka dob",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 18,
-    "fields": {
-        "action_time": "2020-12-20T17:25:26.501Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "programi",
-            "tipprograma"
-        ],
-        "object_id": "3",
-        "object_repr": "Starija vrtićka dob",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 19,
-    "fields": {
-        "action_time": "2020-12-20T17:26:11.002Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "programi",
-            "tipprograma"
-        ],
-        "object_id": "1",
-        "object_repr": "Jaslička dob",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Naziv tipa programa\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 20,
-    "fields": {
-        "action_time": "2020-12-20T17:26:44.645Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "programi",
-            "program"
-        ],
-        "object_id": "2",
-        "object_repr": "Cjelodnevni",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Naziv programa\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 21,
-    "fields": {
-        "action_time": "2020-12-20T17:30:17.439Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "programi",
-            "tipprograma"
-        ],
-        "object_id": "4",
-        "object_repr": "jaslička i vrtićka dob (mješovita skupina)",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 22,
-    "fields": {
-        "action_time": "2020-12-20T17:30:29.273Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "programi",
-            "tipprograma"
-        ],
-        "object_id": "4",
-        "object_repr": "Jaslička i vrtićka dob (mješovita skupina)",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Naziv tipa programa\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 23,
-    "fields": {
-        "action_time": "2020-12-20T17:31:13.644Z",
-        "user": [
-            "admin"
-        ],
-        "content_type": [
-            "djeca",
-            "dobnaskupina"
-        ],
-        "object_id": "4",
-        "object_repr": "jaslička i vrtićka dob (mješovita skupina)",
-        "action_flag": 3,
-        "change_message": ""
     }
 }
 ]

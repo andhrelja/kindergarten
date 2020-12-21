@@ -34,7 +34,7 @@
 				<path name="public"/>
 				<path name="kindergarten"/>
 			</entity>
-			<entity id="9" name="programi_radnovrijeme" fq-name="public.programi_radnovrijeme" order="8" x="46" y="367">
+			<entity id="9" name="programi_smjene" fq-name="public.programi_smjene" order="8" x="46" y="367">
 				<path name="public"/>
 				<path name="kindergarten"/>
 			</entity>
@@ -79,7 +79,7 @@
 		<relation name="programi_tipprograma_dogadjaj_id_aee8cd18_fk_dogadjaji" fq-name="public.programi_tipprograma_dogadjaji.programi_tipprograma_dogadjaj_id_aee8cd18_fk_dogadjaji" type="fk" pk-ref="4" fk-ref="12"/>
 		<relation name="programi_program_rad_program_id_1e08cbaf_fk_programi_" fq-name="public.programi_program_radna_vremena.programi_program_rad_program_id_1e08cbaf_fk_programi_" type="fk" pk-ref="7" fk-ref="8"/>
 		<relation name="programi_tipprograma_program_id_8b185415_fk_programi_program_id" fq-name="public.programi_tipprograma.programi_tipprograma_program_id_8b185415_fk_programi_program_id" type="fk" pk-ref="7" fk-ref="10"/>
-		<relation name="programi_program_rad_radnovrijeme_id_ca5775cc_fk_programi_" fq-name="public.programi_program_radna_vremena.programi_program_rad_radnovrijeme_id_ca5775cc_fk_programi_" type="fk" pk-ref="9" fk-ref="8"/>
+		<relation name="programi_program_rad_smjene_id_ca5775cc_fk_programi_" fq-name="public.programi_program_radna_vremena.programi_program_rad_smjene_id_ca5775cc_fk_programi_" type="fk" pk-ref="9" fk-ref="8"/>
 		<relation name="djeca_dijete_tip_programa_id_8eba3141_fk_programi_" fq-name="public.djeca_dijete.djeca_dijete_tip_programa_id_8eba3141_fk_programi_" type="fk" pk-ref="10" fk-ref="1"/>
 		<relation name="programi_tipprograma_tipprograma_id_eb729dc9_fk_programi_" fq-name="public.programi_tipprograma_dobne_skupine.programi_tipprograma_tipprograma_id_eb729dc9_fk_programi_" type="fk" pk-ref="10" fk-ref="11"/>
 		<relation name="programi_tipprograma_tipprograma_id_8e2d6e2d_fk_programi_" fq-name="public.programi_tipprograma_dogadjaji.programi_tipprograma_tipprograma_id_8e2d6e2d_fk_programi_" type="fk" pk-ref="10" fk-ref="12"/>

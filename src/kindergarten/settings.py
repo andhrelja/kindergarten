@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'programi.apps.ProgramiConfig',
     'racuni.apps.RacuniConfig',
     'djeca.apps.DjecaConfig',
+    'smjene.apps.SmjeneConfig',
 ]
 
 MIDDLEWARE = [
@@ -75,14 +76,14 @@ WSGI_APPLICATION = 'kindergarten.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'local': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'kindergarten',
         'USER': 'andrea',
         'PASSWORD': 'user',
         'HOST': 'localhost'
     },
-    'default': {
+    'heroku': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'df3nnsseb06mro',
         'USER': 'cvvxlygafgryjr',

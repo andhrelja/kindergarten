@@ -5,13 +5,13 @@ from .managers import CustomUserManager
 
 TIPOVI_RACUNA = (
     (1, "Roditelj", 0),
-    (2, "Voditeljica", 8000),
-    (3, "Odgojateljica", 4200),
-    (4, "Stručna suradnica pedagoginja", 6400),
-    (5, "Stručna suradnica psihologinja", 6400),
-    (6, "Stručna suradnica rehabilitatorica", 6400),
-    (7, "Stručna suradnica psihologinja za djecu s teškoćama", 6400),
-    (8, "Zdravstvena voditeljica", 5600),
+    (2, "Voditeljica", 60),
+    (3, "Odgojateljica", 40),
+    (4, "Stručna suradnica pedagoginja", 50),
+    (5, "Stručna suradnica psihologinja", 50),
+    (6, "Stručna suradnica rehabilitatorica", 50),
+    (7, "Stručna suradnica psihologinja za djecu s teškoćama", 55),
+    (8, "Zdravstvena voditeljica", 45),
 )
 
 class Racun(models.Model):
@@ -46,11 +46,7 @@ class TipRacuna(models.Model):
 
     # Atributi
     naziv           = models.CharField("Naziv tipa", max_length=128)
-    placa           = models.FloatField("Plaća", null=True)
-    
-    # Vanjski ključevi
-    tip_programa    = models.ManyToManyField(
-        "programi.TipPrograma", verbose_name="Tipovi programa")
+    satnica         = models.FloatField("Satnica", default=0)
     
 
     class Meta:
@@ -65,7 +61,7 @@ class TipRacuna(models.Model):
             defaults = {
                 'id': tip_racuna[0],
                 'naziv': tip_racuna[1],
-                'placa': tip_racuna[2],
+                'satnica': tip_racuna[2],
             }
             TipRacuna.objects.get_or_create(id=defaults.pop('id'), **defaults)
 
