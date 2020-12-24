@@ -23,6 +23,7 @@ class LoginForm(AuthenticationForm):
 
     def __init__(self, request, *args, **kwargs):
         super(LoginForm, self).__init__(request, *args, **kwargs)
+        self.fields['username'].label = "E-mail"
         self.fields['username'].widget.attrs['class'] = "form-control"
         self.fields['password'].widget.attrs['class'] = "form-control"
 

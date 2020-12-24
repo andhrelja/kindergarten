@@ -32,10 +32,13 @@
                 <li class="nav-item">
                     
                 </li>
+                
                 {% elif type == "list" and type_name == "upisi" %}
+                {% elif type == "list" and type_name == "vrsta_programa" %}
+                {% elif type == "list" and type_name == "programi" %}
                 {% elif type == "detail" and type_name == "upisi" %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'racuni:upisi-uredi' upis.id %}">
+                    <a class="nav-link" href="{% url 'upisi:uredi' upis.id %}">
                         <i class="fas fa-pen text-primary"></i>
                         <span>Odobri/odbaci upis</span>
                     </a>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Vrste programa" type="list" type_name="vrsta_programa" %}
+
+<div class="container">
+    <div class="row mb-3">
+    {% for vrsta_programa in object_list %}
+        <div class="col-lg-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body card-hover" onclick="location.href='{% url 'programi:popis-programa' vrsta_programa.id %}'">
+                    <h4 class="h4 font-weight-bold card-title">
+                        {{ vrsta_programa.naziv }}
+                    </h4>
+                    <div class="card-text">
+                         {{ vrsta_programa.opis }}
+                    </div>
+                </div>
+                {% if user.is_authenticated and user.is_superuser %}
+                <div class="card-footer text-center">
+                    <a href="#" class="card-link text-primary w-50">
+                        <i class="fas fa-pen"></i>
+                        <span>Uredi</span>
+                    </a>
+                    <a href="#" class="card-link text-danger w-50">
+                        <i class="fas fa-trash"></i>
+                        <span>Izbriši</span>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock body %}

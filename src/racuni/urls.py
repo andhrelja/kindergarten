@@ -3,7 +3,6 @@ from . import views
 
 app_name = 'racuni'
 urlpatterns = [
-    path('upisi/', include('racuni.upisi.urls')),
     path('prijava/', views.LoginView.as_view(), name="prijava"),
     path('odjava/',  views.LogoutView.as_view(), name="odjava"),
     

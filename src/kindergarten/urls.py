@@ -7,6 +7,7 @@ urlpatterns = [
     path('financije/', include('financije.urls')),
     path('programi/', include('programi.urls')),
     path('racuni/', include('racuni.urls')),
+    path('upisi/', include('upisi.urls')),
     path('djeca/', include('djeca.urls')),
 
     # Admin site

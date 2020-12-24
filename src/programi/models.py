@@ -7,6 +7,7 @@ class VrstaPrograma(models.Model):
 
     # Atributi
     naziv           = models.CharField("Naziv programa", max_length=128)
+    opis            = models.TextField("Opis vrste programa")
     clanstvo_cijena = models.FloatField(
         "Cijena", help_text="Cijena mjesečne članarine")
 
@@ -36,6 +37,7 @@ class Program(models.Model):
     naziv           = models.CharField("Naziv programa", max_length=128)
     dodatni_boravak = models.BooleanField("Dostupnost dodatnog boravka")
     max_broj_djece  = models.IntegerField("Maksimalni broj djece")
+    opis            = models.TextField("Opis programa", default="")
 
     # Vanjski ključevi
     vrsta_programa  = models.ForeignKey(

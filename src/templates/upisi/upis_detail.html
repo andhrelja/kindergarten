@@ -58,4 +58,55 @@
     </div>
 </div>
 
+
+<script>
+
+const passwordLabels = getLabels(['id_password1', 'id_password2']);
+const passwordInputs = getInputs(['id_password1', 'id_password2']);
+
+switchDisplay()
+
+function switchDisplay() {
+    elementsSwitchDisplay(passwordLabels);
+    elementsSwitchDisplay(passwordInputs);
+}
+
+function elementsSwitchDisplay(elements) {
+    for (element of elements) {
+        if (element.style.display === "none")
+            element.style.display = "";
+        else
+            element.style.display = "none";
+    }
+}
+
+function getInputs(inputIds) {
+    let passwordInputs = [];
+    for (inputId of inputIds) {
+        let input = document.getElementById(inputId);
+        passwordInputs.push(input)
+    }
+    return passwordInputs;
+}
+
+function getLabels(labelForIds) {
+    let passwordLabels = [];
+    for (labelForId of labelForIds) {
+        let label = getLabel(labelForId);
+        passwordLabels.push(label);
+    }
+    return passwordLabels;
+}
+
+function getLabel(labelForId) {
+    let labels = document.getElementsByTagName('label');
+    for (label of labels) {
+        if (label.htmlFor == labelForId) {
+            return label;
+        }
+    }
+}
+
+</script>
+
 {% endblock body %}

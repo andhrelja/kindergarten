@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'programi.apps.ProgramiConfig',
     'racuni.apps.RacuniConfig',
     'djeca.apps.DjecaConfig',
+    'upisi.apps.UpisiConfig',
     'smjene.apps.SmjeneConfig',
 ]
 

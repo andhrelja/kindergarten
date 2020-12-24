@@ -49,7 +49,7 @@
                             <h4 class="h4 font-weight-bold">Podaci o djetetu</h4>
                         </div>
                         {% for field in form.visible_fields %}
-                        {% if forloop.counter > 4 and forloop.counter < 7 %}
+                        {% if forloop.counter > 4 and forloop.counter < 8 %}
                         <div class="form-group">
                             {% if field.errors %}
                             <ul class="ml-0">
@@ -59,9 +59,7 @@
                             </ul>
                             {% endif %}
                             <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
-                            
                             {% if field.help_text %}
-                            
                             <ul>
                                 <li class="text-info">
                                     <small class="help">{{ field.help_text|safe }}</small>
@@ -74,8 +72,17 @@
                         {% endfor %}
                     </div>
                 </div>
+                {% if not update %}
+                    <button type="submit" class="btn btn-primary mt-3">
+                        Spremi
+                    </button>
+                    <a href="{% url 'vrtic:home' %}" class="btn btn-outline-danger mt-3">
+                        Odustani
+                    </a>
+                {% endif %}
             </div>
         </div>
+        {% if update %}
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -83,8 +90,9 @@
                         <div class="card-title">
                             <h4 class="h4 font-weight-bold">Obrazloženje rješenja</h4>
                         </div>
+                        
                         {% for field in form.visible_fields %}
-                        {% if forloop.counter >= 7 %}
+                        {% if forloop.counter >= 8 %}
                         <div class="form-group">
                             {% if field.errors %}
                             <ul class="ml-0">
@@ -107,6 +115,7 @@
                         </div>
                         {% endif %}
                         {% endfor %}
+                        
                         <button type="submit" class="btn btn-primary mt-3">
                             Spremi
                         </button>
@@ -117,7 +126,62 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </form>
 </div>
+
+
+<script>
+
+const passwordLabels = getLabels(['id_password1', 'id_password2']);
+const passwordInputs = getInputs(['id_password1', 'id_password2']);
+const helpUl = document.getElementsByTagName('ul');
+
+switchDisplay()
+
+function switchDisplay() {
+    elementsSwitchDisplay(passwordLabels);
+    elementsSwitchDisplay(passwordInputs);
+    elementsSwitchDisplay(helpUl);
+}
+
+function elementsSwitchDisplay(elements) {
+    let odobren = document.getElementById('id_odobren');
+    for (element of elements) {
+        if (odobren.checked)
+            element.style.display = "";
+        else
+            element.style.display = "none";
+    }
+}
+
+function getInputs(inputIds) {
+    let passwordInputs = [];
+    for (inputId of inputIds) {
+        let input = document.getElementById(inputId);
+        passwordInputs.push(input)
+    }
+    return passwordInputs;
+}
+
+function getLabels(labelForIds) {
+    let passwordLabels = [];
+    for (labelForId of labelForIds) {
+        let label = getLabel(labelForId);
+        passwordLabels.push(label);
+    }
+    return passwordLabels;
+}
+
+function getLabel(labelForId) {
+    let labels = document.getElementsByTagName('label');
+    for (label of labels) {
+        if (label.htmlFor == labelForId) {
+            return label;
+        }
+    }
+}
+
+</script>
 
 {% endblock body %}

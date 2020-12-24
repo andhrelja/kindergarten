@@ -1,5 +1,6 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth import get_user_model
+from django.db.utils import IntegrityError
 
 
 class CustomUserManager(BaseUserManager):
@@ -37,3 +38,13 @@ class CustomUserManager(BaseUserManager):
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superkorisnik mora imati is_superuser=True.')
         return self.create_user(email, password, **extra_fields)
+    
+
+    def get_or_create_user(self, email, password, **user_kwargs):
+        try:
+            user = self.create_user(email, password, **user_kwargs)
+        except IntegrityError:
+            User = get_user_model()
+            return False, User.objects.get(email=email, username=email)
+        else:
+            return True, user

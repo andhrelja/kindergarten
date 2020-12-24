@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load vrtic_extras %}
 
 {% block body %}
 
@@ -32,22 +33,22 @@
             <div class="card no-shadow h-100">
                 <div class="card-body">
                     <div class="card-title">
-                        <h3 class="h3">{{ vrtic.naziv }}</h3>
+                        <h3 class="h3">{{ "Kindergarten"|vrtic }}</h3>
                     </div>
                     <hr class="my-4">
                     <p class="lead">Kindergarten je vrtić izgrađen 1998. godine čija je misija pripremiti djecu predškolske, vrtićke i jasličke dobi na život nakon vrtića</p>
                     <br>
                     <p>
                         <i class="fas fa-map-marker-alt"></i>
-                        <span><a class="text-dark font-weight-bold" href="https://www.google.com/maps/place/Ul.+Janka+Poli%C4%87a+Kamova+5,+51000,+Rijeka">{{ vrtic.adresa }}, Rijeka</a></span>
+                        <span><a class="text-dark font-weight-bold" href="https://www.google.com/maps/place/Ul.+Janka+Poli%C4%87a+Kamova+5,+51000,+Rijeka">{{ "Kindergarten"|vrtic_adresa }}, Rijeka</a></span>
                     </p>
                     <p>
                         <i class="fas fa-envelope"></i>
-                        <span><a class="text-dark font-weight-bold" href="mailto:{{ vrtic.kontakt_email }}">{{ vrtic.kontakt_email }}</a></span>
+                        <span><a class="text-dark font-weight-bold" href="mailto:{{ "Kindergarten"|vrtic_email }}">{{ "Kindergarten"|vrtic_email }}</a></span>
                     </p>
                     <p>
                         <i class="fas fa-phone-alt"></i>
-                        <span>{{ vrtic.kontakt_broj }}</span>
+                        <span>{{ "Kindergarten"|vrtic_broj }}</span>
                     </p>
                 </div>
             </div>

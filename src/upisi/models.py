@@ -11,8 +11,9 @@ class Upis(models.Model):
 
     dijete_puno_ime         = models.CharField("Ime i prezime", max_length=128)
     dijete_datum_rodjenja   = models.DateField("Datum rođenja")
+    dijete_dodatne_informacije = models.TextField("Dodatne informacije", null=True, blank=True)
 
-    odobren      = models.BooleanField("Zahtjev odobren", null=True)
+    odobren      = models.BooleanField("Zahtjev odobren", default=None, null=True)
     obrazlozenje = models.TextField("Obrazloženje zahtjeva", blank=True)
 
     created_at = models.DateTimeField("Datum stvaranja", auto_now=False, auto_now_add=True)
@@ -26,4 +27,4 @@ class Upis(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("racuni:upisi-prikaz", kwargs={"pk": self.pk})
+        return reverse("upisi:prikaz", kwargs={"pk": self.pk})

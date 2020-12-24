@@ -18,3 +18,7 @@ class ProgramListView(ListView):
         vp = VrstaPrograma.objects.get(id=self.kwargs['vrsta_programa_id'])
         context['title'] = vp.naziv
         return context
+
+
+class VrstaProgramaListView(ListView):
+    model = VrstaPrograma

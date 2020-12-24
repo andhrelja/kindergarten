@@ -6,7 +6,7 @@ class Dijete(models.Model):
     # Atributi
     ime            = models.CharField("Ime", max_length=64)
     prezime        = models.CharField("Prezime", max_length=64)
-    datum_rodjenja = models.IntegerField("Datum rođenja")
+    datum_rodjenja = models.DateField("Datum rođenja")
     dodatne_informacije = models.TextField("Dodatne informacije") 
 
     # Vanjski ključevi
