@@ -22,15 +22,28 @@
                         <h6 class="h6">Datum uređivanja: <strong>{{ object.updated_at }}</strong></h6>
                     </div>
                     {% endif %}
-                
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <div class="card-title">
+                                <h4 class="h4 font-weight-bold">Detalji o odabranom programu</h4>
+                            </div>
+                            {% for field in detail_form.visible_fields %}
+                            {% if forloop.counter <= 2 %}
+                            <div class="form-group">
+                                <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
                     <div class="row mt-4">
                         <div class="col-md-6">
-
                             <div class="card-title">
                                 <h4 class="h4 font-weight-bold">Podaci o roditelju</h4>
                             </div>
                             {% for field in detail_form.visible_fields %}
-                            {% if forloop.counter <= 4 %}
+                            {% if forloop.counter > 2 and forloop.counter <= 6 %}
                             <div class="form-group">
                                 <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
                                 {{ field }}
@@ -43,7 +56,7 @@
                                 <h4 class="h4 font-weight-bold">Podaci o djetetu</h4>
                             </div>
                             {% for field in detail_form.visible_fields %}
-                            {% if forloop.counter > 4 %}
+                            {% if forloop.counter > 6 %}
                             <div class="form-group">
                                 <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
                                 {{ field }}

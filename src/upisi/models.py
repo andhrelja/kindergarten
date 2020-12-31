@@ -16,6 +16,8 @@ class Upis(models.Model):
     odobren      = models.BooleanField("Zahtjev odobren", default=None, null=True)
     obrazlozenje = models.TextField("Obrazloženje zahtjeva", blank=True)
 
+    program = models.ForeignKey("programi.Program", verbose_name="Program", null=True, on_delete=models.CASCADE) # TODO: null=False
+
     created_at = models.DateTimeField("Datum stvaranja", auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField("Datum ažuriranja", auto_now=True, auto_now_add=False)
 

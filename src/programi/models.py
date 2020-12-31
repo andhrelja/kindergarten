@@ -16,8 +16,6 @@ class VrstaPrograma(models.Model):
         "vrtic.Vrtic", verbose_name="Vrtić", on_delete=models.CASCADE)
     dogadjaji       = models.ManyToManyField(
         "dogadjaji.Dogadjaj", verbose_name="Događaji", blank=True)
-    dobne_skupine   = models.ManyToManyField(
-        "djeca.DobnaSkupina", verbose_name="Dobne skupine")
 
     class Meta:
         verbose_name = "Vrsta programa"
@@ -44,6 +42,8 @@ class Program(models.Model):
         "programi.VrstaPrograma", verbose_name="Vrsta programa", on_delete=models.CASCADE)
     smjene          = models.ManyToManyField(
         "smjene.Smjena", verbose_name="Smjene")
+    dobne_skupine   = models.ManyToManyField(
+        "djeca.DobnaSkupina", verbose_name="Dobne skupine")
 
     class Meta:
         verbose_name = "Program"
