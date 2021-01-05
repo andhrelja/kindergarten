@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarSubnav">
             <ul class="navbar-nav ml-auto">
 
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated and user.is_superuser %}
                 {% if type == "list" and type_name == "racuni" %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="racunDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -32,7 +32,13 @@
                 <li class="nav-item">
                     
                 </li>
-                
+                {% elif type == "list" and type_name == "djeca" %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Dodaj dijete</span>
+                    </a>
+                </li>
                 {% elif type == "list" and type_name == "upisi" %}
                 {% elif type == "list" and type_name == "vrsta_programa" %}
                 {% elif type == "list" and type_name == "programi" %}

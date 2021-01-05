@@ -84,9 +84,9 @@ class UpisDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if self.object.odobren is True:
-            detail_form = UpisForm(instance=self.object)
+            detail_form = UpisForm(instance=self.object, initial={'vrsta_programa': VrstaPrograma.objects.get(program=self.object.program)})
         else:
-            detail_form = UpisCreateForm(instance=self.object)
+            detail_form = UpisCreateForm(instance=self.object, initial={'vrsta_programa': VrstaPrograma.objects.get(program=self.object.program)})
         detail_form.disable_fields()
         context['detail_form'] = detail_form
         return context

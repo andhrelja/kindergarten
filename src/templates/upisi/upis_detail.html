@@ -10,8 +10,20 @@
         <div class="col-md-10 offset-md-1">
             <div class="card">
                 <div class="card-body">
-                    <div class="card-title">
-                        <h5 class="h5 font-weight-bold">Upisnica br. <strong>{{ object.id }}</strong></h5>
+                    <div class="card-title d-flex justify-content-between">
+                        <h5 class="h5 font-weight-bold">Zahtjev za upis br. <strong>{{ object.id }}</strong></h5>
+                        <div class="upis-status">
+                            {% if object.odobren == True %}
+                            <i class="fas fa-check-circle text-success"></i>&nbsp;
+                            <strong>Odobren</strong>
+                            {% elif object.odobren == False %}
+                            <i class="fas fa-times-circle text-danger"></i>&nbsp;
+                            <strong>Nije odobren</strong>
+                            {% else %}
+                            <i class="fas fa-exclamation-circle text-warning"></i>&nbsp;
+                            <strong>Nije obrađen</strong>
+                            {% endif %}
+                        </div>
                     </div>
                     <div class="card-subtitle text-muted">
                         <h6 class="h6">Datum stvaranja: <strong>{{ object.created_at }}</strong></h6>

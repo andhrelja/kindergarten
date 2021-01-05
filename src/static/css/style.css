@@ -26,21 +26,36 @@ i.fab {
 }
 
 .card {
+    border-radius: 16px;
     box-shadow: 0 0 3px;
+}
+
+.card-link {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 16px;
 }
 
 .card.no-shadow {
     box-shadow: none;
 }
 
-.card-hover {
+.card-body {
+    border-radius: 16px;
+}
+
+.card-body.card-hover {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+
     cursor: pointer;
-    border-top-left-radius: .25em;
-    border-top-right-radius: .25em;
     transition: all 0.2s ease;
 }
 
-.card-hover:hover {
+.card-link:hover,
+.card-body.card-hover:hover {
     box-shadow: 0 0 6px;
 }
 

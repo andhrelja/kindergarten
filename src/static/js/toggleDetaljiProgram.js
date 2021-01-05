@@ -36,7 +36,17 @@ function toggleProgramSmjene(data) {
     }
 }
 
+function hideDobneSkupineCijena() {
+    while (programDobneSkupine.firstChild) {
+        programDobneSkupine.removeChild(programDobneSkupine.lastChild);
+    }
+    while (programSmjene.firstChild) {
+        programSmjene.removeChild(programSmjene.lastChild);
+    }
+}
+
 function fetchSelectedVrstaPrograma() {
+    hideDobneSkupineCijena();
     let vrstaPrograma = getSelectedVrstaPrograma(vrstaProgramaSelect);
     if (vrstaPrograma) {
         let url = '/programi/vrsta-programa/' + vrstaPrograma.value + '/api';
@@ -71,6 +81,15 @@ function fetchSelectedProgram_Smjene() {
 
 
 function main() {
+    let program = getSelectedVrstaPrograma(programSelect);
+    let vrstaPrograma = getSelectedVrstaPrograma(vrstaProgramaSelect);
+
+    if (program && vrstaPrograma) {
+        fetchSelectedVrstaPrograma();
+        fetchSelectedProgram_DobneSkupine();
+        fetchSelectedProgram_Smjene();
+    }
+
     vrstaProgramaSelect.addEventListener('change', () => fetchSelectedVrstaPrograma());
     programSelect.addEventListener('change', () => fetchSelectedProgram_DobneSkupine());
     programSelect.addEventListener('change', () => fetchSelectedProgram_Smjene());

@@ -1,15 +1,14 @@
-from django.db.models.query_utils import Q
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView
-from django.views.generic.detail import DetailView
 from .models import Racun, TipRacuna
 from .forms import LoginForm, RacunForm
 from django.views.generic import (
+    ListView,
+    DetailView,
     CreateView,
     UpdateView,
-    DeleteView,
-    ListView
+    DeleteView
 )
 
 

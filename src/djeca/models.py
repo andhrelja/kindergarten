@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timesince
 
 
 class Dijete(models.Model):
@@ -11,10 +12,15 @@ class Dijete(models.Model):
 
     # Vanjski ključevi
     roditelj        = models.ForeignKey("racuni.Racun", verbose_name="Roditelj", on_delete=models.CASCADE)
+    program         = models.ForeignKey("programi.Program", verbose_name="Upisani program", null=True, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Dijete"
         verbose_name_plural = "Djeca"
+
+    @property
+    def godine(self):
+        return timesince.timesince(self.datum_rodjenja)
 
     def get_full_name(self):
         string = "{} {}".format(self.ime, self.prezime)

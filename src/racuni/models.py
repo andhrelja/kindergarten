@@ -34,6 +34,9 @@ class Racun(models.Model):
         verbose_name = "Račun"
         verbose_name_plural = "Računi"
 
+    def get_full_name(self):
+        return self.user.get_full_name()
+
     def __str__(self):
         string = "{} - {}".format(self.user.get_full_name(), self.tip_racuna.naziv)
         return string.strip()

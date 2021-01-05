@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Popis djece" type="list" type_name="djeca" %}
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ime i prezime</th>
+                <th>Program</th>
+                <th>Godine</th>
+                <th>Roditelj</th>
+                <th>Akcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dijete in object_list %}
+            <tr>
+                <td>{{ dijete.get_full_name }}</td>
+                <td>{{ dijete.program }}</td>
+                <td>{{ dijete.godine }}</td>
+                <td>{{ dijete.roditelj.get_full_name }}</td>
+                <td class="justify-space-between">
+                    <a class="text-primary" href="#">
+                        <i class="fas fa-pen"></i>
+                    </a>
+                    <a class="text-danger" href="#">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock body %}

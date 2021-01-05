@@ -1,7 +1,10 @@
 from django import forms
+from django.db.models.aggregates import Max, Min
 from racuni.forms import DateInput
 from programi.models import VrstaPrograma, Program
 from .models import Upis
+
+from datetime import datetime, timedelta
 
 
 class UpisForm(forms.ModelForm):
@@ -75,12 +78,24 @@ class UpisForm(forms.ModelForm):
             'odobren': forms.CheckboxInput(attrs={'class': 'form-control'}),
             'obrazlozenje': forms.Textarea(attrs={'class': 'form-control', 'required': True}),
         }
-    
-    
+
+
     def disable_fields(self):
         for field_name, field in self.fields.items():
             field.required = False
             field.disabled = True
+
+    def clean_dijete_datum_rodjenja(self):
+        program = self.cleaned_data.get('program')
+        datum_rodjenja = self.cleaned_data.get("dijete_datum_rodjenja")
+        tdelta = datetime.now() - datetime(datum_rodjenja.year, datum_rodjenja.month, datum_rodjenja.day, 0, 0)
+        godine = tdelta.days / 365
+        ds_min = program.dobne_skupine.order_by('godine_min').first()
+        ds_max = program.dobne_skupine.order_by('godine_min').last()
+        
+        if godine >= ds_min.godine_min and godine <= ds_max.godine_max:
+            return datum_rodjenja
+        self.add_error('dijete_datum_rodjenja', 'Dijete ne pripada odabranoj dobnoj skupini')
 
     
     def clean_password2(self):
@@ -106,9 +121,3 @@ class UpisCreateForm(UpisForm):
             'dijete_dodatne_informacije'
         )
 
-
-    def __init__(self, *args, **kwargs):
-        super(UpisCreateForm, self).__init__(*args, **kwargs)
-        qs = self.fields['program'].queryset.first()
-        vrsta_programa = VrstaPrograma.objects.get(program=qs)
-        self.initial['vrsta_programa'] = vrsta_programa.id
