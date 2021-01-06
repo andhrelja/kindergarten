@@ -44,8 +44,8 @@ class UpisUpdateView(UpdateView):
         self.object = form.save()
         if self.object.odobren:
             user_kwargs = {
-                'first_name': self.object.roditelj_puno_ime.split(" ")[0],
-                'last_name': self.object.roditelj_puno_ime.split(" ")[1],
+                'first_name': self.object.roditelj_puno_ime.split(" ")[0].title(),
+                'last_name': self.object.roditelj_puno_ime.split(" ")[1].title(),
             }
             email = self.object.roditelj_email
             password = form.cleaned_data['password2']

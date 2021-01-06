@@ -14,7 +14,7 @@ class DijeteListView(ListView):
 
     def get_queryset(self):
         user = self.request.user
-        if user.racun.je_roditelj:
+        if not user.is_superuser and user.racun.je_roditelj:
             return Dijete.objects.filter(roditelj=user.racun)
         else:
             return super(DijeteListView, self).get_queryset()

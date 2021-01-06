@@ -95,3 +95,14 @@ i.fab {
 .row-hover:hover {
     background-color: lightyellow;
 }
+
+.action-button {
+    transition: all 0.1s ease;
+    box-shadow: 0 0 1px .3px #343a40;
+}
+
+.action-button:hover,
+.action-button:active,
+.action-button:focus {
+    box-shadow: 0 0 3px .3px #343a40 !important;
+}

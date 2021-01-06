@@ -21,12 +21,15 @@
                 <td>{{ dijete.program }}</td>
                 <td>{{ dijete.godine }}</td>
                 <td>{{ dijete.roditelj.get_full_name }}</td>
-                <td class="justify-space-between">
-                    <a class="text-primary" href="#">
-                        <i class="fas fa-pen"></i>
+                <td class="text-center">
+                    <a class="btn action-button" href="{% url 'djeca:prikaz' dijete.id %}">
+                        <i class="fas fa-eye text-secondary"></i>
                     </a>
-                    <a class="text-danger" href="#">
-                        <i class="fas fa-trash"></i>
+                    <a class="btn action-button" href="#">
+                        <i class="fas fa-pen text-primary"></i>
+                    </a>
+                    <a class="btn action-button" href="#">
+                        <i class="fas fa-trash text-danger"></i>
                     </a>
                 </td>
             </tr>

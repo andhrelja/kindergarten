@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             {% for upis in object_list %}
-            <tr class="row-hover" onclick="location.href='{% url 'upisi:prikaz' upis.id %}'">
+            <tr>
                 <td class="text-center">
                     {% if upis.odobren == True %}
                     <i class="fas fa-check-circle text-success"></i>
@@ -32,9 +32,11 @@
                 <td>{{ upis.dijete_puno_ime }}</td>
                 <td>{{ upis.dijete_datum_rodjenja }}</td>
                 <td class="text-center">
-                    <a class="btn btn-outline-primary" href="{% url 'upisi:uredi' upis.id %}">
-                        <i class="fas fa-pen"></i>
-                        <span>Uredi</span>
+                    <a class="btn action-button" href="{% url 'upisi:prikaz' upis.id %}">
+                        <i class="fas fa-eye text-secondary"></i>
+                    </a>
+                    <a class="btn action-button" href="{% url 'upisi:uredi' upis.id %}">
+                        <i class="fas fa-pen text-primary"></i>
                     </a>
                 </td>
             </tr>

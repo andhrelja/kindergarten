@@ -30,37 +30,6 @@ class Dijete(models.Model):
         return self.get_full_name()
 
 
-class DijeteNapredak(models.Model):
-    OCJENE = (
-        (1, "Nedovoljan"),
-        (2, "Dovoljan"),
-        (3, "Dobar"),
-        (4, "Vrlo dobar"),
-        (5, "Odličan"),
-    )
-
-    # Atributi
-    komentar    = models.TextField("Komentar")
-    datum_start = models.DateField(
-        "Datum početka praćenja", auto_now=False, auto_now_add=False)
-    datum_kraj  = models.DateField(
-        "Datum kraja praćenja", auto_now=False, auto_now_add=False)
-    ocjena      = models.IntegerField(
-        "Ocjena", choices=OCJENE, help_text="Ocjena djeteta u skali od 1 - 5")
-    
-    # Vanjski ključevi
-    dijete      = models.ForeignKey("djeca.Dijete", verbose_name="Dijete", on_delete=models.CASCADE)
-    djelatnik   = models.ForeignKey("racuni.Racun", verbose_name="Djelatnik", on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = "Dijete - napredak"
-        verbose_name_plural = "Djeca - napretci"
-
-    def __str__(self):
-        naziv = "Napredak: {}".format(self.dijete.get_full_name())
-        return naziv.strip()
-
-
 class DobnaSkupina(models.Model):
 
     naziv       = models.CharField("Naziv", max_length=128)

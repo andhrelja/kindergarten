@@ -9,7 +9,9 @@
 {% for field in form.visible_fields %}
     {% include 'partials/form_field_snippet.html' %}
 {% endfor %}
+
 {% for field in form.hidden_fields %}
-    <div style="display:none">{{ field }}</div>
+{{ field }}
 {% endfor %}
+
 </div>

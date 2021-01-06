@@ -33,6 +33,7 @@ class DjelatnikCreateView(CreateView):
             'last_name': form.cleaned_data['last_name'],
             'email': form.cleaned_data['email'],
             'password': form.cleaned_data['password2'],
+            'is_staff': True,
         }
         
         user = Racun.objects.create_user(**user_kwargs)

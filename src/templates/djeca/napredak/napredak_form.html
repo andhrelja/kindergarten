@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title=title type="form" %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h5 class="h5 font-weight-bold">Napredak za: {{ dijete }}</h5>
+                    </div>
+                    <hr>
+                    {{ form.errors }}
+                    <form method="post" action="">{% csrf_token %}
+                        {% include 'partials/form_snippet.html' %}
+                        <button type="submit" class="btn btn-outline-primary">
+                            Spremi
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

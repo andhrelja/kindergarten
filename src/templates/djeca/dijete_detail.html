@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Dijete" type="detail" type_name="djeca" %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title d-flex justify-content-between">
+                        <h2 class="h2 font-weight-bold">{{ object.get_full_name }}</h2>
+                    </div>
+                    <hr>
+                    <div class="row mt-4">
+                        <div class="col-lg-4">
+                            <h5 class="h5 font-weight-bold">Opće informacije</h5>
+                            <div class="form-group align-space-between">
+                                <label for="datum_rodjenja" class="control-label">Datum rođenja</label>
+                                <input type="text" class="form-control" value="{{ object.datum_rodjenja }}" disabled>
+                            </div>
+                            <div class="form-group align-space-between">
+                                <label for="datum_rodjenja" class="control-label">Dob</label>
+                                <input type="text" class="form-control" value="{{ object.godine }}" disabled>
+                            </div>
+                            <div class="form-group align-space-between">
+                                <label for="datum_rodjenja" class="control-label">Roditelj</label>
+                                <input type="text" class="form-control" value="{{ object.roditelj.get_full_name }}" disabled>
+                            </div>
+                            <div class="form-group align-space-between">
+                                <label for="datum_rodjenja" class="control-label">Kontakt</label>
+                                <input type="text" class="form-control" value="{{ object.roditelj.telefon }}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <h5 class="h5 font-weight-bold">Napredak djeteta</h5>
+                            {% if object.dijetenapredak_set.count %}
+                            {% for napredak in object.dijetenapredak_set.all %}
+                            <div class="card mb-2">
+                                <div class="card-body">
+                                    <div class="card-title d-flex">
+                                        <h6 class="h6 font-weight-bold">{{ napredak }}</h6>
+                                        <small class="card-subtitle text-muted ml-auto mt-0">
+                                            {{ napredak.datum_start }} - {{ napredak.datum_kraj }}
+                                        </small>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="card-subtitle text-muted">
+                                            Autor: {{ napredak.autor.get_full_name }}
+                                        </div>                                    
+                                        <div class="card-subtitle text-muted ml-auto">
+                                            Ocjena: {{ napredak.ocjena }}
+                                        </div>
+                                    </div>
+                                    <div class="card-text mt-3">
+                                        {{ napredak.komentar }}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                            {% else %}
+                            <div class="card-subtitle text-muted">
+                                Još nema podataka
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}

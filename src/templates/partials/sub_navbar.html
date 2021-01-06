@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarSubnav">
             <ul class="navbar-nav ml-auto">
 
-            {% if user.is_authenticated and user.is_superuser %}
+            {% if user.is_authenticated and user.is_superuser or user.racun.je_djelatnik %}
                 {% if type == "list" and type_name == "racuni" %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="racunDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,10 +43,25 @@
                 {% elif type == "list" and type_name == "vrsta_programa" %}
                 {% elif type == "list" and type_name == "programi" %}
                 {% elif type == "detail" and type_name == "upisi" %}
+                {% if object.odobren is None %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'upisi:uredi' upis.id %}">
-                        <i class="fas fa-pen text-primary"></i>
-                        <span>Odobri/odbaci upis</span>
+                        <i class="fas fa-check text-success"></i>
+                        <span>Odobri upis</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'upisi:uredi' upis.id %}">
+                        <i class="fas fa-times text-danger"></i>
+                        <span>Odbaci upis</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% elif type == "detail" and type_name == "djeca" %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'djeca:stvori-napredak' object.id %}">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>Zabilježi napredak</span>
                     </a>
                 </li>
                 {% elif type == "form" %}
