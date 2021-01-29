@@ -5,7 +5,7 @@ from django.urls import reverse
 class Upis(models.Model):
 
     roditelj_puno_ime       = models.CharField("Ime i prezime", max_length=128)
-    roditelj_email          = models.EmailField("Email adresa", max_length=254)
+    roditelj_email          = models.EmailField("Email adresa", max_length=254, help_text="Ovaj će se email koristiti za prijavu")
     roditelj_datum_rodjenja = models.DateField("Datum rođenja", auto_now=False, auto_now_add=False)
     roditelj_telefon        = models.CharField("Telefon", max_length=50)
 

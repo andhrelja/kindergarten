@@ -9,6 +9,21 @@ const programSmjene = getInputs(['program_smjene']);
 
 window.onload = main();
 
+function main() {
+    let program = getSelectedVrstaPrograma(programSelect);
+    let vrstaPrograma = getSelectedVrstaPrograma(vrstaProgramaSelect);
+
+    if (program && vrstaPrograma) {
+        fetchSelectedVrstaPrograma();
+        fetchSelectedProgram_DobneSkupine();
+        fetchSelectedProgram_Smjene();
+    }
+
+    vrstaProgramaSelect.addEventListener('click', () => fetchSelectedVrstaPrograma());
+    programSelect.addEventListener('click', () => fetchSelectedProgram_DobneSkupine());
+    programSelect.addEventListener('click', () => fetchSelectedProgram_Smjene());
+}
+
 
 function toggleVrstaProgramaDetails(data) {
     vrstaProgramaCijena.innerHTML = data.fields.clanstvo_cijena + ' kn/mj.';
@@ -80,17 +95,3 @@ function fetchSelectedProgram_Smjene() {
 }
 
 
-function main() {
-    let program = getSelectedVrstaPrograma(programSelect);
-    let vrstaPrograma = getSelectedVrstaPrograma(vrstaProgramaSelect);
-
-    if (program && vrstaPrograma) {
-        fetchSelectedVrstaPrograma();
-        fetchSelectedProgram_DobneSkupine();
-        fetchSelectedProgram_Smjene();
-    }
-
-    vrstaProgramaSelect.addEventListener('change', () => fetchSelectedVrstaPrograma());
-    programSelect.addEventListener('change', () => fetchSelectedProgram_DobneSkupine());
-    programSelect.addEventListener('change', () => fetchSelectedProgram_Smjene());
-}

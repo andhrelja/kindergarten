@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Upis
 
-# Register your models here.
+
+admin.site.register(Upis)
