@@ -19,9 +19,51 @@ function main() {
         fetchSelectedProgram_Smjene();
     }
 
-    vrstaProgramaSelect.addEventListener('click', () => fetchSelectedVrstaPrograma());
-    programSelect.addEventListener('click', () => fetchSelectedProgram_DobneSkupine());
-    programSelect.addEventListener('click', () => fetchSelectedProgram_Smjene());
+    vrstaProgramaSelect.addEventListener('change', () => fetchSelectedVrstaPrograma());
+    programSelect.addEventListener('change', () => fetchSelectedProgram());
+}
+
+
+function fetchSelectedVrstaPrograma() {
+    hideDobneSkupine();
+    hideSmjene();
+    let vrstaPrograma = getSelectedVrstaPrograma(vrstaProgramaSelect);
+    if (vrstaPrograma) {
+        let url = '/programi/vrsta-programa/' + vrstaPrograma.value + '/api';
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => toggleVrstaProgramaDetails(data[0]));
+    }
+}
+
+function fetchSelectedProgram() {
+    hideDobneSkupine();
+    hideSmjene();
+    fetchSelectedProgram_DobneSkupine();
+    fetchSelectedProgram_Smjene();
+}
+
+function fetchSelectedProgram_DobneSkupine() {
+    let program = getSelectedVrstaPrograma(programSelect);
+    if (program) {
+        let url = '/programi/' + program.value + '/dobne-skupine/api';
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => toggleProgramDobneSkupine(data));
+    }
+}
+
+function fetchSelectedProgram_Smjene() {
+    let program = getSelectedVrstaPrograma(programSelect);
+    if (program) {
+        let url = '/programi/' + program.value + '/smjene/api';
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => toggleProgramSmjene(data));
+    }
 }
 
 
@@ -51,47 +93,14 @@ function toggleProgramSmjene(data) {
     }
 }
 
-function hideDobneSkupineCijena() {
+function hideDobneSkupine() {
     while (programDobneSkupine.firstChild) {
         programDobneSkupine.removeChild(programDobneSkupine.lastChild);
     }
+}
+
+function hideSmjene() {
     while (programSmjene.firstChild) {
         programSmjene.removeChild(programSmjene.lastChild);
     }
 }
-
-function fetchSelectedVrstaPrograma() {
-    hideDobneSkupineCijena();
-    let vrstaPrograma = getSelectedVrstaPrograma(vrstaProgramaSelect);
-    if (vrstaPrograma) {
-        let url = '/programi/vrsta-programa/' + vrstaPrograma.value + '/api';
-
-        fetch(url)
-            .then(response => response.json())
-            .then(data => toggleVrstaProgramaDetails(data[0]));
-    }
-}
-
-function fetchSelectedProgram_DobneSkupine() {
-    let program = getSelectedVrstaPrograma(programSelect);
-    if (program) {
-        let url = '/programi/' + program.value + '/dobne-skupine/api';
-
-        fetch(url)
-            .then(response => response.json())
-            .then(data => toggleProgramDobneSkupine(data));
-    }
-}
-
-function fetchSelectedProgram_Smjene() {
-    let program = getSelectedVrstaPrograma(programSelect);
-    if (program) {
-        let url = '/programi/' + program.value + '/smjene/api';
-
-        fetch(url)
-            .then(response => response.json())
-            .then(data => toggleProgramSmjene(data));
-    }
-}
-
-
