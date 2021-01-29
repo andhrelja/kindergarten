@@ -26,7 +26,7 @@ class Upis(models.Model):
         verbose_name_plural = "Upisi"
 
     def __str__(self):
-        return self.name
+        return "Zahtjev za upis: " + self.roditelj_puno_ime
 
     def get_absolute_url(self):
         return reverse("upisi:prikaz", kwargs={"pk": self.pk})
