@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Brisanje događaja" type="form" type_name="dogadjaji" %}
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-md-12 text-center mb-3">
+            <form method="POST">{% csrf_token %}
+                <div class="card">
+                    <div class="card-body">
+                <fieldset class="form-group">
+                    <h2>Jeste sigurni da zelite izbrisati događaj "{{ object.naziv }}"?</h2>
+                </fieldset>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Da</button>
+                    <a href="{% url 'dogadjaji:popis' %}" class="btn btn-danger">Ne</a>
+                </div>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

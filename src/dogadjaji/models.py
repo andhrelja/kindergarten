@@ -23,9 +23,10 @@ class Dogadjaj(models.Model):
     class Meta:
         verbose_name = "Događaj"
         verbose_name_plural = "Događaji"
+    
 
     def __str__(self):
         return self.naziv
 
     def get_absolute_url(self):
-        return reverse("dogadjaji:detail", kwargs={"pk": self.pk})
+        return reverse("dogadjaji:prikaz", kwargs={"pk": self.pk})

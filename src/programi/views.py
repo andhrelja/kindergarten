@@ -39,7 +39,6 @@ class ProgramiJSONView(JSONResponseMixin, TemplateView):
         queryset = Program.objects.filter(vrsta_programa_id=vrsta_programa_id)
         return self.render_to_json_response(context, queryset=queryset, safe=False)
 
-
 class ProgramDobneSkupineJSONView(JSONResponseMixin, TemplateView):
     def render_to_response(self, context, **response_kwargs):
         program_id = self.kwargs.get('program_id', None)
@@ -53,4 +52,14 @@ class ProgramSmjeneJSONView(JSONResponseMixin, TemplateView):
         program = Program.objects.get(id=program_id)
         queryset = Smjena.objects.filter(program=program)
         return self.render_to_json_response(context, queryset=queryset, safe=False)
+    
+class ProgramUpisanoDjeceJSONView(JSONResponseMixin, TemplateView):
+    def render_to_response(self, context, **response_kwargs):
+        program_id = self.kwargs.get('program_id', None)
+        program = Program.objects.get(id=program_id)
+        response_kwargs.update({
+            'upisano_djece': program.dijete_set.count(),
+            'max_broj_djece': program.max_broj_djece
+        })
+        return self.render_to_json_response(context, **response_kwargs)
     

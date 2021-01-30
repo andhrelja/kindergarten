@@ -28,17 +28,14 @@
                         </a>
                     </div>
                 </li>
-
+                {% elif type == "list" and type_name == "dogadjaji" %}
                 <li class="nav-item">
-                    
-                </li>
-                {% elif type == "list" and type_name == "djeca" %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{% url 'dogadjaji:stvori' %}">
                         <i class="fas fa-plus-circle"></i>
-                        <span>Dodaj dijete</span>
+                        <span>Dodaj događaj</span>
                     </a>
                 </li>
+                {% elif type == "list" and type_name == "djeca" %}
                 {% elif type == "list" and type_name == "upisi" %}
                 {% elif type == "list" and type_name == "vrsta_programa" %}
                 {% elif type == "list" and type_name == "programi" %}
@@ -62,6 +59,19 @@
                     <a class="nav-link" href="{% url 'djeca:stvori-napredak' object.id %}">
                         <i class="fas fa-comment-dots"></i>
                         <span>Zabilježi napredak</span>
+                    </a>
+                </li>
+                {% elif type == "detail" and type_name == "dogadjaji" %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dogadjaji:uredi' object.id %}">
+                        <i class="fas fa-pen"></i>
+                        <span>Uredi događaj</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dogadjaji:izbrisi' object.id %}">
+                        <i class="fas fa-trash"></i>
+                        <span>Izbriši događaj</span>
                     </a>
                 </li>
                 {% elif type == "form" %}

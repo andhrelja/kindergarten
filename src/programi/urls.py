@@ -18,4 +18,7 @@ urlpatterns = [
         views.ProgramDobneSkupineJSONView.as_view(), name="program-dobne-skupine-json"),
     path('<int:program_id>/smjene/api', 
         views.ProgramSmjeneJSONView.as_view(), name="program-smjene-json"),
+    path('<int:program_id>/upisana-djeca/api', 
+        views.ProgramUpisanoDjeceJSONView.as_view(), name="program-upisana-djeca-json"),
+        
 ]

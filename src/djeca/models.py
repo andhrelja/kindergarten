@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils import timesince
 
 
@@ -25,6 +26,10 @@ class Dijete(models.Model):
     def get_full_name(self):
         string = "{} {}".format(self.ime, self.prezime)
         return string.strip()
+    
+    def get_absolute_url(self):
+        return reverse("djeca:prikaz", kwargs={"pk": self.pk})
+    
 
     def __str__(self):
         return self.get_full_name()

@@ -1,12 +1,12 @@
 from django.views.generic import (
     ListView,
     DetailView,
-    CreateView,
     UpdateView,
     DeleteView
 )
 
 from .models import Dijete
+from .forms import DijeteForm
 
 
 class DijeteListView(ListView):
@@ -23,3 +23,8 @@ class DijeteListView(ListView):
 
 class DijeteDetailView(DetailView):
     model = Dijete
+
+
+class DijeteUpdateView(UpdateView):
+    model = Dijete
+    form_class = DijeteForm

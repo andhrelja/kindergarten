@@ -80,7 +80,7 @@ class RacunForm(forms.ModelForm):
         fields = (
             'first_name', 
             'last_name', 
-            'tip_racuna', 
+            'tip_racuna', # TODO: Promjena labela u "Radno mjesto" ili "Tip djelatnika"
             'je_voditelj', 
             'je_strucni_tim', 
             'telefon', 

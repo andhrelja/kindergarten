@@ -17,7 +17,7 @@
                 <a class="nav-link" href="{% url 'programi:popis-vrsta-programa' %}">Programi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Događaji</a>
+                <a class="nav-link" href="{% url 'dogadjaji:popis' %}">Događaji</a>
             </li>
             {% if user.is_authenticated and user.is_staff %}
             <li class="nav-item">

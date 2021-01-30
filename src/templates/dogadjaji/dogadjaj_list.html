@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Događaji" type="list" type_name="dogadjaji" %}
+
+<div class="container">
+    <div class="row mb-3">
+    {% for dogadjaj in dogadjaj_list %}
+        <div class="col-lg-4 mb-3">
+        {% if user.is_authenticated and user.is_superuser %}
+            <div class="card h-100">
+                <div class="card-body card-link" onclick="location.href='{% url 'dogadjaji:prikaz' dogadjaj.id %}'">
+                    <h4 class="h4 font-weight-bold card-title mb-0">
+                        {{ dogadjaj.naziv }}
+                    </h4>
+                    <small class="card-subtitle text-muted">
+                        {{ dogadjaj.datum_start }} od {{ dogadjaj.vrijeme_start }} do {{ dogadjaj.vrijeme_kraj }}
+                    </small>
+                    <div class="card-text">
+                        <ul>
+                        {% for vrsta_programa in dogadjaj.vrstaprograma_set.all %}
+                            <li>{{ vrsta_programa }}</li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer text-center d-flex">
+                    <a href="{% url 'dogadjaji:uredi' dogadjaj.id %}" class="btn text-primary w-50">
+                        <i class="fas fa-pen"></i>
+                        <span>Uredi</span>
+                    </a>
+                    <a href="{% url 'dogadjaji:izbrisi' dogadjaj.id %}" class="btn text-danger w-50">
+                        <i class="fas fa-trash"></i>
+                        <span>Izbriši</span>
+                    </a>
+                </div>
+            </div>
+            {% else %}
+            <div class="card h-100">
+                <div class="card-body card-link" onclick="location.href='{% url 'dogadjaji:prikaz' dogadjaj.id %}'">
+                    <h4 class="h4 font-weight-bold card-title mb-0">
+                        {{ dogadjaj.naziv }}
+                    </h4>
+                    <small class="card-subtitle text-muted">
+                        {{ dogadjaj.datum_start }} od {{ dogadjaj.vrijeme_start }} do {{ dogadjaj.vrijeme_kraj }}
+                    </small>
+                    <div class="card-text">
+                        <ul>
+                        {% for vrsta_programa in dogadjaj.vrstaprograma_set.all %}
+                            <li>{{ vrsta_programa }}</li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock body %}

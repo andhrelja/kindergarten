@@ -41,18 +41,10 @@
                             <div class="card mb-2">
                                 <div class="card-body">
                                     <div class="card-title d-flex">
-                                        <h6 class="h6 font-weight-bold">{{ napredak }}</h6>
+                                        <h6 class="h6 font-weight-bold">Ocjena: {{ napredak.get_ocjena_display }}</h6>
                                         <small class="card-subtitle text-muted ml-auto mt-0">
                                             {{ napredak.datum_start }} - {{ napredak.datum_kraj }}
                                         </small>
-                                    </div>
-                                    <div class="d-flex">
-                                        <div class="card-subtitle text-muted">
-                                            Autor: {{ napredak.autor.get_full_name }}
-                                        </div>                                    
-                                        <div class="card-subtitle text-muted ml-auto">
-                                            Ocjena: {{ napredak.ocjena }}
-                                        </div>
                                     </div>
                                     <div class="card-text mt-3">
                                         {{ napredak.komentar }}

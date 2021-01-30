@@ -6,6 +6,7 @@ const programSelect = getInputs(['id_program']);
 const vrstaProgramaCijena = getInputs(['vrsta_programa_cijena']);
 const programDobneSkupine = getInputs(['program_dobne_skupine']);
 const programSmjene = getInputs(['program_smjene']);
+const programUpisanaDjeca = getInputs(['program_upisana_djeca']);
 
 window.onload = main();
 
@@ -15,8 +16,7 @@ function main() {
 
     if (program && vrstaPrograma) {
         fetchSelectedVrstaPrograma();
-        fetchSelectedProgram_DobneSkupine();
-        fetchSelectedProgram_Smjene();
+        fetchSelectedProgram();
     }
 
     vrstaProgramaSelect.addEventListener('change', () => fetchSelectedVrstaPrograma());
@@ -42,6 +42,7 @@ function fetchSelectedProgram() {
     hideSmjene();
     fetchSelectedProgram_DobneSkupine();
     fetchSelectedProgram_Smjene();
+    fetchSelectedProgram_UpisanaDjeca();
 }
 
 function fetchSelectedProgram_DobneSkupine() {
@@ -66,6 +67,17 @@ function fetchSelectedProgram_Smjene() {
     }
 }
 
+function fetchSelectedProgram_UpisanaDjeca() {
+    let program = getSelectedVrstaPrograma(programSelect);
+    if (program) {
+        let url = '/programi/' + program.value + '/upisana-djeca/api';
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => toggleProgramUpisanaDjeca(data));
+    }
+}
+
 
 function toggleVrstaProgramaDetails(data) {
     vrstaProgramaCijena.innerHTML = data.fields.clanstvo_cijena + ' kn/mj.';
@@ -78,6 +90,19 @@ function toggleProgramDobneSkupine(data) {
         programDobneSkupine.appendChild(li);
     }
 }
+
+function toggleProgramUpisanaDjeca(data) {
+    let upisanoDjece = data.upisano_djece;
+    let maxBrojDjece = data.max_broj_djece;
+
+    let li1 = document.createElement('li');
+    let li2 = document.createElement('li');
+    li1.innerHTML = "Maksimalni broj djece: " + maxBrojDjece;
+    li2.innerHTML = "Broj upisane djece: " + upisanoDjece;
+    programUpisanaDjeca.appendChild(li1);
+    programUpisanaDjeca.appendChild(li2);
+}
+
 
 function getNazivSmjene(fields) {
     let vrijeme_start = fields.vrijeme_start.slice(0, -3);

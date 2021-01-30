@@ -81,9 +81,15 @@ class UpisForm(forms.ModelForm):
 
 
     def disable_fields(self):
-        for field_name, field in self.fields.items():
+        for _, field in self.fields.items():
             field.required = False
             field.disabled = True
+
+    def clean_program(self):
+        program = self.clened_data.get('program')
+        if program.dijete_set.count() >= program.max_broj_djece:
+            self.add_error('program', 'Kapacitet programa je popunjen. Molimo odaberite drugi program')
+        return program
 
     def clean_dijete_datum_rodjenja(self):
         program = self.cleaned_data.get('program')

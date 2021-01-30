@@ -67,7 +67,8 @@ class UpisUpdateView(UpdateView):
                 'prezime': self.object.dijete_puno_ime.split(" ")[1],
                 'datum_rodjenja': self.object.dijete_datum_rodjenja,
                 'dodatne_informacije': self.object.dijete_dodatne_informacije,
-                'roditelj': roditelj
+                'roditelj': roditelj,
+                'program': self.object.program
             }
             Dijete.objects.get_or_create(**dijete)
             messages.success(self.request, "Zahtjev za upisom je odobren. Poslana je obavijest e-mailom")
