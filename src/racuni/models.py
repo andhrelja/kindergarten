@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from django.core.mail import send_mail
+from django.conf import settings
 from .managers import CustomUserManager
 
 
@@ -27,12 +29,16 @@ class Racun(models.Model):
 
     # Vanjski ključevi
     user        = models.OneToOneField("auth.User", verbose_name="Django korisnik", on_delete=models.CASCADE)
-    tip_racuna  = models.ForeignKey("racuni.TipRacuna", verbose_name="Tip računa", on_delete=models.CASCADE)
+    tip_racuna  = models.ForeignKey("racuni.TipRacuna", verbose_name="Uloga korisnika", on_delete=models.CASCADE)
     objects = CustomUserManager()
 
     class Meta:
         verbose_name = "Račun"
         verbose_name_plural = "Računi"
+
+    def send_event_email(self, subject, html_message):
+        print(subject, html_message)
+        #send_mail(subject, message="", html_message=html_message, from_email=settings.EMAIL_HOST_USER, recipient_list=[self.user.email])
 
     def get_full_name(self):
         return self.user.get_full_name()

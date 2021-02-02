@@ -63,6 +63,12 @@
                 </li>
                 {% elif type == "detail" and type_name == "dogadjaji" %}
                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dogadjaji:suglasnost-popis' object.id %}">
+                        <i class="fas fa-list"></i>
+                        <span>Prikaži suglasnosti</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'dogadjaji:uredi' object.id %}">
                         <i class="fas fa-pen"></i>
                         <span>Uredi događaj</span>
@@ -72,6 +78,19 @@
                     <a class="nav-link" href="{% url 'dogadjaji:izbrisi' object.id %}">
                         <i class="fas fa-trash"></i>
                         <span>Izbriši događaj</span>
+                    </a>
+                </li>
+                {% elif type == "detail" and type_name == "suglasnosti" %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dogadjaji:suglasnost-uredi' suglasnost.dogadjaj.id suglasnost.id %}">
+                        <i class="fas fa-check text-success"></i>
+                        <span>Odobri</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dogadjaji:suglasnost-uredi' suglasnost.dogadjaj.id suglasnost.id %}">
+                        <i class="fas fa-times text-danger"></i>
+                        <span>Odbaci</span>
                     </a>
                 </li>
                 {% elif type == "form" %}

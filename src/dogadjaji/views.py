@@ -38,15 +38,17 @@ class DogadjajCreateView(
     success_message = 'Događaj uspješno spremljen'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(DogadjajCreateView, self).get_context_data(**kwargs)
         context["title"] = "Novi događaj"
         return context
     
     def form_valid(self, form):
         vrste_programa = form.cleaned_data.get('vrste_programa')
-        dogadjaj = form.save(commit=False)
+        dogadjaj = form.save()
         for vp in vrste_programa:
             dogadjaj.vrstaprograma_set.add(vp)
+        dogadjaj.inform_parents()
+        dogadjaj.create_consents()
         return super(DogadjajCreateView, self).form_valid(form)
 
     def test_func(self): # TODO: Rewrite as permission
@@ -67,15 +69,16 @@ class DogadjajUpdateView(
     success_message = 'Događaj uspješno spremljen'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(DogadjajUpdateView, self).get_context_data(**kwargs)
         context["title"] = "Uredi događaj"
         return context
     
     def form_valid(self, form):
         vrste_programa = form.cleaned_data.get('vrste_programa')
-        dogadjaj = form.save(commit=False)
+        dogadjaj = form.save()
         for vp in vrste_programa:
             dogadjaj.vrstaprograma_set.add(vp)
+        dogadjaj.create_consents()
         return super(DogadjajUpdateView, self).form_valid(form)
 
     def test_func(self): # TODO: Rewrite as permission

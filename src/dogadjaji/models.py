@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from .suglasnosti.models import Suglasnost
 
 
 class Dogadjaj(models.Model):
@@ -24,6 +25,33 @@ class Dogadjaj(models.Model):
         verbose_name = "Događaj"
         verbose_name_plural = "Događaji"
     
+    def inform_parents(self):
+        message = ("<h2>Poštovani {roditelj},</h2>" 
+            "<p>Ovim putem Vas obavještavamo da je vaše dijete {dijete} "
+            "zabilježeno kao sudionik događaja {dogadjaj} u sklopu programa \"{program}\".</p>"
+            "<p>Molimo Vas da potvrdite sudjelovanje djeteta koristeći obrazac na slijedećem "
+            "<a href=\"https://kindergarenn.herokuapp.com/djeca/prikaz/{dijete_id}\">linku</a>.</p>"
+            "<br><p>Srdačan pozdrav,<br>Kindergarten</p>"
+        )
+
+        for vp in self.vrstaprograma_set.all():
+            for program in vp.program_set.all():
+                for dijete in program.dijete_set.all():
+                    dijete.roditelj.send_event_email("Kindergarten - " + self.naziv,
+                        message.format(**dict(
+                            roditelj=dijete.roditelj.get_full_name(), 
+                            dijete=dijete, 
+                            dogadjaj=self.naziv, 
+                            program=program, 
+                            dijete_id=dijete.id
+                        )))
+
+
+    def create_consents(self):
+        for vp in self.vrstaprograma_set.all():
+            for program in vp.program_set.all():
+                for dijete in program.dijete_set.all():
+                    Suglasnost.objects.get_or_create(dogadjaj=self, dijete=dijete)
 
     def __str__(self):
         return self.naziv

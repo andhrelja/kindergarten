@@ -24,5 +24,5 @@ class DogadjajForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(DogadjajForm, self).__init__(*args, **kwargs)
-        if 'instance' in kwargs:
+        if kwargs['instance']:
             self.fields['vrste_programa'].initial = kwargs['instance'].vrstaprograma_set.all()
