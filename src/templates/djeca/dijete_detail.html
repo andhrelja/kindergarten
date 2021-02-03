@@ -10,26 +10,30 @@
         <div class="col-md-10 offset-md-1">
             <div class="card">
                 <div class="card-body">
-                    <div class="card-title d-flex justify-content-between">
+                    <div class="card-title d-flex">
                         <h2 class="h2 font-weight-bold">{{ object.get_full_name }}</h2>
                     </div>
                     <hr>
                     <div class="row mt-4">
                         <div class="col-lg-4">
                             <h5 class="h5 font-weight-bold">Opće informacije</h5>
-                            <div class="form-group align-space-between">
+                            <div class="form-group">
+                                <label for="datum_rodjenja" class="control-label">Upisani program</label>
+                                <input type="text" class="form-control" value="{{ object.program }}" disabled>
+                            </div>
+                            <div class="form-group">
                                 <label for="datum_rodjenja" class="control-label">Datum rođenja</label>
                                 <input type="text" class="form-control" value="{{ object.datum_rodjenja }}" disabled>
                             </div>
-                            <div class="form-group align-space-between">
+                            <div class="form-group">
                                 <label for="datum_rodjenja" class="control-label">Dob</label>
                                 <input type="text" class="form-control" value="{{ object.godine }}" disabled>
                             </div>
-                            <div class="form-group align-space-between">
+                            <div class="form-group">
                                 <label for="datum_rodjenja" class="control-label">Roditelj</label>
                                 <input type="text" class="form-control" value="{{ object.roditelj.get_full_name }}" disabled>
                             </div>
-                            <div class="form-group align-space-between">
+                            <div class="form-group">
                                 <label for="datum_rodjenja" class="control-label">Kontakt</label>
                                 <input type="text" class="form-control" value="{{ object.roditelj.telefon }}" disabled>
                             </div>

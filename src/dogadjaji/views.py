@@ -3,7 +3,6 @@ from django.contrib.auth.mixins import (
     UserPassesTestMixin,
     PermissionRequiredMixin
 )
-from django.contrib import messages 
 
 from django.views.generic import (
     ListView,
@@ -14,14 +13,17 @@ from django.views.generic import (
 )
 
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 from .models import Dogadjaj
 from .forms import DogadjajForm
 
 
-# Create your views here.
+# Generic views
+
 class DogadjajListView(ListView):
     model = Dogadjaj
+
 
 class DogadjajDetailView(DetailView):
     model = Dogadjaj
@@ -58,6 +60,7 @@ class DogadjajCreateView(
         else:
             return False
 
+
 class DogadjajUpdateView(
     LoginRequiredMixin, 
     # PermissionRequiredMixin, 
@@ -87,6 +90,7 @@ class DogadjajUpdateView(
             return True
         else:
             return False
+
 
 class DogadjajDeleteView(
     LoginRequiredMixin, 

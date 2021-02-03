@@ -13,16 +13,24 @@
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Linkovi</h6>
                 <p>
-                    <a href="#">Početna</a>
+                    <a href="{% url 'vrtic:home' %}">Početna</a>
                 </p>
                 <p>
-                    <a href="#">Programi</a>
+                    <a href="{% url 'programi:popis-vrsta-programa' %}">Programi</a>
                 </p>
                 <p>
-                    <a href="#">Događaji</a>
+                    <a href="{% url 'dogadjaji:popis' %}">Događaji</a>
                 </p>
+                {% if user.is_staff or user.racun.tip_racuna.je_djelatnik %}
                 <p>
-                    <a href="#">Upisi</a>
+                    <a href="{% url 'upisi:popis' %}">Upisi</a>
+                {% else %}
+                <p>
+                    <a href="{% url 'upisi:stvori' %}">Upisi</a>
+                </p>
+                {% endif %}
+                <p>
+                    <a href="#">Financije</a>
                 </p>
                 <p>
                     <a href="#">O nama</a>

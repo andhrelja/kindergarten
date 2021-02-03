@@ -12,12 +12,14 @@
                 <div class="card-body">
                     <form method="post" action="">{% csrf_token %}
                         {% include 'partials/form_snippet.html' %}
-                        <button type="submit" class="btn btn-outline-primary">
-                            Spremi
-                        </button>
-                        <a href="{{ object.get_absolute_url }}" class="btn btn-outline-danger">
-                            Odustani
-                        </a>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-outline-primary">
+                                Spremi
+                            </button>
+                            <a href="{{ object.get_absolute_url }}" class="btn btn-outline-danger">
+                                Odustani
+                            </a>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -2,7 +2,6 @@ from django.contrib.auth.mixins import (
     LoginRequiredMixin,
     UserPassesTestMixin
 )
-from django.contrib import messages 
 
 from django.views.generic import (
     ListView,
@@ -13,14 +12,15 @@ from django.views.generic import (
 )
 
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 from dogadjaji.models import Dogadjaj
-
 from .models import Suglasnost
 from .forms import SuglasnostForm
 
 
-# Create your views here.
+# Generic views
+
 class SuglasnostListView(
     LoginRequiredMixin,
     UserPassesTestMixin,

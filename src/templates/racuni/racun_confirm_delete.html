@@ -10,7 +10,16 @@
                 <div class="card">
                     <div class="card-body">
                         <fieldset class="form-group">
-                            <h2>Jeste sigurni da želite izbrisati račun za korisnika "{{ object }}" i njegovu djecu?</h2>
+                        {% if object.tip_racuna.je_roditelj %}
+                            <h2>Jeste sigurni da želite izbrisati račun za korisnika "{{ object }}" i svu njegovu djecu?</h2>
+                            <ul class="list-group m-auto w-50">
+                                {% for dijete in object.dijete_set.all %}
+                                <li class="list-group-item text-left">{{ dijete.get_full_name }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <h2>Jeste sigurni da želite izbrisati račun za korisnika "{{ object }}"?</h2>
+                        {% endif %}                            
                         </fieldset>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Da</button>

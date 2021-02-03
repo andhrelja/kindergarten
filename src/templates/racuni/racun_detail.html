@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Račun" type="detail" type_name="racuni" %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title d-flex">
+                        <h2 class="h2 font-weight-bold">{{ object.get_full_name }}</h2>
+                    </div>
+                    <hr>
+                    <div class="row mt-4">
+                        <div class="col-lg-6">
+                            <h5 class="h5 font-weight-bold mb-4">Opće informacije</h5>
+                            <div class="form-group">
+                                <label for="datum_rodjenja" class="control-label">Ime i prezime</label>
+                                <input type="text" class="form-control" value="{{ object.get_full_name }}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="datum_rodjenja" class="control-label">Datum rođenja</label>
+                                <input type="text" class="form-control" value="{{ object.datum_rodjenja }}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="datum_rodjenja" class="control-label">Kontakt</label>
+                                <input type="text" class="form-control" value="{{ object.telefon }}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <br><br>
+                            <div class="form-group">
+                                <label for="datum_rodjenja" class="control-label">Uloga korisnika</label>
+                                <input type="text" class="form-control" value="{{ object.tip_racuna.naziv }}" disabled>
+                            </div>
+                            {% if object.tip_racuna.je_roditelj %}
+                            <div class="form-group">
+                                <label for="datum_rodjenja" class="control-label">Djeca</label>
+                                {% for dijete in object.dijete_set.all %}
+                                <input type="text" class="form-control" value="{{ dijete }}" disabled>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group">
+                                <label for="datum_rodjenja" class="control-label">Član od</label>
+                                <input type="text" class="form-control" value="{{ object.created_at }}" disabled>
+                            </div>
+                            {% elif object.tip_racuna.je_djelatnik %}
+                            <div class="form-group">
+                                <label for="datum_rodjenja" class="control-label">Plaća</label>
+                                <input type="text" class="form-control" value="{{ object.tip_racuna.dnevnica|floatformat }} kn/dan ({{ object.tip_racuna.placa|floatformat }} kn/mj.)" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="datum_rodjenja" class="control-label">Zaposlen od</label>
+                                <input type="text" class="form-control" value="{{ object.created_at }}" disabled>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}

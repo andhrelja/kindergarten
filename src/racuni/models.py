@@ -22,6 +22,9 @@ class Racun(models.Model):
     telefon         = models.CharField("Kontakt telefon", max_length=16)
     datum_rodjenja  = models.DateField("Datum rođenja", auto_now=False, auto_now_add=False)
 
+    created_at = models.DateTimeField("Datum stvaranja", auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField("Datum ažuriranja", auto_now=True, auto_now_add=False)
+
     # Vanjski ključevi
     user        = models.OneToOneField("auth.User", verbose_name="Django korisnik", on_delete=models.CASCADE)
     tip_racuna  = models.ForeignKey("racuni.TipRacuna", verbose_name="Uloga korisnika", on_delete=models.CASCADE)
@@ -30,6 +33,11 @@ class Racun(models.Model):
     class Meta:
         verbose_name = "Račun"
         verbose_name_plural = "Računi"
+
+    def ceka_suglasnost(self):
+        for dijete in self.dijete_set.all():
+            if dijete.ceka_suglasnost():
+                return True
 
     def send_event_email(self, subject, html_message):
         print(subject, html_message)
@@ -45,6 +53,12 @@ class Racun(models.Model):
     def get_absolute_url(self):
         return reverse("racuni:prikaz", kwargs={"pk": self.pk})
 
+    def get_update_url(self):
+        if self.tip_racuna.je_roditelj:
+            return reverse("racuni:roditelj-uredi", kwargs={"pk": self.pk})
+        else:
+            return reverse("racuni:djelatnik-uredi", kwargs={"pk": self.pk})
+
 
 class TipRacuna(models.Model):
 
@@ -59,6 +73,13 @@ class TipRacuna(models.Model):
     class Meta:
         verbose_name = "Tip računa"
         verbose_name_plural = "Tipovi računa"
+
+    def dnevnica(self):
+        return 8.0 * self.satnica
+
+    def placa(self):
+        return 30.0 * self.dnevnica()
+
 
     def create(self):
         tipovi_all = TipRacuna.objects.all()

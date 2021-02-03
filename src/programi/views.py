@@ -1,13 +1,18 @@
 from django.views.generic import (
     ListView,
-    DetailView,
     TemplateView
 )
 
-from .mixins import JSONResponseMixin
-from .models import Program, VrstaPrograma
 from djeca.models import DobnaSkupina
 from smjene.models import Smjena
+from .mixins import JSONResponseMixin
+from .models import Program, VrstaPrograma
+
+
+# Generic views
+
+class VrstaProgramaListView(ListView):
+    model = VrstaPrograma
 
 
 class ProgramListView(ListView):
@@ -21,10 +26,6 @@ class ProgramListView(ListView):
         vp = VrstaPrograma.objects.get(id=self.kwargs['vrsta_programa_id'])
         context['title'] = vp.naziv
         return context
-
-
-class VrstaProgramaListView(ListView):
-    model = VrstaPrograma
 
 
 class VrstaProgramaJSONView(JSONResponseMixin, TemplateView):

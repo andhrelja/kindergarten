@@ -2,6 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import AuthenticationForm
 from django.db.models import Q
+from django.forms.widgets import HiddenInput
 from racuni.models import Racun, TipRacuna
 
 class DateInput(forms.DateInput):
@@ -118,3 +119,16 @@ class RacunForm(forms.ModelForm):
                 code='password_mismatch',
             )
         return password2
+
+
+class RacunUpdateForm(RacunForm):
+
+    password1 = None
+    password2 = None
+
+    class Meta(RacunForm.Meta):
+        exclude = (
+            'password1',
+            'password2'
+        )
+    

@@ -5,7 +5,9 @@ class Suglasnost(models.Model):
 
     dogadjaj = models.ForeignKey("dogadjaji.Dogadjaj", verbose_name="Dogadjaj", on_delete=models.CASCADE)
     dijete   = models.ForeignKey("djeca.Dijete", verbose_name="Dijete", on_delete=models.CASCADE)
-    odobren  = models.BooleanField("Odobren", null=True, help_text="Označite dajete li suglasnost za prisustvo djeteta u predstavi")
+    odobren  = models.BooleanField("Odobren", null=True, 
+        help_text="Označite dajete li suglasnost za prisustvo djeteta u predstavi. "
+                  "Spremite neoznačeno ukoliko ne dajete suglasnost")
 
     created_at = models.DateTimeField("Datum stvaranja", auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField("Datum ažuriranja", auto_now=True, auto_now_add=False)

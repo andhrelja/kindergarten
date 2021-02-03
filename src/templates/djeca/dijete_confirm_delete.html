@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Brisanje djeteta" type="form" type_name="djeca" %}
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-md-12 text-center mb-3">
+            <form method="POST">{% csrf_token %}
+                <div class="card">
+                    <div class="card-body">
+                        <fieldset class="form-group">
+                            <h2>Jeste sigurni da želite izbrisati dijete "{{ object.get_full_name }}" i sve povezane suglasnosti?</h2>
+                            <ul class="list-group m-auto w-50">
+                                {% for suglasnost in object.suglasnost_set.all %}
+                                <li class="list-group-item text-left">{{ suglasnost }}</li>
+                                {% endfor %}
+                            </ul>
+                        </fieldset>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Da</button>
+                            <a href="{% url 'djeca:popis' %}" class="btn btn-danger">Ne</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

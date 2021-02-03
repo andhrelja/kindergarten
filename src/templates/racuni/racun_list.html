@@ -29,10 +29,10 @@
                     <a class="btn action-button" href="{% url 'racuni:prikaz' racun.id %}">
                         <i class="fas fa-eye text-secondary"></i>
                     </a>
-                    <a class="btn action-button" href="#">
+                    <a class="btn action-button" href="{{ racun.get_update_url }}">
                         <i class="fas fa-pen text-primary"></i>
                     </a>
-                    <a class="btn action-button" href="{% url 'racuni:brisanje' racun.id %}">
+                    <a class="btn action-button" href="{% url 'racuni:izbrisi' racun.id %}">
                         <i class="fas fa-trash text-danger"></i>
                     </a>
                 </td>

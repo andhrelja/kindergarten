@@ -19,9 +19,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'dogadjaji:popis' %}">Događaji</a>
             </li>
-            {% if user.is_authenticated and user.is_staff %}
+            {% if user.is_authenticated and user.is_staff or user.racun.tip_racuna.je_djelatnik %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'upisi:popis' %}">Upisi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Financije</a>
             </li>
             {% else %}
             <li class="nav-item">
@@ -37,13 +40,26 @@
 
             {% if user.is_authenticated %}
             {% if user.racun.tip_racuna.je_roditelj %}
-            {% for dijete in user.racun.dijete_set.all %}
-            {% if dijete.ceka_suglasnost %}
-            <li class="nav-item">
-                <a class="nav-link text-danger" href="{% url 'djeca:prikaz' dijete.id %}">Suglasnost za {{ dijete.get_full_name }}</a>
+
+            {% if user.racun.ceka_suglasnost %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Suglasnosti na čekanju
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% for dijete in user.racun.dijete_set.all %}
+                {% for suglasnost in dijete.suglasnost_set.all %}
+                {% if suglasnost.odobren is None %}
+                    <a class="dropdown-item" href="{% url 'dogadjaji:suglasnost-prikaz' suglasnost.dogadjaj.id suglasnost.id %}">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>{{ dijete.get_full_name }} ({{ suglasnost.dogadjaj }})</span>
+                    </a>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                </div>
             </li>
             {% endif %}
-            {% endfor %}
             {% endif %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'djeca:popis' %}">Djeca</a>

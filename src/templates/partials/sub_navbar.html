@@ -19,11 +19,11 @@
                         <span>Dodaj račun</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="racunDropdown">
-                        <a class="dropdown-item" href="{% url 'racuni:stvori-djelatnik' %}">
+                        <a class="dropdown-item" href="{% url 'racuni:djelatnik-stvori' %}">
                             <i class="fas fa-plus-circle"></i>
                             <span>Novi djelatnik</span>
                         </a>
-                        <a class="dropdown-item" href="{% url 'racuni:stvori-roditelj' %}">
+                        <a class="dropdown-item" href="{% url 'racuni:roditelj-stvori' %}">
                             <i class="fas fa-plus-circle"></i>
                             <span>Novi roditelj</span>
                         </a>
@@ -68,17 +68,34 @@
                         <span>Zabilježi napredak</span>
                     </a>
                 </li>
-                {% elif user.racun.tip_racuna.je_roditelj and user.racun == object.roditelj and object.suglasnost_set.count %}
-                {% for suglasnost in object.suglasnost_set.all %}
-                {% if suglasnost.odobren is None %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'dogadjaji:suglasnost-prikaz' suglasnost.dogadjaj.id suglasnost.id %}">
-                        <i class="fas fa-comment-dots"></i>
-                        <span>Suglasnost za {{ suglasnost.dogadjaj }}</span>
+                    <a class="nav-link" href="{% url 'djeca:uredi' object.id %}">
+                        <i class="fas fa-pen"></i>
+                        <span>Uredi dijete</span>
                     </a>
                 </li>
-                {% endif %}
-                {% endfor %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'djeca:izbrisi' object.id %}">
+                        <i class="fas fa-trash"></i>
+                        <span>Izbriši dijete</span>
+                    </a>
+                </li>
+                {% elif user.racun.tip_racuna.je_roditelj and user.racun == object.roditelj and object.suglasnost_set.count %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Suglasnosti na čekanju
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% for suglasnost in object.suglasnost_set.all %}
+                    {% if suglasnost.odobren is None %}
+                        <a class="dropdown-item" href="{% url 'dogadjaji:suglasnost-prikaz' suglasnost.dogadjaj.id suglasnost.id %}">
+                            <i class="fas fa-comment-dots"></i>
+                            <span>{{ suglasnost.dogadjaj }}</span>
+                        </a>
+                    {% endif %}
+                    {% endfor %}
+                    </div>
+                </li>
                 {% endif %}
                 {% elif type == "detail" and type_name == "dogadjaji" %}
                 {% if user.is_staff or user.racun.tip_racuna.je_djelatnik %}
