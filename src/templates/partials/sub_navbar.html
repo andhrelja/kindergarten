@@ -10,8 +10,9 @@
         <div class="collapse navbar-collapse" id="navbarSubnav">
             <ul class="navbar-nav ml-auto">
 
-            {% if user.is_authenticated and user.is_superuser or user.racun.je_djelatnik %}
+            {% if user.is_authenticated %}
                 {% if type == "list" and type_name == "racuni" %}
+                {% if user.is_staff or user.racun.tip_racuna.je_djelatnik %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="racunDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-plus-circle"></i>
@@ -28,18 +29,22 @@
                         </a>
                     </div>
                 </li>
+                {% endif %}
                 {% elif type == "list" and type_name == "dogadjaji" %}
+                {% if user.is_staff or user.racun.tip_racuna.je_djelatnik %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'dogadjaji:stvori' %}">
                         <i class="fas fa-plus-circle"></i>
                         <span>Dodaj događaj</span>
                     </a>
                 </li>
+                {% endif %}
                 {% elif type == "list" and type_name == "djeca" %}
                 {% elif type == "list" and type_name == "upisi" %}
                 {% elif type == "list" and type_name == "vrsta_programa" %}
                 {% elif type == "list" and type_name == "programi" %}
                 {% elif type == "detail" and type_name == "upisi" %}
+                {% if user.is_staff or user.racun.tip_racuna.je_djelatnik %}
                 {% if object.odobren is None %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'upisi:uredi' upis.id %}">
@@ -54,14 +59,29 @@
                     </a>
                 </li>
                 {% endif %}
+                {% endif %}
                 {% elif type == "detail" and type_name == "djeca" %}
+                {% if user.is_staff or user.racun.tip_racuna.je_djelatnik %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'djeca:stvori-napredak' object.id %}">
                         <i class="fas fa-comment-dots"></i>
                         <span>Zabilježi napredak</span>
                     </a>
                 </li>
+                {% elif user.racun.tip_racuna.je_roditelj and user.racun == object.roditelj and object.suglasnost_set.count %}
+                {% for suglasnost in object.suglasnost_set.all %}
+                {% if suglasnost.odobren is None %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dogadjaji:suglasnost-prikaz' suglasnost.dogadjaj.id suglasnost.id %}">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>Suglasnost za {{ suglasnost.dogadjaj }}</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
                 {% elif type == "detail" and type_name == "dogadjaji" %}
+                {% if user.is_staff or user.racun.tip_racuna.je_djelatnik %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'dogadjaji:suglasnost-popis' object.id %}">
                         <i class="fas fa-list"></i>
@@ -80,7 +100,9 @@
                         <span>Izbriši događaj</span>
                     </a>
                 </li>
+                {% endif %}
                 {% elif type == "detail" and type_name == "suglasnosti" %}
+                {% if suglasnost.odobren is None %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'dogadjaji:suglasnost-uredi' suglasnost.dogadjaj.id suglasnost.id %}">
                         <i class="fas fa-check text-success"></i>
@@ -93,6 +115,7 @@
                         <span>Odbaci</span>
                     </a>
                 </li>
+                {% endif %}
                 {% elif type == "form" %}
                 {% endif %}
                 

@@ -70,26 +70,17 @@ class RacunForm(forms.ModelForm):
         help_text="Unesite istu lozinku",
     )
 
-    je_roditelj = forms.BooleanField(label="Roditelj", required=False, widget=forms.HiddenInput())
-    je_djelatnik = forms.BooleanField(label="Djelatnik", required=False, widget=forms.HiddenInput())
-    je_voditelj = forms.BooleanField(label="Voditelj", required=False, widget=forms.CheckboxInput(attrs={'class': 'form-control'}))
-    je_strucni_tim = forms.BooleanField(label="Stručni tim", required=False, widget=forms.CheckboxInput(attrs={'class': 'form-control'}))    
-
     class Meta:
         model = Racun
         fields = (
             'first_name', 
             'last_name', 
-            'tip_racuna', # TODO: Promjena labela u "Radno mjesto" ili "Tip djelatnika"
-            'je_voditelj', 
-            'je_strucni_tim', 
+            'tip_racuna',
             'telefon', 
             'datum_rodjenja', 
             'email', 
             'password1', 
-            'password2', 
-            'je_roditelj', 
-            'je_djelatnik'
+            'password2'
         )
         widgets = {
             'telefon':          forms.TextInput(attrs={'class': 'form-control'}),
@@ -98,20 +89,14 @@ class RacunForm(forms.ModelForm):
         }
     
     def __init__(self, *args, **kwargs):
+        tip = kwargs.pop('tip')
         super(RacunForm, self).__init__(*args, **kwargs)
-        je_djelatnik = kwargs['initial']['je_djelatnik']
-        je_roditelj = kwargs['initial']['je_roditelj']
+        tipovi = TipRacuna.objects.all()
 
-        self.fields['je_roditelj'].initial = je_roditelj
-        self.fields['je_djelatnik'].initial = je_djelatnik
-
-        if je_djelatnik and not je_roditelj:
-            self.fields['tip_racuna'].queryset = TipRacuna.objects.filter(~Q(naziv="Roditelj"))
-        elif not je_djelatnik and je_roditelj:
-            self.fields['tip_racuna'].initial = TipRacuna.objects.get(naziv="Roditelj")
-            self.fields['tip_racuna'].widget = forms.HiddenInput()
-            self.fields['je_voditelj'].widget = forms.HiddenInput()
-            self.fields['je_strucni_tim'].widget = forms.HiddenInput()
+        if tip == "roditelj":
+            self.fields['tip_racuna'].queryset = tipovi.filter(naziv="Roditelj")
+        elif tip == "djelatnik":
+            self.fields['tip_racuna'].queryset = tipovi.exclude(naziv="Roditelj")
     
     
     def clean_first_name(self):

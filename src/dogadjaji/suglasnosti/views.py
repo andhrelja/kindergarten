@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import (
     LoginRequiredMixin,
     UserPassesTestMixin
 )
-from django.forms.formsets import INITIAL_FORM_COUNT
+from django.contrib import messages 
 
 from django.views.generic import (
     ListView,
@@ -40,12 +40,23 @@ class SuglasnostListView(
             return False
 
 
-class SuglasnostDetailView(LoginRequiredMixin, DetailView):
+class SuglasnostDetailView(
+    LoginRequiredMixin, 
+    UserPassesTestMixin,
+    DetailView
+):
     model = Suglasnost
     template_name = "dogadjaji/suglasnosti/suglasnost_detail.html"
 
     def get_object(self):
         return Suglasnost.objects.get(pk=self.kwargs.get('suglasnost_pk'))
+    
+    def test_func(self): # TODO: Rewrite as permission
+        object = self.get_object()
+        if self.request.user.is_staff or object.dijete in self.request.user.racun.dijete_set.all():
+            return True
+        else:
+            return False
 
 
 class SuglasnostCreateView(
@@ -88,8 +99,7 @@ class SuglasnostUpdateView(
 class SuglasnostDeleteView(
     LoginRequiredMixin, 
     # PermissionRequiredMixin, 
-    UserPassesTestMixin, 
-    SuccessMessageMixin, 
+    UserPassesTestMixin,
     DeleteView
 ):
     model = Suglasnost
@@ -97,8 +107,12 @@ class SuglasnostDeleteView(
     success_url = '/dogadjaji/suglasnosti/'
     template_name = "dogadjaji/suglasnosti/suglasnost_confirm_delete.html"
 
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(SuglasnostDeleteView, self).delete(request, *args, **kwargs)
+
     def test_func(self): # TODO: Rewrite as permission
-        if self.request.user.is_superuser or self.request.user.is_staff:
+        if self.request.user.is_staff:
             return True
         else:
             return False

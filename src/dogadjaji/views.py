@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import (
     UserPassesTestMixin,
     PermissionRequiredMixin
 )
+from django.contrib import messages 
 
 from django.views.generic import (
     ListView,
@@ -97,6 +98,10 @@ class DogadjajDeleteView(
     model = Dogadjaj
     success_message = 'Događaj uspješno izbrisan'
     success_url = '/dogadjaji/'
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(DogadjajDeleteView, self).delete(request, *args, **kwargs)
 
     def test_func(self): # TODO: Rewrite as permission
         if self.request.user.is_superuser or self.request.user.is_staff:

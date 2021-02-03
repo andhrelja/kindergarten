@@ -23,6 +23,9 @@ class Dijete(models.Model):
     def godine(self):
         return timesince.timesince(self.datum_rodjenja)
 
+    def ceka_suglasnost(self):
+        return self.suglasnost_set.filter(odobren__isnull=True).count() != 0
+
     def get_full_name(self):
         string = "{} {}".format(self.ime, self.prezime)
         return string.strip()

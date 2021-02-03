@@ -8,6 +8,8 @@ urlpatterns = [
     
     path('djelatnik/', views.DjelatnikCreateView.as_view(), name="stvori-djelatnik"),    
     path('roditelj/', views.RoditeljCreateView.as_view(), name="stvori-roditelj"),
+
     path('prikaz/<int:pk>', views.RacunDetailView.as_view(), name="prikaz"),
+    path('brisanje/<int:pk>', views.RacunDeleteView.as_view(), name="brisanje"),
     path('',        views.RacunListView.as_view(), name="popis"),
 ]

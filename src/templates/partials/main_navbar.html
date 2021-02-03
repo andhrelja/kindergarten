@@ -36,6 +36,15 @@
         <ul class="navbar-nav ml-auto">
 
             {% if user.is_authenticated %}
+            {% if user.racun.tip_racuna.je_roditelj %}
+            {% for dijete in user.racun.dijete_set.all %}
+            {% if dijete.ceka_suglasnost %}
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="{% url 'djeca:prikaz' dijete.id %}">Suglasnost za {{ dijete.get_full_name }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'djeca:popis' %}">Djeca</a>
             </li>

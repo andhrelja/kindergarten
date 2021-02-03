@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block body %}
-{% include 'partials/sub_navbar.html' with title="Brisanje suglasnosti" type="form" type_name="suglasnosti" %}
+{% include 'partials/sub_navbar.html' with title="Brisanje računa" type="form" type_name="racuni" %}
 
 <div class="container-fluid">
     <div class="row mt-3">
@@ -10,11 +10,11 @@
                 <div class="card">
                     <div class="card-body">
                         <fieldset class="form-group">
-                            <h2>Jeste sigurni da želite izbrisati suglasnost "{{ object }}"?</h2>
+                            <h2>Jeste sigurni da želite izbrisati račun za korisnika "{{ object }}" i njegovu djecu?</h2>
                         </fieldset>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Da</button>
-                            <a href="{% url 'dogadjaji:suglasnost-popis' %}" class="btn btn-danger">Ne</a>
+                            <a href="{% url 'racuni:popis' %}" class="btn btn-danger">Ne</a>
                         </div>
                     </div>
                 </div>

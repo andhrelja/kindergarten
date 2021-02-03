@@ -86,7 +86,7 @@ class UpisForm(forms.ModelForm):
             field.disabled = True
 
     def clean_program(self):
-        program = self.clened_data.get('program')
+        program = self.cleaned_data.get('program')
         if program.dijete_set.count() >= program.max_broj_djece:
             self.add_error('program', 'Kapacitet programa je popunjen. Molimo odaberite drugi program')
         return program

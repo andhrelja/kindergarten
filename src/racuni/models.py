@@ -6,14 +6,14 @@ from .managers import CustomUserManager
 
 
 TIPOVI_RACUNA = (
-    (1, "Roditelj", 0),
-    (2, "Voditeljica", 60),
-    (3, "Odgojateljica", 40),
-    (4, "Stručna suradnica pedagoginja", 50),
-    (5, "Stručna suradnica psihologinja", 50),
-    (6, "Stručna suradnica rehabilitatorica", 50),
-    (7, "Stručna suradnica psihologinja za djecu s teškoćama", 55),
-    (8, "Zdravstvena voditeljica", 45),
+    (1, "Roditelj", 0, False, True, False),
+    (2, "Voditeljica", 60, True, False, True),
+    (3, "Odgojateljica", 40, True, False, False),
+    (4, "Stručna suradnica pedagoginja", 50, True, False, False),
+    (5, "Stručna suradnica psihologinja", 50, True, False, False),
+    (6, "Stručna suradnica rehabilitatorica", 50, True, False, False),
+    (7, "Stručna suradnica psihologinja za djecu s teškoćama", 55, True, False, False),
+    (8, "Zdravstvena voditeljica", 45, True, False, False),
 )
 
 class Racun(models.Model):
@@ -21,11 +21,6 @@ class Racun(models.Model):
     # Atributi
     telefon         = models.CharField("Kontakt telefon", max_length=16)
     datum_rodjenja  = models.DateField("Datum rođenja", auto_now=False, auto_now_add=False)
-    
-    je_roditelj     = models.BooleanField("Roditelj")
-    je_djelatnik    = models.BooleanField("Djelatnik")
-    je_voditelj     = models.BooleanField("Voditelj", default=False)
-    je_strucni_tim  = models.BooleanField("Pripada stručnom timu", default=False)
 
     # Vanjski ključevi
     user        = models.OneToOneField("auth.User", verbose_name="Django korisnik", on_delete=models.CASCADE)
@@ -56,6 +51,9 @@ class TipRacuna(models.Model):
     # Atributi
     naziv           = models.CharField("Naziv tipa", max_length=128)
     satnica         = models.FloatField("Satnica", default=0)
+    je_djelatnik    = models.BooleanField("Djelatnik", null=True)
+    je_roditelj     = models.BooleanField("Roditelj", null=True)
+    je_voditelj     = models.BooleanField("Voditelj", null=True)
     
 
     class Meta:
@@ -68,11 +66,21 @@ class TipRacuna(models.Model):
 
         for tip_racuna in TIPOVI_RACUNA:
             defaults = {
-                'id': tip_racuna[0],
-                'naziv': tip_racuna[1],
-                'satnica': tip_racuna[2],
+                'id':       tip_racuna[0],
+                'naziv':    tip_racuna[1],
+                'satnica':  tip_racuna[2],
+                'je_djelatnik': tip_racuna[3],
+                'je_roditelj':  tip_racuna[4],
+                'je_voditelj':  tip_racuna[5],
             }
-            TipRacuna.objects.get_or_create(id=defaults.pop('id'), **defaults)
+
+            obj, created = TipRacuna.objects.get_or_create(id=defaults.pop('id'), **defaults)
+            if not created:
+                obj.je_djelatnik = tip_racuna[3]
+                obj.je_roditelj = tip_racuna[4]
+                obj.je_voditelj = tip_racuna[5]
+                obj.save()
+
 
     def __str__(self):
         return self.naziv

@@ -53,11 +53,7 @@ class UpisUpdateView(UpdateView):
             
             roditelj = {
                 'telefon': self.object.roditelj_telefon,
-                'datum_rodjenja': self.object.roditelj_datum_rodjenja,
-                'je_roditelj': True,
-                'je_djelatnik': False,
-                'je_voditelj': False,
-                'je_strucni_tim': False
+                'datum_rodjenja': self.object.roditelj_datum_rodjenja
             }
             tip_racuna = TipRacuna.objects.get(naziv="Roditelj")
             roditelj, _ = Racun.objects.get_or_create(user=roditelj_korisnik, tip_racuna=tip_racuna, **roditelj)
