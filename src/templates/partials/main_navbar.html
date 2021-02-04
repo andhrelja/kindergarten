@@ -23,9 +23,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'upisi:popis' %}">Upisi</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Financije</a>
-            </li>
             {% else %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'upisi:stvori' %}">Upisi</a>
@@ -63,6 +60,9 @@
             {% endif %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'djeca:popis' %}">Djeca</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'financije:popis' %}">Financije</a>
             </li>
             {% if user.is_superuser %}
             <li class="nav-item">

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Financije" type="list" type_name="financije" %}
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Dijete</th>
+                <th>Program</th>
+                <th>Iznos</th>
+                <th>PDV</th>
+                <th>Ukupno</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for clanarina in object_list %}
+            <tr>
+                <td>{{ clanarina.datum }}</td>
+                <td>{{ clanarina.dijete }}</td>
+                <td>{{ clanarina.dijete.program }}</td>
+                <td>{{ clanarina.iznos|floatformat }}</td>
+                <td>{{ clanarina.PDV|floatformat }}</td>
+                <td>{{ clanarina.ukupno|floatformat }}</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock body %}

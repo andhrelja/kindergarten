@@ -1,27 +1,27 @@
 from django.db import models
 
 
-class RacunClanarina(models.Model):
+class Clanarina(models.Model):
 
     # Atributi
     naziv  = models.CharField("Naziv dokumenta", max_length=128)
     datum  = models.DateTimeField("Datum dokumenta", auto_now=False, auto_now_add=True)
     iznos  = models.FloatField("Iznos")
-    PDV    = models.FloatField("PDV (%)", default=25.0)
+    PDV    = models.FloatField("PDV")
     ukupno = models.FloatField("Ukupno")
 
     # Vanjski ključevi
     dijete = models.ForeignKey("djeca.Dijete", verbose_name="Dijete", on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = "Račun - članarina"
-        verbose_name_plural = "Računi - članarine"
+        verbose_name = "Članarina"
+        verbose_name_plural = "Članarine"
 
     def __str__(self):
         return self.naziv
 
 
-class PlacaDjelatnik(models.Model):
+class Placa(models.Model):
 
     # Atributi
     naziv     = models.CharField("Naziv dokumenta", max_length=50)
@@ -30,11 +30,11 @@ class PlacaDjelatnik(models.Model):
     neto      = models.FloatField("Neto iznos plaće")
     
     # Vanjski ključevi
-    tip_djelatnika = models.ForeignKey("racuni.TipRacuna", verbose_name="Tip djelatnika", on_delete=models.CASCADE)
+    djelatnik = models.ForeignKey("racuni.Racun", verbose_name="Djelatnik", on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = "Plaća - djelatnik"
-        verbose_name_plural = "Plaće - djelatnici"
+        verbose_name = "Plaća"
+        verbose_name_plural = "Plaće"
 
     def __str__(self):
         return self.naziv
