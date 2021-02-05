@@ -40,8 +40,7 @@ class Racun(models.Model):
                 return True
 
     def send_event_email(self, subject, html_message):
-        print(subject, html_message)
-        #send_mail(subject, message="", html_message=html_message, from_email=settings.EMAIL_HOST_USER, recipient_list=[self.user.email])
+        send_mail(subject, message="", html_message=html_message, from_email=settings.EMAIL_HOST_USER, recipient_list=[self.user.email])
 
     def get_full_name(self):
         return self.user.get_full_name()

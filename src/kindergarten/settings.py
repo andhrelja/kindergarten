@@ -23,13 +23,12 @@ LOGIN_URL = '/racuni/prijava/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = '/racuni/odjava/'
 
-"""
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'kindergarten2021@gmail.com'
-EMAIL_HOST_PASSWORD = 'qcrejnjsvyfcowgm'
+EMAIL_HOST_USER = 'kindergarten.rijeka@gmail.com'
+EMAIL_HOST_PASSWORD = 'udqodidsryphupmt'
 EMAIL_USE_TLS = True
-"""
+
 
 # Application definition
 

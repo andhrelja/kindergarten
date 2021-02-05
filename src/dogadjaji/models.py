@@ -3,6 +3,8 @@ from django.urls import reverse
 from .suglasnosti.models import Suglasnost
 
 
+# TODO: dodati suglasnost na prikazu događaja
+
 class Dogadjaj(models.Model):
 
     # Atributi

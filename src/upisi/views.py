@@ -5,6 +5,8 @@ from django.views.generic import (
     ListView,
 )
 
+from django.conf import settings
+from django.core.mail import send_mail
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.shortcuts import redirect
@@ -63,6 +65,8 @@ class UpisUpdateView(UpdateView):
 
     def form_valid(self, form):
         self.object = form.save()
+        email_subject = "Zahtjev za upis djeteta {} - {}".format(self.object.dijete_puno_ime, self.object.program)
+
         if self.object.odobren:
             user_kwargs = {
                 'first_name': self.object.roditelj_puno_ime.split(" ")[0].title(),
@@ -88,8 +92,21 @@ class UpisUpdateView(UpdateView):
                 'program': self.object.program
             }
             Dijete.objects.get_or_create(**dijete)
+            
+            html_message = ("<h2>Poštovani {roditelj},</h2><p>Obavještavamo Vas da je zahtjev za upisom odobren.</p>"
+                "<p>Omogućena Vam je prijava na Kindergarten stranice koristeći slijedeće podatke:</p>"
+                "<ul><li>Korisničko ime: {email}</li><li>{lozinka}</li></ul>"
+                "<p>Želimo Vam ugodan boravak!</p><br>"
+                "<p>Srdačan podrav od Kindergarten tima</p>")
+            html_message = html_message.format(roditelj=roditelj.get_full_name(), email=roditelj.user.email, lozinka=password)
+            send_mail(email_subject, message="", html_message=html_message, from_email=settings.EMAIL_HOST_USER, recipient_list=[roditelj.user.email])
             messages.success(self.request, "Zahtjev za upisom je odobren. Poslana je obavijest e-mailom")
             return redirect('racuni:popis')
         elif not self.object.odobren:
+            html_message = ("<h2>Poštovani {roditelj},</h2><p>Obavještavamo Vas da zahtjev za upisom odbijen.</p>"
+                "<p>Za sva dodatna pitanja molimo Vas da nas obavijestite putem broja +385 99 2421 285</p><br>"
+                "<p>Srdačan podrav od Kindergarten tima</p>")
+            html_message = html_message.format(roditelj=self.object.roditelj_puno_ime)
+            send_mail(email_subject, message="", html_message=html_message, from_email=settings.EMAIL_HOST_USER, recipient_list=[self.object.roditelj_email])
             messages.success(self.request, "Zahtjev za upisom je odbijen. Poslana je obavijest e-mailom")
             return super(UpisUpdateView, self).form_valid(form)
