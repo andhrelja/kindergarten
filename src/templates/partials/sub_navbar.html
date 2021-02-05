@@ -1,3 +1,5 @@
+{% load dogadjaji_extras %}
+
 <div class="container-fluid mt-2 mb-2 pr-2 pl-2">
     <nav class="navbar subnavbar navbar-expand-lg navbar-dark bg-dark m-auto" style="border-radius: 20px;">
 
@@ -116,6 +118,23 @@
                         <i class="fas fa-trash"></i>
                         <span>Izbriši događaj</span>
                     </a>
+                </li>
+                {% endif %}
+                {% if user.racun.tip_racuna.je_roditelj and user.racun.ceka_suglasnost %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Suglasnosti na čekanju
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% for suglasnost in object|suglasnosti:user.racun.dijete_set.all %}
+                    {% if suglasnost.odobren is None %}
+                        <a class="dropdown-item" href="{% url 'dogadjaji:suglasnost-prikaz' suglasnost.dogadjaj.id suglasnost.id %}">
+                            <i class="fas fa-comment-dots"></i>
+                            <span>{{ suglasnost.dogadjaj }}</span>
+                        </a>
+                    {% endif %}
+                    {% endfor %}
+                    </div>
                 </li>
                 {% endif %}
                 {% elif type == "detail" and type_name == "suglasnosti" %}
