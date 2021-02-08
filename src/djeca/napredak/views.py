@@ -4,8 +4,10 @@ from django.contrib.auth.mixins import (
     PermissionRequiredMixin
 )
 
-from django.views.generic import CreateView
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+
+from django.views.generic import CreateView
 
 from djeca.models import Dijete
 from .models import DijeteNapredak
@@ -42,8 +44,13 @@ class NapredakCreateView(
     
     def form_valid(self, form):
         self.object = form.save(commit=False)
-        self.object.autor = self.request.user
-        self.object.save()
+        if self.request.user.is_superuser:
+            messages.error(self.request, "Administrator ne može bilježiti napredak dijeteta", extra_tags='danger')
+            return super(NapredakCreateView, self).form_invalid(form) 
+        else:
+            self.object.autor = self.request.user
+            self.object.save()
+
         return super(NapredakCreateView, self).form_valid(form)
 
     

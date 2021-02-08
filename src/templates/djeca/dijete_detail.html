@@ -50,8 +50,15 @@
                                             {{ napredak.datum_start }} - {{ napredak.datum_kraj }}
                                         </small>
                                     </div>
-                                    <div class="card-text mt-3">
-                                        {{ napredak.komentar }}
+                                    <div class="card-text">
+                                        <small class="card-subtitle text-muted m-0">
+                                            Autor: 
+                                            <a href="{% url 'racuni:prikaz' napredak.autor.id %}" class="link-unstyled">
+                                                {{ napredak.autor.get_full_name }}
+                                            </a>
+                                        </small>
+                                        <hr>
+                                        <p>{{ napredak.komentar }}</p>
                                     </div>
                                 </div>
                             </div>
