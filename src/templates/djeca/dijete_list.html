@@ -4,39 +4,49 @@
 {% include 'partials/sub_navbar.html' with title="Popis djece" type="list" type_name="djeca" %}
 
 <div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Ime i prezime</th>
-                <th>Program</th>
-                <th>Godine</th>
-                <th>Roditelj</th>
-                <th class="text-center">Akcije</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for dijete in object_list %}
-            <tr>
-                <td>{{ dijete.get_full_name }}</td>
-                <td>{{ dijete.program }}</td>
-                <td>{{ dijete.godine }}</td>
-                <td>{{ dijete.roditelj.get_full_name }}</td>
-                <td class="text-center">
-                    <a class="btn action-button" href="{% url 'djeca:prikaz' dijete.id %}">
-                        <i class="fas fa-eye text-secondary"></i>
-                    </a>
-                    <a class="btn action-button" href="{% url 'djeca:uredi' dijete.id %}">
-                        <i class="fas fa-pen text-primary"></i>
-                    </a>
-                    <a class="btn action-button" href="{% url 'djeca:izbrisi' dijete.id %}">
-                        <i class="fas fa-trash text-danger"></i>
-                    </a>
-                </td>
-            </tr>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Ime i prezime</th>
+                                    <th>Program</th>
+                                    <th>Godine</th>
+                                    <th>Roditelj</th>
+                                    <th class="text-center">Akcije</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for dijete in object_list %}
+                                <tr>
+                                    <td>{{ dijete.get_full_name }}</td>
+                                    <td>{{ dijete.program }}</td>
+                                    <td>{{ dijete.godine }}</td>
+                                    <td>{{ dijete.roditelj.get_full_name }}</td>
+                                    <td class="text-center d-flex">
+                                        <a class="btn action-button" href="{% url 'djeca:prikaz' dijete.id %}">
+                                            <i class="fas fa-eye text-secondary"></i>
+                                        </a>
+                                        <a class="btn action-button" href="{% url 'djeca:uredi' dijete.id %}">
+                                            <i class="fas fa-pen text-primary"></i>
+                                        </a>
+                                        <a class="btn action-button" href="{% url 'djeca:izbrisi' dijete.id %}">
+                                            <i class="fas fa-trash text-danger"></i>
+                                        </a>
+                                    </td>
+                                </tr>
 
-            {% endfor %}
-        </tbody>
-    </table>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock body %}

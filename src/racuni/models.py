@@ -76,10 +76,11 @@ class TipRacuna(models.Model):
     def dnevnica(self):
         return 8.0 * self.satnica
 
-    def placa(self):
+    def placa_mjesecno(self):
         return 30.0 * self.dnevnica()
 
 
+    @staticmethod
     def create(self):
         tipovi_all = TipRacuna.objects.all()
         tipovi_all.delete()
@@ -96,6 +97,8 @@ class TipRacuna(models.Model):
 
             obj, created = TipRacuna.objects.get_or_create(id=defaults.pop('id'), **defaults)
             if not created:
+                obj.naziv = tip_racuna[1]
+                obj.satnica = tip_racuna[2]
                 obj.je_djelatnik = tip_racuna[3]
                 obj.je_roditelj = tip_racuna[4]
                 obj.je_voditelj = tip_racuna[5]

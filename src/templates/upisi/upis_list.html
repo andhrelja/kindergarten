@@ -4,46 +4,56 @@
 {% include 'partials/sub_navbar.html' with title="Popis zahtjeva za upis" type="list" type_name="upisi" %}
 
 <div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th class="text-center">Odobren</th>
-                <th>Broj</th>
-                <th>Roditelj</th>
-                <th>Dijete</th>
-                <th>Datum rođenja djeteta</th>
-                <th class="text-center">Akcije</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for upis in object_list %}
-            <tr>
-                <td class="text-center">
-                    {% if upis.odobren == True %}
-                    <i class="fas fa-check-circle text-success"></i>
-                    {% elif upis.odobren == False %}
-                    <i class="fas fa-times-circle text-danger"></i>
-                    {% elif upis.odobren == None %}
-                    <i class="fas fa-exclamation-circle text-warning"></i>
-                    {% endif %}
-                </td>
-                <td>{{ upis.id }}</td>
-                <td>{{ upis.roditelj_puno_ime }}</td>
-                <td>{{ upis.dijete_puno_ime }}</td>
-                <td>{{ upis.dijete_datum_rodjenja }}</td>
-                <td class="text-center">
-                    <a class="btn action-button" href="{% url 'upisi:prikaz' upis.id %}">
-                        <i class="fas fa-eye text-secondary"></i>
-                    </a>
-                    <a class="btn action-button" href="{% url 'upisi:uredi' upis.id %}">
-                        <i class="fas fa-pen text-primary"></i>
-                    </a>
-                </td>
-            </tr>
+    <div class="row">
+        <div class="col-lg-10 offset-md-1">
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Odobren</th>
+                                <th>Broj</th>
+                                <th>Roditelj</th>
+                                <th>Dijete</th>
+                                <th>Datum rođenja djeteta</th>
+                                <th class="text-center">Akcije</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for upis in object_list %}
+                            <tr>
+                                <td class="text-center">
+                                    {% if upis.odobren == True %}
+                                    <i class="fas fa-check-circle text-success"></i>
+                                    {% elif upis.odobren == False %}
+                                    <i class="fas fa-times-circle text-danger"></i>
+                                    {% elif upis.odobren == None %}
+                                    <i class="fas fa-exclamation-circle text-warning"></i>
+                                    {% endif %}
+                                </td>
+                                <td>{{ upis.id }}</td>
+                                <td>{{ upis.roditelj_puno_ime }}</td>
+                                <td>{{ upis.dijete_puno_ime }}</td>
+                                <td>{{ upis.dijete_datum_rodjenja }}</td>
+                                <td class="text-center">
+                                    <a class="btn action-button" href="{% url 'upisi:prikaz' upis.id %}">
+                                        <i class="fas fa-eye text-secondary"></i>
+                                    </a>
+                                    {% if upis.odobren == None %}
+                                    <a class="btn action-button" href="{% url 'upisi:uredi' upis.id %}">
+                                        <i class="fas fa-pen text-primary"></i>
+                                    </a>
+                                    {% endif %}
+                                </td>
+                            </tr>
 
-            {% endfor %}
-        </tbody>
-    </table>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock body %}

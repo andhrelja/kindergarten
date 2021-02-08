@@ -21,6 +21,10 @@ class VrstaPrograma(models.Model):
         verbose_name = "Vrsta programa"
         verbose_name_plural = "Vrste programa"
     
+    
+    def clanstvo_mjesecno(self):
+        return self.clanstvo_cijena * 30 * 8
+    
 
     def __str__(self):
         return self.naziv

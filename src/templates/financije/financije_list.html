@@ -4,31 +4,78 @@
 {% include 'partials/sub_navbar.html' with title="Financije" type="list" type_name="financije" %}
 
 <div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Datum</th>
-                <th>Dijete</th>
-                <th>Program</th>
-                <th>Iznos</th>
-                <th>PDV</th>
-                <th>Ukupno</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for clanarina in object_list %}
-            <tr>
-                <td>{{ clanarina.datum }}</td>
-                <td>{{ clanarina.dijete }}</td>
-                <td>{{ clanarina.dijete.program }}</td>
-                <td>{{ clanarina.iznos|floatformat }}</td>
-                <td>{{ clanarina.PDV|floatformat }}</td>
-                <td>{{ clanarina.ukupno|floatformat }}</td>
-            </tr>
-
-            {% endfor %}
-        </tbody>
-    </table>
+    {% if clanarina_list %}
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h4 class="h4 font-weight-bold">Članarina</h4>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Datum</th>
+                            <th>Dijete</th>
+                            <th>Program</th>
+                            <th>Iznos</th>
+                            <th>PDV</th>
+                            <th>Ukupno</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for clanarina in clanarina_list %}
+                        <tr>
+                            <td>{{ clanarina.datum|date:"d.m.Y" }}</td>
+                            <td>{{ clanarina.dijete }}</td>
+                            <td>{{ clanarina.dijete.program }}</td>
+                            <td>{{ clanarina.iznos|floatformat }}</td>
+                            <td>{{ clanarina.PDV|floatformat }}</td>
+                            <td>{{ clanarina.ukupno|floatformat }} kn</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if placa_list %}
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h4 class="h4 font-weight-bold">Izdane plaće</h4>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Datum</th>
+                            <th>Djelatnik</th>
+                            <th>Uloga djelatnika</th>
+                            <th>Bruto</th>
+                            <th>Neto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for placa in placa_list %}
+                        <tr>
+                            <td>{{ placa.datum|date:"d.m.Y" }}</td>
+                            <td>{{ placa.djelatnik.get_full_name }}</td>
+                            <td>{{ placa.djelatnik.tip_racuna }}</td>
+                            <td>{{ placa.bruto|floatformat }}</td>
+                            <td>{{ placa.neto|floatformat }} kn</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 </div>
 
 {% endblock body %}

@@ -36,7 +36,7 @@ class RacunListView(
     template_name = "racuni/racun_list.html"
 
     def test_func(self): # TODO: Rewrite as permission
-        if self.request.user.is_superuser or self.request.user.is_staff:
+        if self.request.user.is_staff:
             return True
         else:
             return False
@@ -51,7 +51,9 @@ class RacunDetailView(
 
     def test_func(self): # TODO: Rewrite as permission
         self.object = self.get_object()
-        if self.request.user.is_staff or self.object == self.request.user.racun:
+        if (self.request.user.is_staff 
+            or (self.object == self.request.user.racun
+            and self.request.user.racun)):
             return True
         else:
             return False
@@ -92,7 +94,9 @@ class DjelatnikCreateView(
         return context
 
     def test_func(self): # TODO: Rewrite as permission
-        if self.request.user.is_superuser or self.request.user.is_staff:
+        if (self.request.user.is_superuser 
+            or (self.request.user.racun.tip_racuna.je_voditelj
+            and self.request.user.racun)):
             return True
         else:
             return False
@@ -138,7 +142,9 @@ class RoditeljCreateView(
         return context
 
     def test_func(self): # TODO: Rewrite as permission
-        if self.request.user.is_superuser or self.request.user.is_staff:
+        if (self.request.user.is_superuser 
+            or (self.request.user.racun.tip_racuna.je_voditelj
+            and self.request.user.racun)):
             return True
         else:
             return False
@@ -172,6 +178,7 @@ class DjelatnikUpdateView(
         self.object.user.first_name = form.cleaned_data.pop('first_name')
         self.object.user.last_name = form.cleaned_data.pop('last_name')
         self.object.user.email = form.cleaned_data.pop('email')
+        self.object.user.is_staff = True
         self.object.user.save()
         form.save()
 
@@ -184,7 +191,9 @@ class DjelatnikUpdateView(
         return context
 
     def test_func(self): # TODO: Rewrite as permission
-        if self.request.user.is_superuser or self.request.user.is_staff:
+        if (self.request.user.is_superuser 
+            or (self.request.user.racun.tip_racuna.je_voditelj
+            and self.request.user.racun)):
             return True
         else:
             return False
@@ -231,7 +240,9 @@ class RoditeljUpdateView(
         return context
 
     def test_func(self): # TODO: Rewrite as permission
-        if self.request.user.is_superuser or self.request.user.is_staff:
+        if (self.request.user.is_superuser 
+            or (self.request.user.racun.tip_racuna.je_voditelj
+            and self.request.user.racun)):
             return True
         else:
             return False
@@ -254,7 +265,9 @@ class RacunDeleteView(
         return super(RacunDeleteView, self).delete(request, *args, **kwargs)
 
     def test_func(self): # TODO: Rewrite as permission
-        if self.request.user.is_superuser or self.request.user.is_staff:
+        if (self.request.user.is_superuser 
+            or (self.request.user.racun.tip_racuna.je_voditelj
+            and self.request.user.racun)):
             return True
         else:
             return False

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Neomogućen pristup" type="list" type_name="access" %}
+
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Vrste programa" type="list" type_name="vrsta_programa" %}
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-lg-5 m-auto mb-3">
+            <div class="card h-100">
+                <div class="card-body card-link" onclick="location.href='{% url 'programi:popis-programa' vrsta_programa.id %}'">
+                    <h4 class="h4 font-weight-bold card-title">
+                        Pristup nije dozvoljen
+                    </h4>
+                    <div class="card-text">
+                        Molimo obratite se 
+                        <a href="mailto:kindergarten2021@gmail.com">
+                            administratoru
+                        </a> 
+                        za pojašnjenje.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
+
+{% endblock body %}

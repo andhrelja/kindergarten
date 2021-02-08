@@ -2,87 +2,89 @@
 {% load vrtic_extras %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'vrtic:home' %}">
-        <img src="{% static 'images/kindergarten_logo.png' %}" alt="kindergarten_logo.png" width="30" height="30">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarMain">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'vrtic:home' %}">Početna</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'programi:popis-vrsta-programa' %}">Programi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'dogadjaji:popis' %}">Događaji</a>
-            </li>
-            {% if user.is_authenticated and user.is_staff or user.racun.tip_racuna.je_djelatnik %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'upisi:popis' %}">Upisi</a>
-            </li>
-            {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'upisi:stvori' %}">Upisi</a>
-            </li>
-            {% endif %}
-            
-            <li class="nav-item">
-                <a class="nav-link" href="#">O nama</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-
-            {% if user.is_authenticated %}
-            {% if user.racun.tip_racuna.je_roditelj %}
-
-            {% if user.racun.ceka_suglasnost %}
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Suglasnosti na čekanju
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                {% for dijete in user.racun.dijete_set.all %}
-                {% for suglasnost in dijete.suglasnost_set.all %}
-                {% if suglasnost.odobren is None %}
-                    <a class="dropdown-item" href="{% url 'dogadjaji:suglasnost-prikaz' suglasnost.dogadjaj.id suglasnost.id %}">
-                        <i class="fas fa-comment-dots"></i>
-                        <span>{{ dijete.get_full_name }} ({{ suglasnost.dogadjaj }})</span>
-                    </a>
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'vrtic:home' %}">
+            <img src="{% static 'images/kindergarten_logo.png' %}" alt="kindergarten_logo.png" width="30" height="30">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'vrtic:home' %}">Početna</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'programi:popis-vrsta-programa' %}">Programi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dogadjaji:popis' %}">Događaji</a>
+                </li>
+                {% if user.is_authenticated and user.is_staff or user.racun.tip_racuna.je_djelatnik %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'upisi:popis' %}">Upisi</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'upisi:stvori' %}">Upisi</a>
+                </li>
                 {% endif %}
-                {% endfor %}
-                {% endfor %}
-                </div>
-            </li>
-            {% endif %}
-            {% endif %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'djeca:popis' %}">Djeca</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'financije:popis' %}">Financije</a>
-            </li>
-            {% if user.is_superuser %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'racuni:popis' %}">Računi</a>
-            </li>     
-            {% endif %}    
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="racunDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ user.get_full_name }}
-                </a>
-                <div class="dropdown-menu" aria-labelledby="racunDropdown">
-                    <a class="dropdown-item" href="{% url 'racuni:odjava' %}">Odjava</a>
-                </div>
-            </li>
-            {% else %}
-            <li class="nav-item">
-                <a class="dropdown-item" href="{% url 'racuni:prijava' %}">Prijava</a>
-            </li>
-            {% endif %}
-            
-        </ul>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#">O nama</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+
+                {% if user.is_authenticated %}
+                {% if user.racun.tip_racuna.je_roditelj %}
+
+                {% if user.racun.ceka_suglasnost %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Suglasnosti na čekanju
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% for dijete in user.racun.dijete_set.all %}
+                    {% for suglasnost in dijete.suglasnost_set.all %}
+                    {% if suglasnost.odobren is None %}
+                        <a class="dropdown-item" href="{% url 'dogadjaji:suglasnost-prikaz' suglasnost.dogadjaj.id suglasnost.id %}">
+                            <i class="fas fa-comment-dots"></i>
+                            <span>{{ dijete.get_full_name }} ({{ suglasnost.dogadjaj }})</span>
+                        </a>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                    </div>
+                </li>
+                {% endif %}
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'djeca:popis' %}">Djeca</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'financije:popis' %}">Financije</a>
+                </li>
+                {% if user.is_superuser %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'racuni:popis' %}">Računi</a>
+                </li>     
+                {% endif %}    
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="racunDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ user.get_full_name }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="racunDropdown">
+                        <a class="dropdown-item" href="{% url 'racuni:odjava' %}">Odjava</a>
+                    </div>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="dropdown-item" href="{% url 'racuni:prijava' %}">Prijava</a>
+                </li>
+                {% endif %}
+                
+            </ul>
+        </div>
     </div>
 </nav>

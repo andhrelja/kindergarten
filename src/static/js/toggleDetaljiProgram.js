@@ -27,6 +27,8 @@ function main() {
 function fetchSelectedVrstaPrograma() {
     hideDobneSkupine();
     hideSmjene();
+    hideUpisanaDjeca();
+    
     let vrstaPrograma = getSelectedVrstaPrograma(vrstaProgramaSelect);
     if (vrstaPrograma) {
         let url = '/programi/vrsta-programa/' + vrstaPrograma.value + '/api';
@@ -40,6 +42,7 @@ function fetchSelectedVrstaPrograma() {
 function fetchSelectedProgram() {
     hideDobneSkupine();
     hideSmjene();
+    hideUpisanaDjeca();
     fetchSelectedProgram_DobneSkupine();
     fetchSelectedProgram_Smjene();
     fetchSelectedProgram_UpisanaDjeca();
@@ -80,7 +83,8 @@ function fetchSelectedProgram_UpisanaDjeca() {
 
 
 function toggleVrstaProgramaDetails(data) {
-    vrstaProgramaCijena.innerHTML = data.fields.clanstvo_cijena + ' kn/mj.';
+    let clanstvo = parseFloat(data.fields.clanstvo_cijena);
+    vrstaProgramaCijena.innerHTML = (clanstvo * 30 * 8) + ' kn/mj.';
 }
 
 function toggleProgramDobneSkupine(data) {
@@ -127,5 +131,11 @@ function hideDobneSkupine() {
 function hideSmjene() {
     while (programSmjene.firstChild) {
         programSmjene.removeChild(programSmjene.lastChild);
+    }
+}
+
+function hideUpisanaDjeca() {
+    while (programUpisanaDjeca.firstChild) {
+        programUpisanaDjeca.removeChild(programUpisanaDjeca.lastChild);
     }
 }

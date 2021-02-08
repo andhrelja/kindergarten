@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$216000$sVfZHXoH7iFm$Jc3RvvIf+8RsnDLfXB2cBr54fw3hAfeQsUFrt15WvVE=",
-      "last_login": "2021-01-29T08:37:35.815Z",
+      "last_login": "2021-02-05T17:57:47.768Z",
       "is_superuser": true,
       "username": "admin",
       "first_name": "Administrator",
@@ -15,66 +15,6 @@
       "date_joined": "2020-12-20T11:04:38Z",
       "groups": [],
       "user_permissions": []
-    }
-  },
-  {
-    "model": "auth.user",
-    "pk": 2,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$apkMAtwEKuh9$Muzy7OLo4SatJD4y3CQ02mwch+ltWE8JOq5YpGO8T84=",
-      "last_login": null,
-      "is_superuser": true,
-      "username": "user",
-      "first_name": "",
-      "last_name": "",
-      "email": "",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2021-01-28T18:01:03.513Z",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "auth.user",
-    "pk": 3,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$fEnze4sGSx8L$tCY08Yck0oAn01R787lpI2209JBkuCnEZfJ3cp9RfVI=",
-      "last_login": "2021-01-28T19:16:57.158Z",
-      "is_superuser": false,
-      "username": "toni.percan@gmail.com",
-      "first_name": "Toni",
-      "last_name": "Percan",
-      "email": "toni.percan@gmail.com",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-28T19:08:56.582Z",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "sessions.session",
-    "pk": "b3p8r474mksqhs3l8t68hxho2iy4k6ic",
-    "fields": {
-      "session_data": ".eJxVy0EOwiAQQNG7sDYNA4TOuDTxHGQYxkDULoqsjHfXJl3U7X_5b5N4vGoaXdfUijkbMKdjyyx3XTZYWcbSpj306frk9rjs_PdU7vU3eLlFziUqzFmRCvrisTCJszojS2QExxTQiSPricEFIspBFSxgMJ8v2VQytg:1l5CTt:gnGooAzPqUqXsCclwlVMSSf-Bo9CCE40XhxEEgC7-lI",
-      "expire_date": "2021-02-11T18:57:25.376Z"
-    }
-  },
-  {
-    "model": "sessions.session",
-    "pk": "l6k6377clbnm39u6d5v2ud2thxzzn5ev",
-    "fields": {
-      "session_data": ".eJxVy0EOwiAQQNG7sDYNA4TOuDTxHGQYxkDULoqsjHfXJl3U7X_5b5N4vGoaXdfUijkbMKdjyyx3XTZYWcbSpj306frk9rjs_PdU7vU3eLlFziUqzFmRCvrisTCJszojS2QExxTQiSPricEFIspBFSxgMJ8v2VQytg:1kxI5m:3pAthQv3ZUjC3WZ2ICUxdcuFPeBvoW50pkfXiqHuWjQ",
-      "expire_date": "2021-01-20T23:19:50.600Z"
-    }
-  },
-  {
-    "model": "sessions.session",
-    "pk": "wsm5t699oqezk4gjqqt7kw2gbu4ksqbc",
-    "fields": {
-      "session_data": ".eJxVy0EOwiAQQNG7sDYNA4TOuDTxHGQYxkDULoqsjHfXJl3U7X_5b5N4vGoaXdfUijkbMKdjyyx3XTZYWcbSpj306frk9rjs_PdU7vU3eLlFziUqzFmRCvrisTCJszojS2QExxTQiSPricEFIspBFSxgMJ8v2VQytg:1l5Dvl:LqabswmSWsvtgcN0Bdtjn37PVWknGxmN8eNsx_pjNzc",
-      "expire_date": "2021-02-11T20:30:17.672Z"
     }
   },
   {
@@ -93,7 +33,7 @@
     "fields": {
       "naziv": "Redoviti programi",
       "opis": "Redoviti program njege, odgoja, obrazovanja, zdravstvene zaštite, prehrane i socijalne skrbi djece rane i predškolske dobi koji je prilagođen razvojnim potrebama djece te njihovim mogućnostima i sposobnostima provodi se u svim Centrima predškolskog odgoja Dječjeg vrtića Rijeka.",
-      "clanstvo_cijena": 2400.0,
+      "clanstvo_cijena": 15.0,
       "vrtic": 1,
       "dogadjaji": []
     }
@@ -104,7 +44,7 @@
     "fields": {
       "naziv": "Obogaćeni programi",
       "opis": "U Dječjem vrtiću Kindergarten se uz redoviti program, u više oblika provode i razni redoviti programi obogaćeni specifičnim sadržajima.",
-      "clanstvo_cijena": 2600.0,
+      "clanstvo_cijena": 16.0,
       "vrtic": 1,
       "dogadjaji": []
     }
@@ -115,7 +55,7 @@
     "fields": {
       "naziv": "Posebni programi",
       "opis": "U odgojno-obrazovne skupine Dječjeg vrtića Rijeka s posebnim programom uključuju se djeca s težim teškoćama kojima se vrsta i stupanj teškoće utvrđuje prema posebnim propisima iz područja socijalne skrbi.",
-      "clanstvo_cijena": 2800.0,
+      "clanstvo_cijena": 16.0,
       "vrtic": 1,
       "dogadjaji": []
     }
@@ -126,7 +66,7 @@
     "fields": {
       "naziv": "Kraći programi",
       "opis": "Kao kraći programi u okviru Dječjeg vrtića Rijeka provode se razne igraonice.",
-      "clanstvo_cijena": 1800.0,
+      "clanstvo_cijena": 14.0,
       "vrtic": 1,
       "dogadjaji": []
     }
@@ -137,7 +77,7 @@
     "fields": {
       "naziv": "Predškolski",
       "opis": "Program predškole obvezan je program odgojno-obrazovnog rada s djecom u godini dana prije polaska u osnovnu školu te se provodi u trajanju od 250 sati.",
-      "clanstvo_cijena": 2400.0,
+      "clanstvo_cijena": 18.0,
       "vrtic": 1,
       "dogadjaji": []
     }
@@ -149,10 +89,10 @@
       "naziv": "Poludnevni",
       "dodatni_boravak": true,
       "max_broj_djece": 10,
-      "opis": "",
+      "opis": "Redoviti program njege, odgoja, obrazovanja, zdravstvene zaštite, prehrane i socijalne skrbi djece rane i predškolske dobi koji je prilagođen razvojnim potrebama djece te njihovim mogućnostima i sposobnostima provodi se u svim Centrima predškolskog odgoja Dječjeg vrtića Rijeka.\r\n\r\nCiljevi i zadaće redovitog programa  usmjereni su na očuvanje tjelesnog i mentalnog zdravlja djeteta te poticanje cjelovitog razvoja svih funkcija i svih djetetovih aktualnih i potencijalnih sposobnosti i vještina (tjelesnih, intelektualnih, socio-emocionalnih i izražajnih), uz naglašenu komunikacijsku i interakcijsku komponentu.",
       "vrsta_programa": 1,
-      "smjene": [],
-      "dobne_skupine": []
+      "smjene": [1],
+      "dobne_skupine": [1, 2, 3]
     }
   },
   {
@@ -162,10 +102,10 @@
       "naziv": "Cjelodnevni",
       "dodatni_boravak": false,
       "max_broj_djece": 10,
-      "opis": "",
+      "opis": "Redoviti program njege, odgoja, obrazovanja, zdravstvene zaštite, prehrane i socijalne skrbi djece rane i predškolske dobi koji je prilagođen razvojnim potrebama djece te njihovim mogućnostima i sposobnostima provodi se u svim Centrima predškolskog odgoja Dječjeg vrtića Rijeka.\r\n\r\nCiljevi i zadaće redovitog programa  usmjereni su na očuvanje tjelesnog i mentalnog zdravlja djeteta te poticanje cjelovitog razvoja svih funkcija i svih djetetovih aktualnih i potencijalnih sposobnosti i vještina (tjelesnih, intelektualnih, socio-emocionalnih i izražajnih), uz naglašenu komunikacijsku i interakcijsku komponentu.",
       "vrsta_programa": 1,
-      "smjene": [],
-      "dobne_skupine": []
+      "smjene": [3],
+      "dobne_skupine": [1, 2, 3]
     }
   },
   {
@@ -299,67 +239,91 @@
     }
   },
   {
-    "model": "racuni.racun",
+    "model": "racuni.tipracuna",
     "pk": 1,
     "fields": {
-      "telefon": "+89594859",
-      "datum_rodjenja": "1996-07-22",
-      "je_roditelj": true,
+      "naziv": "Roditelj",
+      "satnica": 0.0,
       "je_djelatnik": false,
-      "je_voditelj": false,
-      "je_strucni_tim": false,
-      "user": ["toni.percan@gmail.com"],
-      "tip_racuna": 1
+      "je_roditelj": true,
+      "je_voditelj": false
     }
   },
   {
     "model": "racuni.tipracuna",
-    "pk": 1,
-    "fields": { "naziv": "Roditelj", "satnica": 0.0 }
-  },
-  {
-    "model": "racuni.tipracuna",
     "pk": 2,
-    "fields": { "naziv": "Voditeljica", "satnica": 60.0 }
+    "fields": {
+      "naziv": "Voditeljica",
+      "satnica": 40.0,
+      "je_djelatnik": true,
+      "je_roditelj": false,
+      "je_voditelj": true
+    }
   },
   {
     "model": "racuni.tipracuna",
     "pk": 3,
-    "fields": { "naziv": "Stručna suradnica pedagoginja", "satnica": 50.0 }
+    "fields": {
+      "naziv": "Odgojateljica",
+      "satnica": 33.0,
+      "je_djelatnik": true,
+      "je_roditelj": false,
+      "je_voditelj": false
+    }
   },
   {
     "model": "racuni.tipracuna",
     "pk": 4,
-    "fields": { "naziv": "Stručna suradnica psihologinja", "satnica": 50.0 }
+    "fields": {
+      "naziv": "Stručna suradnica pedagoginja",
+      "satnica": 35.0,
+      "je_djelatnik": true,
+      "je_roditelj": false,
+      "je_voditelj": false
+    }
   },
   {
     "model": "racuni.tipracuna",
     "pk": 5,
-    "fields": { "naziv": "Stručna suradnica rehabilitatorica", "satnica": 50.0 }
+    "fields": {
+      "naziv": "Stručna suradnica psihologinja",
+      "satnica": 36.0,
+      "je_djelatnik": true,
+      "je_roditelj": false,
+      "je_voditelj": false
+    }
   },
   {
     "model": "racuni.tipracuna",
     "pk": 6,
     "fields": {
-      "naziv": "Stručna suradnica psihologinja za djecu s teškoćama",
-      "satnica": 50.0
+      "naziv": "Stručna suradnica rehabilitatorica",
+      "satnica": 37.0,
+      "je_djelatnik": true,
+      "je_roditelj": false,
+      "je_voditelj": false
     }
   },
   {
     "model": "racuni.tipracuna",
     "pk": 7,
-    "fields": { "naziv": "Zdravstvena voditeljica", "satnica": 55.0 }
+    "fields": {
+      "naziv": "Stručna suradnica psihologinja za djecu s teškoćama",
+      "satnica": 33.0,
+      "je_djelatnik": true,
+      "je_roditelj": false,
+      "je_voditelj": false
+    }
   },
   {
-    "model": "djeca.dijete",
-    "pk": 1,
+    "model": "racuni.tipracuna",
+    "pk": 8,
     "fields": {
-      "ime": "Andrea",
-      "prezime": "Percan",
-      "datum_rodjenja": "2018-01-28",
-      "dodatne_informacije": "Dobro je djete, jede.",
-      "roditelj": 1,
-      "program": null
+      "naziv": "Zdravstvena voditeljica",
+      "satnica": 35.0,
+      "je_djelatnik": true,
+      "je_roditelj": false,
+      "je_voditelj": false
     }
   },
   {
@@ -390,96 +354,6 @@
     }
   },
   {
-    "model": "upisi.upis",
-    "pk": 1,
-    "fields": {
-      "roditelj_puno_ime": "Toni Percan",
-      "roditelj_email": "toni.percan@gmail.com",
-      "roditelj_datum_rodjenja": "1996-07-22",
-      "roditelj_telefon": "+89594859",
-      "dijete_puno_ime": "Andrea Percan",
-      "dijete_datum_rodjenja": "2018-01-28",
-      "dijete_dodatne_informacije": "Dobro je djete, jede.",
-      "odobren": true,
-      "obrazlozenje": "Sve štima.",
-      "program": 3,
-      "created_at": "2021-01-28T19:04:23.237Z",
-      "updated_at": "2021-01-28T19:08:56.578Z"
-    }
-  },
-  {
-    "model": "upisi.upis",
-    "pk": 2,
-    "fields": {
-      "roditelj_puno_ime": "Toni Percan",
-      "roditelj_email": "toni.percan@gmail.com",
-      "roditelj_datum_rodjenja": "1996-06-14",
-      "roditelj_telefon": "0989641995",
-      "dijete_puno_ime": "Andrea Percan",
-      "dijete_datum_rodjenja": "2017-02-13",
-      "dijete_dodatne_informacije": "",
-      "odobren": null,
-      "obrazlozenje": "",
-      "program": 4,
-      "created_at": "2021-01-28T19:58:02.240Z",
-      "updated_at": "2021-01-28T19:58:02.240Z"
-    }
-  },
-  {
-    "model": "upisi.upis",
-    "pk": 3,
-    "fields": {
-      "roditelj_puno_ime": "Toni Percan",
-      "roditelj_email": "toni.percan@gmail.com",
-      "roditelj_datum_rodjenja": "1996-03-28",
-      "roditelj_telefon": "0989641995",
-      "dijete_puno_ime": "Andrea Percan",
-      "dijete_datum_rodjenja": "2016-06-28",
-      "dijete_dodatne_informacije": "",
-      "odobren": null,
-      "obrazlozenje": "",
-      "program": 7,
-      "created_at": "2021-01-28T19:58:42.972Z",
-      "updated_at": "2021-01-28T19:58:42.972Z"
-    }
-  },
-  {
-    "model": "upisi.upis",
-    "pk": 4,
-    "fields": {
-      "roditelj_puno_ime": "Toni Percan",
-      "roditelj_email": "toni.percan@gmail.com",
-      "roditelj_datum_rodjenja": "2006-06-28",
-      "roditelj_telefon": "0989641995",
-      "dijete_puno_ime": "Andrea Percan",
-      "dijete_datum_rodjenja": "2016-06-28",
-      "dijete_dodatne_informacije": "",
-      "odobren": null,
-      "obrazlozenje": "",
-      "program": 7,
-      "created_at": "2021-01-28T19:59:34.842Z",
-      "updated_at": "2021-01-28T19:59:34.842Z"
-    }
-  },
-  {
-    "model": "upisi.upis",
-    "pk": 5,
-    "fields": {
-      "roditelj_puno_ime": "Toni Percan",
-      "roditelj_email": "davidjanes2@hotmail.com",
-      "roditelj_datum_rodjenja": "1996-06-28",
-      "roditelj_telefon": "0989641995",
-      "dijete_puno_ime": "Andrea Percan",
-      "dijete_datum_rodjenja": "2017-06-28",
-      "dijete_dodatne_informacije": "",
-      "odobren": null,
-      "obrazlozenje": "",
-      "program": 3,
-      "created_at": "2021-01-28T20:10:22.375Z",
-      "updated_at": "2021-01-28T20:10:22.375Z"
-    }
-  },
-  {
     "model": "smjene.smjena",
     "pk": 1,
     "fields": {
@@ -504,149 +378,6 @@
       "naziv_smjene": "Cjelodnevna",
       "vrijeme_start": "06:30:00",
       "vrijeme_kraj": "17:00:00"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 1,
-    "fields": {
-      "action_time": "2021-01-28T18:02:54.761Z",
-      "user": ["admin"],
-      "content_type": ["smjene", "smjena"],
-      "object_id": "3",
-      "object_repr": "Cjelodnevna: 06:30 - 17:00",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 2,
-    "fields": {
-      "action_time": "2021-01-28T18:03:15.397Z",
-      "user": ["admin"],
-      "content_type": ["programi", "program"],
-      "object_id": "3",
-      "object_repr": "Program ranog učenja engleskog jezika",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 3,
-    "fields": {
-      "action_time": "2021-01-28T18:03:46.395Z",
-      "user": ["admin"],
-      "content_type": ["programi", "program"],
-      "object_id": "4",
-      "object_repr": "Program ranog učenja talijanskog jezika",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 4,
-    "fields": {
-      "action_time": "2021-01-28T18:04:24.235Z",
-      "user": ["admin"],
-      "content_type": ["programi", "program"],
-      "object_id": "5",
-      "object_repr": "Program obogaćen specifičnim sadržajima sporta",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 5,
-    "fields": {
-      "action_time": "2021-01-28T18:04:49.890Z",
-      "user": ["admin"],
-      "content_type": ["programi", "program"],
-      "object_id": "6",
-      "object_repr": "Program obogaćen katoličkim vjerskim odgojem",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 6,
-    "fields": {
-      "action_time": "2021-01-28T18:05:37.960Z",
-      "user": ["admin"],
-      "content_type": ["programi", "program"],
-      "object_id": "7",
-      "object_repr": "Program za djecu s motoričkim oštećenjima",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 7,
-    "fields": {
-      "action_time": "2021-01-28T18:06:12.097Z",
-      "user": ["admin"],
-      "content_type": ["programi", "program"],
-      "object_id": "8",
-      "object_repr": "Program za djecu s poremećajima iz spektra autizma",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 8,
-    "fields": {
-      "action_time": "2021-01-28T18:06:49.254Z",
-      "user": ["admin"],
-      "content_type": ["programi", "program"],
-      "object_id": "9",
-      "object_repr": "Igraonica za poticanje razvoja darovite djece",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 9,
-    "fields": {
-      "action_time": "2021-01-28T18:07:25.105Z",
-      "user": ["admin"],
-      "content_type": ["programi", "program"],
-      "object_id": "10",
-      "object_repr": "Igraonica za učenje engleskog jezika",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 10,
-    "fields": {
-      "action_time": "2021-01-28T18:07:55.403Z",
-      "user": ["admin"],
-      "content_type": ["programi", "program"],
-      "object_id": "11",
-      "object_repr": "Sportska igraonica \"Loptići\"nica \"Loptići\"",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 11,
-    "fields": {
-      "action_time": "2021-01-28T18:08:31.133Z",
-      "user": ["admin"],
-      "content_type": ["programi", "program"],
-      "object_id": "12",
-      "object_repr": "Predškola",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
     }
   }
 ]
