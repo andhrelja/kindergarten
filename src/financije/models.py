@@ -33,6 +33,8 @@ class Clanarina(models.Model):
         for dijete in djeca:
             time_since = now - dijete.roditelj.created_at
             months_since = int(time_since.days / 30)
+            if now.day < 15:
+                months_since -= 1
             month = now.month
             year = now.year
             for i in range(0, months_since):
@@ -65,6 +67,8 @@ class Clanarina(models.Model):
         for dijete in djeca:
             time_since = now - dijete.roditelj.created_at
             months_since = int(time_since.days / 30)
+            if now.day < 15:
+                months_since -= 1
             month = now.month
             year = now.year
             for i in range(0, months_since):
@@ -119,6 +123,8 @@ class Placa(models.Model):
         for djelatnik in djelatnici:
             time_since = now - djelatnik.created_at
             months_since = int(time_since.days / 30)
+            if now.day < 15:
+                months_since -= 1
             month = now.month
             year = now.year
             for i in range(0, months_since):
@@ -149,6 +155,8 @@ class Placa(models.Model):
         
         time_since = now - djelatnik.created_at
         months_since = int(time_since.days / 30)
+        if now.day < 15:
+            months_since -= 1
         month = now.month
         year = now.year
         for i in range(0, months_since):

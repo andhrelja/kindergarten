@@ -1,717 +1,868 @@
 [
-  {
-    "model": "auth.user",
-    "pk": 1,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sVfZHXoH7iFm$Jc3RvvIf+8RsnDLfXB2cBr54fw3hAfeQsUFrt15WvVE=",
-      "last_login": "2021-02-08T20:50:23.150Z",
-      "is_superuser": true,
-      "username": "admin",
-      "first_name": "Administrator",
-      "last_name": "",
-      "email": "admin@email.com",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2020-12-20T11:04:38Z",
-      "groups": [],
-      "user_permissions": []
+    {
+      "model": "auth.user",
+      "pk": 1,
+      "fields": {
+        "password": "pbkdf2_sha256$216000$sVfZHXoH7iFm$Jc3RvvIf+8RsnDLfXB2cBr54fw3hAfeQsUFrt15WvVE=",
+        "last_login": "2021-02-09T17:51:39.442Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "Administrator",
+        "last_name": "",
+        "email": "admin@email.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-12-20T11:04:38Z",
+        "groups": [],
+        "user_permissions": []
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 2,
+      "fields": {
+        "password": "pbkdf2_sha256$216000$utb0ybwDB7DR$91SXi+f54jD9TTLv+t6XCQJajXKII4qh20Ortoh0CGE=",
+        "last_login": "2021-02-08T20:48:47.716Z",
+        "is_superuser": false,
+        "username": "marica.zovic@email.com",
+        "first_name": "Marica",
+        "last_name": "Zović",
+        "email": "marica.zovic@email.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-02-08T17:51:08.964Z",
+        "groups": [],
+        "user_permissions": []
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 3,
+      "fields": {
+        "password": "pbkdf2_sha256$216000$G0nWK9HaWPxc$ZlXNdWVao4iqM48JxHEeN93BKE9Vz8klBaVBtgRZSM4=",
+        "last_login": "2021-02-08T18:02:05.956Z",
+        "is_superuser": false,
+        "username": "ivanka.ivic@email.com",
+        "first_name": "Ivanka",
+        "last_name": "Ivić",
+        "email": "ivanka.ivic@email.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-02-08T17:52:43.193Z",
+        "groups": [],
+        "user_permissions": []
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 4,
+      "fields": {
+        "password": "pbkdf2_sha256$216000$rqgrHncOxfyX$RzNyJ2cPnliai86nReVBA1+cGCwdPSrt8OBCVM8bERc=",
+        "last_login": "2021-02-08T20:56:07.128Z",
+        "is_superuser": false,
+        "username": "marko.maric@email.com",
+        "first_name": "Marko",
+        "last_name": "Marić",
+        "email": "marko.maric@email.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-02-08T19:03:33.490Z",
+        "groups": [],
+        "user_permissions": []
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 5,
+      "fields": {
+        "password": "pbkdf2_sha256$216000$V5jkS5UDCZ1e$rsoP6UeZnJZqlxdbjyY2FKVmOQ3ul/cqdebpNmJbDCU=",
+        "last_login": "2021-02-09T19:03:34.194Z",
+        "is_superuser": false,
+        "username": "ivan.dubroja@email.com",
+        "first_name": "Ivan",
+        "last_name": "Dubroja",
+        "email": "ivan.dubroja@email.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-02-09T18:14:15.089Z",
+        "groups": [],
+        "user_permissions": []
+      }
+    },
+    {
+      "model": "sessions.session",
+      "pk": "4h1e3hquuuwvo1tew6xo78x3jiwy862j",
+      "fields": {
+        "session_data": ".eJxVyzEOwjAMQNG7ZEZVGsdtwojEOSK7dpQI6NA0E-LugNQB1v_0nyZR30vqTbdUxZyNN6ffxrTcdP3CRktf63CENlwfVO-Xg_-eQq18BmYZBacZVBFUMI7gRmcJZm-ZODgOKkSswuwikreZCTJjwEwQJ_N6A95VM-E:1l9DZn:0D3g2B4VHwHezxq7liUfdPTYRiclYJsc99JlbDofXB0",
+        "expire_date": "2021-02-22T20:56:07.128Z"
+      }
+    },
+    {
+      "model": "sessions.session",
+      "pk": "k86k17508ze7ywop5wd3fdrp18jb9q0y",
+      "fields": {
+        "session_data": ".eJxVy0EOwiAQQNG7sDYNA4TOuDTxHGQYxkDULoqsjHfXJl3U7X_5b5N4vGoaXdfUijkbMKdjyyx3XTZYWcbSpj306frk9rjs_PdU7vU3eLlFziUqzFmRCvrisTCJszojS2QExxTQiSPricEFIspBFSxgMJ8v2VQytg:1l9XAp:qbLpBMJ0nvLfw770IM0cjO4qdAGJ4QG-ft35N6l8oqk",
+        "expire_date": "2021-02-23T17:51:39.459Z"
+      }
+    },
+    {
+      "model": "sessions.session",
+      "pk": "xzf5aflrnfnvp2yk5r2v2asjzltslrjm",
+      "fields": {
+        "session_data": ".eJxVy00OwiAQQOG7sDbNDD-FcWniOcgwQCBqF6VdGe-uJl3o9n15TxV531rcR1ljz-qsnDr9tsRyK8sXVpZ96dMRxnR9cL9fDv57Go_2GWqYyWBGSMGTrcEgYbWI3hmTLZEjFh0EoMxaZ7DghYRTRShYTAL1egOPBjHm:1l9YIQ:MfA3QcBVbLasdyhuJR7Jo_eY7_0BDMGrtnZxkS6PJxE",
+        "expire_date": "2021-02-23T19:03:34.197Z"
+      }
+    },
+    {
+      "model": "vrtic.vrtic",
+      "pk": 1,
+      "fields": {
+        "naziv": "Kindergarten",
+        "adresa": "Janka Polića Kamova 5",
+        "kontakt_broj": "+385 99 2421 285",
+        "kontakt_email": "info@kindergarten.com"
+      }
+    },
+    {
+      "model": "financije.clanarina",
+      "pk": 59,
+      "fields": {
+        "naziv": "1 - Lorena Marić",
+        "datum": "2021-02-15",
+        "iznos": 3840.0,
+        "PDV": 960.0,
+        "ukupno": 4800.0,
+        "dijete": 1,
+        "created_at": "2021-02-08T20:04:25.789Z"
+      }
+    },
+    {
+      "model": "financije.clanarina",
+      "pk": 60,
+      "fields": {
+        "naziv": "2 - Lorena Marić",
+        "datum": "2021-01-15",
+        "iznos": 3840.0,
+        "PDV": 960.0,
+        "ukupno": 4800.0,
+        "dijete": 1,
+        "created_at": "2021-02-08T20:04:25.798Z"
+      }
+    },
+    {
+      "model": "financije.clanarina",
+      "pk": 61,
+      "fields": {
+        "naziv": "3 - Lorena Marić",
+        "datum": "2020-12-15",
+        "iznos": 3840.0,
+        "PDV": 960.0,
+        "ukupno": 4800.0,
+        "dijete": 1,
+        "created_at": "2021-02-08T20:04:25.803Z"
+      }
+    },
+    {
+      "model": "financije.clanarina",
+      "pk": 62,
+      "fields": {
+        "naziv": "4 - Lorena Marić",
+        "datum": "2020-09-15",
+        "iznos": 3840.0,
+        "PDV": 960.0,
+        "ukupno": 4800.0,
+        "dijete": 1,
+        "created_at": "2021-02-08T20:04:25.806Z"
+      }
+    },
+    {
+      "model": "financije.placa",
+      "pk": 1,
+      "fields": {
+        "naziv": "1 - Ivanka Ivić",
+        "datum": "2021-02-15",
+        "bruto": 12000.0,
+        "neto": 9600.0,
+        "djelatnik": 2,
+        "created_at": "2021-02-08T20:20:42.089Z"
+      }
+    },
+    {
+      "model": "financije.placa",
+      "pk": 2,
+      "fields": {
+        "naziv": "2 - Ivanka Ivić",
+        "datum": "2021-01-15",
+        "bruto": 12000.0,
+        "neto": 9600.0,
+        "djelatnik": 2,
+        "created_at": "2021-02-08T20:20:42.095Z"
+      }
+    },
+    {
+      "model": "financije.placa",
+      "pk": 3,
+      "fields": {
+        "naziv": "3 - Ivanka Ivić",
+        "datum": "2020-12-15",
+        "bruto": 12000.0,
+        "neto": 9600.0,
+        "djelatnik": 2,
+        "created_at": "2021-02-08T20:20:42.098Z"
+      }
+    },
+    {
+      "model": "financije.placa",
+      "pk": 4,
+      "fields": {
+        "naziv": "4 - Ivanka Ivić",
+        "datum": "2020-09-15",
+        "bruto": 12000.0,
+        "neto": 9600.0,
+        "djelatnik": 2,
+        "created_at": "2021-02-08T20:20:42.102Z"
+      }
+    },
+    {
+      "model": "financije.placa",
+      "pk": 5,
+      "fields": {
+        "naziv": "1 - Marica Zović",
+        "datum": "2021-02-15",
+        "bruto": 9900.0,
+        "neto": 7920.0,
+        "djelatnik": 1,
+        "created_at": "2021-02-08T20:20:42.112Z"
+      }
+    },
+    {
+      "model": "financije.placa",
+      "pk": 6,
+      "fields": {
+        "naziv": "2 - Marica Zović",
+        "datum": "2021-01-15",
+        "bruto": 9900.0,
+        "neto": 7920.0,
+        "djelatnik": 1,
+        "created_at": "2021-02-08T20:20:42.115Z"
+      }
+    },
+    {
+      "model": "financije.placa",
+      "pk": 7,
+      "fields": {
+        "naziv": "3 - Marica Zović",
+        "datum": "2020-12-15",
+        "bruto": 9900.0,
+        "neto": 7920.0,
+        "djelatnik": 1,
+        "created_at": "2021-02-08T20:20:42.119Z"
+      }
+    },
+    {
+      "model": "financije.placa",
+      "pk": 8,
+      "fields": {
+        "naziv": "4 - Marica Zović",
+        "datum": "2020-09-15",
+        "bruto": 9900.0,
+        "neto": 7920.0,
+        "djelatnik": 1,
+        "created_at": "2021-02-08T20:20:42.126Z"
+      }
+    },
+    {
+      "model": "dogadjaji.suglasnost",
+      "pk": 1,
+      "fields": {
+        "dogadjaj": 1,
+        "dijete": 1,
+        "odobren": true,
+        "created_at": "2021-02-08T20:55:40.887Z",
+        "updated_at": "2021-02-08T20:57:10.167Z"
+      }
+    },
+    {
+      "model": "dogadjaji.suglasnost",
+      "pk": 2,
+      "fields": {
+        "dogadjaj": 2,
+        "dijete": 2,
+        "odobren": true,
+        "created_at": "2021-02-09T19:02:44.971Z",
+        "updated_at": "2021-02-09T19:51:53.968Z"
+      }
+    },
+    {
+      "model": "dogadjaji.suglasnost",
+      "pk": 3,
+      "fields": {
+        "dogadjaj": 2,
+        "dijete": 1,
+        "odobren": null,
+        "created_at": "2021-02-09T19:02:44.986Z",
+        "updated_at": "2021-02-09T19:02:44.986Z"
+      }
+    },
+    {
+      "model": "dogadjaji.suglasnost",
+      "pk": 4,
+      "fields": {
+        "dogadjaj": 1,
+        "dijete": 3,
+        "odobren": false,
+        "created_at": "2021-02-09T19:44:07.710Z",
+        "updated_at": "2021-02-09T19:52:07.725Z"
+      }
+    },
+    {
+      "model": "dogadjaji.dogadjaj",
+      "pk": 1,
+      "fields": {
+        "naziv": "Predstava",
+        "opis": "Predstava na trgu",
+        "adresa": "Trg Mladosti, Rijeka",
+        "datum_start": "2021-10-02",
+        "datum_kraj": "2021-10-02",
+        "vrijeme_start": "14:00:00",
+        "vrijeme_kraj": "17:00:00"
+      }
+    },
+    {
+      "model": "dogadjaji.dogadjaj",
+      "pk": 2,
+      "fields": {
+        "naziv": "Igrokaz",
+        "opis": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+        "adresa": "Janka Polića Kamova 5",
+        "datum_start": "2021-02-26",
+        "datum_kraj": "2021-02-26",
+        "vrijeme_start": "18:00:00",
+        "vrijeme_kraj": "20:00:00"
+      }
+    },
+    {
+      "model": "programi.vrstaprograma",
+      "pk": 1,
+      "fields": {
+        "naziv": "Redoviti programi",
+        "opis": "Redoviti program njege, odgoja, obrazovanja, zdravstvene zaštite, prehrane i socijalne skrbi djece rane i predškolske dobi koji je prilagođen razvojnim potrebama djece te njihovim mogućnostima i sposobnostima provodi se u svim Centrima predškolskog odgoja Dječjeg vrtića Rijeka.",
+        "clanstvo_cijena": 15.0,
+        "vrtic": 1,
+        "dogadjaji": [2]
+      }
+    },
+    {
+      "model": "programi.vrstaprograma",
+      "pk": 2,
+      "fields": {
+        "naziv": "Obogaćeni programi",
+        "opis": "U Dječjem vrtiću Kindergarten se uz redoviti program, u više oblika provode i razni redoviti programi obogaćeni specifičnim sadržajima.",
+        "clanstvo_cijena": 16.0,
+        "vrtic": 1,
+        "dogadjaji": [1]
+      }
+    },
+    {
+      "model": "programi.vrstaprograma",
+      "pk": 3,
+      "fields": {
+        "naziv": "Posebni programi",
+        "opis": "U odgojno-obrazovne skupine Dječjeg vrtića Rijeka s posebnim programom uključuju se djeca s težim teškoćama kojima se vrsta i stupanj teškoće utvrđuje prema posebnim propisima iz područja socijalne skrbi.",
+        "clanstvo_cijena": 16.0,
+        "vrtic": 1,
+        "dogadjaji": [1, 2]
+      }
+    },
+    {
+      "model": "programi.vrstaprograma",
+      "pk": 4,
+      "fields": {
+        "naziv": "Kraći programi",
+        "opis": "Kao kraći programi u okviru Dječjeg vrtića Rijeka provode se razne igraonice.",
+        "clanstvo_cijena": 14.0,
+        "vrtic": 1,
+        "dogadjaji": []
+      }
+    },
+    {
+      "model": "programi.vrstaprograma",
+      "pk": 5,
+      "fields": {
+        "naziv": "Predškolski",
+        "opis": "Program predškole obvezan je program odgojno-obrazovnog rada s djecom u godini dana prije polaska u osnovnu školu te se provodi u trajanju od 250 sati.",
+        "clanstvo_cijena": 18.0,
+        "vrtic": 1,
+        "dogadjaji": [1]
+      }
+    },
+    {
+      "model": "programi.program",
+      "pk": 1,
+      "fields": {
+        "naziv": "Poludnevni",
+        "dodatni_boravak": true,
+        "max_broj_djece": 10,
+        "opis": "Redoviti program njege, odgoja, obrazovanja, zdravstvene zaštite, prehrane i socijalne skrbi djece rane i predškolske dobi koji je prilagođen razvojnim potrebama djece te njihovim mogućnostima i sposobnostima provodi se u svim Centrima predškolskog odgoja Dječjeg vrtića Rijeka.\r\n\r\nCiljevi i zadaće redovitog programa  usmjereni su na očuvanje tjelesnog i mentalnog zdravlja djeteta te poticanje cjelovitog razvoja svih funkcija i svih djetetovih aktualnih i potencijalnih sposobnosti i vještina (tjelesnih, intelektualnih, socio-emocionalnih i izražajnih), uz naglašenu komunikacijsku i interakcijsku komponentu.",
+        "vrsta_programa": 1,
+        "smjene": [1],
+        "dobne_skupine": [1, 2, 3]
+      }
+    },
+    {
+      "model": "programi.program",
+      "pk": 2,
+      "fields": {
+        "naziv": "Cjelodnevni",
+        "dodatni_boravak": false,
+        "max_broj_djece": 10,
+        "opis": "Redoviti program njege, odgoja, obrazovanja, zdravstvene zaštite, prehrane i socijalne skrbi djece rane i predškolske dobi koji je prilagođen razvojnim potrebama djece te njihovim mogućnostima i sposobnostima provodi se u svim Centrima predškolskog odgoja Dječjeg vrtića Rijeka.\r\n\r\nCiljevi i zadaće redovitog programa  usmjereni su na očuvanje tjelesnog i mentalnog zdravlja djeteta te poticanje cjelovitog razvoja svih funkcija i svih djetetovih aktualnih i potencijalnih sposobnosti i vještina (tjelesnih, intelektualnih, socio-emocionalnih i izražajnih), uz naglašenu komunikacijsku i interakcijsku komponentu.",
+        "vrsta_programa": 1,
+        "smjene": [3],
+        "dobne_skupine": [1, 2, 3]
+      }
+    },
+    {
+      "model": "programi.program",
+      "pk": 3,
+      "fields": {
+        "naziv": "Program ranog učenja engleskog jezika",
+        "dodatni_boravak": true,
+        "max_broj_djece": 10,
+        "opis": "Program se temelji na zadaćama koje polaze od humanističke koncepcije odgojno - obrazovnog rada, a od specifičnih zadaća izdvajamo: razvijati kod djeteta senzibilitet za engleski jezik, poticati i motivirati dijete na situacijsko učenje riječi, jezičnih i fonetskih formi,  poticati djetetovu samoaktivnost i interes za postupnim slušanjem, razumijevanjem i usvajanjem engleskog vokabulara, postupno razvijati kod djeteta vještinu komuniciranja na engleskom jeziku itd.",
+        "vrsta_programa": 2,
+        "smjene": [3],
+        "dobne_skupine": [3]
+      }
+    },
+    {
+      "model": "programi.program",
+      "pk": 4,
+      "fields": {
+        "naziv": "Program ranog učenja talijanskog jezika",
+        "dodatni_boravak": false,
+        "max_broj_djece": 10,
+        "opis": "Cilj ovoga Programa jest osigurati poticajno okruženje (prostor, oprema, stručni kadar, raznovrsne aktivnosti...) u kojem će dijete na prirodan i spontan način  učiti talijanski  jezik u  situacijskom kontekstu.\r\n\r\nZadaće Programa su, osim onih koje utječu na cjelokupni razvoj i proizlaze iz humanističke koncepcije,  specifične u smislu utjecaja na razvoj senzibilnosti za strani jezik, npr. razvijanje vještine komuniciranja na stranom jeziku, oblikovanje pojmova i predodžbi itd.\r\n\r\nProgram je namjenjen predškolskoj djeci u cjelodnevnom redovitom programu od 3. godine do polaska u školu, a djeca su uključena u mješovite skupine.",
+        "vrsta_programa": 2,
+        "smjene": [3],
+        "dobne_skupine": [3]
+      }
+    },
+    {
+      "model": "programi.program",
+      "pk": 5,
+      "fields": {
+        "naziv": "Program obogaćen specifičnim sadržajima sporta",
+        "dodatni_boravak": false,
+        "max_broj_djece": 8,
+        "opis": "Nositelji programa su kineziolozi i odgojitelji koji su završili dodatne edukacije iz područja kineziologije, sporta i tjelesnih aktivnosti djece predškolske dobi.\r\n\r\nVježbanje se provodi četiri puta tjedno po programu koji zajedno planiraju i provode kineziolozi i odgajatelji polazeći od načela integriranog učenja i psihofizičkih karakteristika dobi svakog pojedinog djeteta. Dnevno vrijeme vježbanja usklađeno je s potrebama i psihofizičkim karakteristikama djece.\r\n\r\nU okviru Programa planiraju se jednodnevni izleti sportskih druženja, posjete sportskim klubovima i susreti sa sportašima.",
+        "vrsta_programa": 2,
+        "smjene": [3],
+        "dobne_skupine": [3]
+      }
+    },
+    {
+      "model": "programi.program",
+      "pk": 6,
+      "fields": {
+        "naziv": "Program obogaćen katoličkim vjerskim odgojem",
+        "dodatni_boravak": false,
+        "max_broj_djece": 8,
+        "opis": "Planirani poticaji nude se djetetu prema ritmu liturgijske godine, godišnjih doba i prema kršćanskim blagdanima, ističući njihovo autentično, a ne sekularizirano značenje (osobito Dani kruha, Svi sveti, Sveti Nikola, Došašće, Božić, Korizma i Uskrs).\r\n\r\nZa stručno provođenje programa vjerskog odgoja  zaduženi su osposobljeni  i stručno kompetentni odgojitelji  predškolske djece sa završenim jednogodišnjim teološko-katehetskim dopunskim studijem i kanonskim mandatom.  Odgojiteljice u vjeri se trajno educiraju kroz individualno i zajedničko usavršavanje.",
+        "vrsta_programa": 2,
+        "smjene": [3],
+        "dobne_skupine": [3]
+      }
+    },
+    {
+      "model": "programi.program",
+      "pk": 7,
+      "fields": {
+        "naziv": "Program za djecu s motoričkim oštećenjima",
+        "dodatni_boravak": false,
+        "max_broj_djece": 6,
+        "opis": "U odgojno-obrazovne skupine Dječjeg vrtića Rijeka s posebnim programom uključuju se djeca s težim teškoćama kojima se vrsta i stupanj teškoće utvrđuje prema posebnim propisima iz područja socijalne skrbi.\r\n\r\nProgram ima razvojni karakter, što znači da svako dijete obuhvaćeno programom, počinje od elemenata programa i doseže razinu u skladu sa svojim individualnim sposobnostima i ograničenjima. Nadalje, program ima karakter istodobne stimulacije motornog, senzornog, govornog, intelektualnog, emocionalnog i socijalnog razvitka. Tijekom izvođenja cjelokupnog programa značajna je komponenta kontinuirani rad s roditeljima djece s posebnim potrebama. U ostvarivanju programa poštuje se princip timskog i interdisciplinarnog rada.",
+        "vrsta_programa": 3,
+        "smjene": [3],
+        "dobne_skupine": [1, 2, 3]
+      }
+    },
+    {
+      "model": "programi.program",
+      "pk": 8,
+      "fields": {
+        "naziv": "Program za djecu s poremećajima iz spektra autizma",
+        "dodatni_boravak": false,
+        "max_broj_djece": 6,
+        "opis": "U odgojno-obrazovne skupine vrtića Kindergarten s posebnim programom uključuju se djeca s težim teškoćama kojima se vrsta i stupanj teškoće utvrđuje prema posebnim propisima iz područja socijalne skrbi.\r\n\r\nProgram ima razvojni karakter, što znači da svako dijete obuhvaćeno programom, počinje od elemenata programa i doseže razinu u skladu sa svojim individualnim sposobnostima i ograničenjima. Nadalje, program ima karakter istodobne stimulacije motornog, senzornog, govornog, intelektualnog, emocionalnog i socijalnog razvitka. Tijekom izvođenja cjelokupnog programa značajna je komponenta kontinuirani rad s roditeljima djece s posebnim potrebama. U ostvarivanju programa poštuje se princip timskog i interdisciplinarnog rada.",
+        "vrsta_programa": 3,
+        "smjene": [3],
+        "dobne_skupine": [1, 2, 3]
+      }
+    },
+    {
+      "model": "programi.program",
+      "pk": 9,
+      "fields": {
+        "naziv": "Igraonica za poticanje razvoja darovite djece",
+        "dodatni_boravak": true,
+        "max_broj_djece": 8,
+        "opis": "Program rada za darovitu djecu provodi se s djecom od pet do šest godina starosti,  koju su njihovi roditelji, odgojitelji ili stručni suradnici u vrtiću prepoznali kao potencijalno darovite u logičko-matematičkom području, a stručni suradnici psiholozi potvrdili njihove iznimne intelektualne sposobnosti.\r\n\r\nCilj ove Igraonice je prepoznavanje i zadovoljavanje specifičnih odgojno-obrazovnih potreba potencijalno darovitog djeteta u maloj skupini (do 10) djece  sličnih sposobnosti i interesa.",
+        "vrsta_programa": 4,
+        "smjene": [3],
+        "dobne_skupine": [1, 2, 3]
+      }
+    },
+    {
+      "model": "programi.program",
+      "pk": 10,
+      "fields": {
+        "naziv": "Igraonica za učenje engleskog jezika",
+        "dodatni_boravak": true,
+        "max_broj_djece": 8,
+        "opis": "Cilj ove Igraonice je stvarati adekvatne poticaje putem kojih će se kod djece probuditi interes i pozitivan odnos prema učenju stranog (engleskog) jezika.\r\n\r\nSpecijalizirani kraći program Igraonice namjenjen je djeci predškolske dobi (od 4 godine do polaska u školu) polaznicima redovitog programa vrtića, s mogućnošću uključivanja i djece koja nisu polaznici Dječjeg vrtića Rijeka.\r\n\r\nNositelj programa su odgojitelji predškolske djece stručno osposobljeni u području znanja engleskog jezika i položenim testom profesionalnog znanja za poučavanje engleskog jezika u ranoj dobi.",
+        "vrsta_programa": 4,
+        "smjene": [3],
+        "dobne_skupine": [1, 2, 3]
+      }
+    },
+    {
+      "model": "programi.program",
+      "pk": 11,
+      "fields": {
+        "naziv": "Sportska igraonica \"Loptići\"nica \"Loptići\"",
+        "dodatni_boravak": false,
+        "max_broj_djece": 8,
+        "opis": "Sportska igraonica „Loptići“  temelji se na potrebi djeteta za kretanjem, a cilj iste je motivirati djecu da od najranije dobi budu aktivna i izgrađuju pozitivan stav prema tjelesnoj aktivnosti, pravilnoj prehrani i zdravom načinu života.\r\n\r\nProgram se provodi u CPO Zamet, PPO Srdoči, realiziraju ga odgojitelji koji su završili dodatne edukacije iz područja kineziologije, sporta i tjelesnih aktivnosti djece rane i predškolske dobi uz superviziju kineziologa, a provodi se dva puta tjedno u popodnevnim satima u trajanju od 45 minuta.\r\n\r\nProgram sportske igraonice za djecu 3 – godišnjake i starije čine i prezentacije naučenog, izleti, posjeti sportskim objektima, borilištima i manifestacijama, gostovanja sportaša, obuka neplivača, zimovanja, ljetovanja...",
+        "vrsta_programa": 4,
+        "smjene": [3],
+        "dobne_skupine": [1, 2, 3]
+      }
+    },
+    {
+      "model": "programi.program",
+      "pk": 12,
+      "fields": {
+        "naziv": "Predškola",
+        "dodatni_boravak": false,
+        "max_broj_djece": 12,
+        "opis": "Program predškole obvezan je program odgojno-obrazovnog rada s djecom u godini dana prije polaska u osnovnu školu te se provodi u trajanju od 250 sati.\r\n\r\nProgram predškole provodi se  sukladno Pravilniku o sadržaju i trajanju programa predškole.\r\n\r\nKompetencije koje dijete u godini dana prije polaska u osnovnu školu treba steći i/ili unaprijediti odnose se na komunikaciju na materinskom jeziku, elementarnu komunikaciju na stranim jezicima, matematičke kompetencije i osnovne kompetencije u prirodoslovlju i tehnologiji, digitalne kompetencije, učiti kako učiti, socijalne i građanske kompetencije, inicijativnost i poduzetništvo, kulturnu svijest i izražavanje te motoričke kompetencije primjerene dobi.",
+        "vrsta_programa": 5,
+        "smjene": [3],
+        "dobne_skupine": [3]
+      }
+    },
+    {
+      "model": "racuni.racun",
+      "pk": 1,
+      "fields": {
+        "telefon": "0912314871",
+        "datum_rodjenja": "1973-03-14",
+        "created_at": "2020-10-01T17:15:00Z",
+        "updated_at": "2021-02-08T19:13:39.394Z",
+        "user": ["marica.zovic@email.com"],
+        "tip_racuna": 3
+      }
+    },
+    {
+      "model": "racuni.racun",
+      "pk": 2,
+      "fields": {
+        "telefon": "0912314871",
+        "datum_rodjenja": "1978-05-10",
+        "created_at": "2020-10-01T17:15:00Z",
+        "updated_at": "2021-02-08T19:04:10.239Z",
+        "user": ["ivanka.ivic@email.com"],
+        "tip_racuna": 2
+      }
+    },
+    {
+      "model": "racuni.racun",
+      "pk": 3,
+      "fields": {
+        "telefon": "+385 97753112",
+        "datum_rodjenja": "1989-12-06",
+        "created_at": "2020-10-01T17:15:00Z",
+        "updated_at": "2021-02-08T19:05:40.629Z",
+        "user": ["marko.maric@email.com"],
+        "tip_racuna": 1
+      }
+    },
+    {
+      "model": "racuni.racun",
+      "pk": 4,
+      "fields": {
+        "telefon": "+385 97753112",
+        "datum_rodjenja": "1990-04-01",
+        "created_at": "2021-02-09T18:14:15.439Z",
+        "updated_at": "2021-02-09T18:14:15.439Z",
+        "user": ["ivan.dubroja@email.com"],
+        "tip_racuna": 1
+      }
+    },
+    {
+      "model": "racuni.tipracuna",
+      "pk": 1,
+      "fields": {
+        "naziv": "Roditelj",
+        "satnica": 0.0,
+        "je_djelatnik": false,
+        "je_roditelj": true,
+        "je_voditelj": false
+      }
+    },
+    {
+      "model": "racuni.tipracuna",
+      "pk": 2,
+      "fields": {
+        "naziv": "Voditeljica",
+        "satnica": 40.0,
+        "je_djelatnik": true,
+        "je_roditelj": false,
+        "je_voditelj": true
+      }
+    },
+    {
+      "model": "racuni.tipracuna",
+      "pk": 3,
+      "fields": {
+        "naziv": "Odgojateljica",
+        "satnica": 33.0,
+        "je_djelatnik": true,
+        "je_roditelj": false,
+        "je_voditelj": false
+      }
+    },
+    {
+      "model": "racuni.tipracuna",
+      "pk": 4,
+      "fields": {
+        "naziv": "Stručna suradnica pedagoginja",
+        "satnica": 35.0,
+        "je_djelatnik": true,
+        "je_roditelj": false,
+        "je_voditelj": false
+      }
+    },
+    {
+      "model": "racuni.tipracuna",
+      "pk": 5,
+      "fields": {
+        "naziv": "Stručna suradnica psihologinja",
+        "satnica": 36.0,
+        "je_djelatnik": true,
+        "je_roditelj": false,
+        "je_voditelj": false
+      }
+    },
+    {
+      "model": "racuni.tipracuna",
+      "pk": 6,
+      "fields": {
+        "naziv": "Stručna suradnica rehabilitatorica",
+        "satnica": 37.0,
+        "je_djelatnik": true,
+        "je_roditelj": false,
+        "je_voditelj": false
+      }
+    },
+    {
+      "model": "racuni.tipracuna",
+      "pk": 7,
+      "fields": {
+        "naziv": "Stručna suradnica psihologinja za djecu s teškoćama",
+        "satnica": 33.0,
+        "je_djelatnik": true,
+        "je_roditelj": false,
+        "je_voditelj": false
+      }
+    },
+    {
+      "model": "racuni.tipracuna",
+      "pk": 8,
+      "fields": {
+        "naziv": "Zdravstvena voditeljica",
+        "satnica": 35.0,
+        "je_djelatnik": true,
+        "je_roditelj": false,
+        "je_voditelj": false
+      }
+    },
+    {
+      "model": "djeca.dijete",
+      "pk": 1,
+      "fields": {
+        "ime": "Lorena",
+        "prezime": "Marić",
+        "datum_rodjenja": "2018-02-20",
+        "dodatne_informacije": "Nema dodatnih informacija",
+        "roditelj": 3,
+        "program": 7,
+        "smjena": null
+      }
+    },
+    {
+      "model": "djeca.dijete",
+      "pk": 2,
+      "fields": {
+        "ime": "Mara",
+        "prezime": "Dubroja",
+        "datum_rodjenja": "2017-05-19",
+        "dodatne_informacije": "",
+        "roditelj": 4,
+        "program": 2,
+        "smjena": 3
+      }
+    },
+    {
+      "model": "djeca.dijete",
+      "pk": 3,
+      "fields": {
+        "ime": "Marko",
+        "prezime": "Dubroja",
+        "datum_rodjenja": "2014-02-26",
+        "dodatne_informacije": "",
+        "roditelj": 4,
+        "program": 12,
+        "smjena": 3
+      }
+    },
+    {
+      "model": "djeca.dobnaskupina",
+      "pk": 1,
+      "fields": {
+        "naziv": "od 6 mjeseci do navršenih 12 mjeseci",
+        "godine_min": 0.5,
+        "godine_max": 1.0
+      }
+    },
+    {
+      "model": "djeca.dobnaskupina",
+      "pk": 2,
+      "fields": {
+        "naziv": "od 1 godine do 3 godine",
+        "godine_min": 1.0,
+        "godine_max": 3.0
+      }
+    },
+    {
+      "model": "djeca.dobnaskupina",
+      "pk": 3,
+      "fields": {
+        "naziv": "od 3 godine do polaska u školu",
+        "godine_min": 3.0,
+        "godine_max": 7.0
+      }
+    },
+    {
+      "model": "upisi.upis",
+      "pk": 1,
+      "fields": {
+        "roditelj_puno_ime": "Marko Marić",
+        "roditelj_email": "marko.maric@email.com",
+        "roditelj_datum_rodjenja": "1989-12-06",
+        "roditelj_telefon": "+385 97753112",
+        "dijete_puno_ime": "Lorena Marić",
+        "dijete_datum_rodjenja": "2018-02-20",
+        "dijete_dodatne_informacije": "Nema dodatnih informacija",
+        "odobren": true,
+        "obrazlozenje": "odobren",
+        "program": 7,
+        "smjena": null,
+        "created_at": "2021-02-08T19:01:27.307Z",
+        "updated_at": "2021-02-08T19:03:33.478Z"
+      }
+    },
+    {
+      "model": "upisi.upis",
+      "pk": 2,
+      "fields": {
+        "roditelj_puno_ime": "Ivan Dubroja",
+        "roditelj_email": "ivan.dubroja@email.com",
+        "roditelj_datum_rodjenja": "1990-04-01",
+        "roditelj_telefon": "+385 97753112",
+        "dijete_puno_ime": "Mara Dubroja",
+        "dijete_datum_rodjenja": "2017-05-19",
+        "dijete_dodatne_informacije": "",
+        "odobren": true,
+        "obrazlozenje": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "program": 2,
+        "smjena": 3,
+        "created_at": "2021-02-09T17:50:27.664Z",
+        "updated_at": "2021-02-09T18:15:54.967Z"
+      }
+    },
+    {
+      "model": "upisi.upis",
+      "pk": 3,
+      "fields": {
+        "roditelj_puno_ime": "Ivan Dubroja",
+        "roditelj_email": "ivan.dubroja@email.com",
+        "roditelj_datum_rodjenja": "1990-04-01",
+        "roditelj_telefon": "+385 97753112",
+        "dijete_puno_ime": "Marko Dubroja",
+        "dijete_datum_rodjenja": "2014-02-26",
+        "dijete_dodatne_informacije": "",
+        "odobren": true,
+        "obrazlozenje": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "program": 12,
+        "smjena": 3,
+        "created_at": "2021-02-09T19:31:37.825Z",
+        "updated_at": "2021-02-09T19:44:07.177Z"
+      }
+    },
+    {
+      "model": "smjene.smjena",
+      "pk": 1,
+      "fields": {
+        "naziv_smjene": "Jutarnja",
+        "vrijeme_start": "06:00:00",
+        "vrijeme_kraj": "14:00:00"
+      }
+    },
+    {
+      "model": "smjene.smjena",
+      "pk": 2,
+      "fields": {
+        "naziv_smjene": "Popodnevna",
+        "vrijeme_start": "13:00:00",
+        "vrijeme_kraj": "21:00:00"
+      }
+    },
+    {
+      "model": "smjene.smjena",
+      "pk": 3,
+      "fields": {
+        "naziv_smjene": "Cjelodnevna",
+        "vrijeme_start": "06:30:00",
+        "vrijeme_kraj": "17:00:00"
+      }
+    },
+    {
+      "model": "admin.logentry",
+      "pk": 1,
+      "fields": {
+        "action_time": "2021-02-08T17:46:50.553Z",
+        "user": ["admin"],
+        "content_type": ["vrtic", "vrtic"],
+        "object_id": "1",
+        "object_repr": "Kindergarten",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      }
+    },
+    {
+      "model": "admin.logentry",
+      "pk": 2,
+      "fields": {
+        "action_time": "2021-02-08T17:47:19.053Z",
+        "user": ["admin"],
+        "content_type": ["auth", "user"],
+        "object_id": "1",
+        "object_repr": "admin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\"]}}]"
+      }
     }
-  },
-  {
-    "model": "auth.user",
-    "pk": 2,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$utb0ybwDB7DR$91SXi+f54jD9TTLv+t6XCQJajXKII4qh20Ortoh0CGE=",
-      "last_login": "2021-02-08T20:48:47.716Z",
-      "is_superuser": false,
-      "username": "marica.zovic@email.com",
-      "first_name": "Marica",
-      "last_name": "Zović",
-      "email": "marica.zovic@email.com",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2021-02-08T17:51:08.964Z",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "auth.user",
-    "pk": 3,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$G0nWK9HaWPxc$ZlXNdWVao4iqM48JxHEeN93BKE9Vz8klBaVBtgRZSM4=",
-      "last_login": "2021-02-08T18:02:05.956Z",
-      "is_superuser": false,
-      "username": "ivanka.ivic@email.com",
-      "first_name": "Ivanka",
-      "last_name": "Ivić",
-      "email": "ivanka.ivic@email.com",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2021-02-08T17:52:43.193Z",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "auth.user",
-    "pk": 4,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$rqgrHncOxfyX$RzNyJ2cPnliai86nReVBA1+cGCwdPSrt8OBCVM8bERc=",
-      "last_login": "2021-02-08T20:56:07.128Z",
-      "is_superuser": false,
-      "username": "marko.maric@email.com",
-      "first_name": "Marko",
-      "last_name": "Marić",
-      "email": "marko.maric@email.com",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-02-08T19:03:33.490Z",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "sessions.session",
-    "pk": "4h1e3hquuuwvo1tew6xo78x3jiwy862j",
-    "fields": {
-      "session_data": ".eJxVyzEOwjAMQNG7ZEZVGsdtwojEOSK7dpQI6NA0E-LugNQB1v_0nyZR30vqTbdUxZyNN6ffxrTcdP3CRktf63CENlwfVO-Xg_-eQq18BmYZBacZVBFUMI7gRmcJZm-ZODgOKkSswuwikreZCTJjwEwQJ_N6A95VM-E:1l9DZn:0D3g2B4VHwHezxq7liUfdPTYRiclYJsc99JlbDofXB0",
-      "expire_date": "2021-02-22T20:56:07.128Z"
-    }
-  },
-  {
-    "model": "sessions.session",
-    "pk": "tkrezxfp3762xrrzr04oyxo90ksukn8q",
-    "fields": {
-      "session_data": ".eJxVy0EOwiAQQNG7sDYNA4TOuDTxHGQYxkDULoqsjHfXJl3U7X_5b5N4vGoaXdfUijkbMKdjyyx3XTZYWcbSpj306frk9rjs_PdU7vU3eLlFziUqzFmRCvrisTCJszojS2QExxTQiSPricEFIspBFSxgMJ8v2VQytg:1l9DUF:boRg9ctISoNbFTFWykx45VulWoPdDBHdoH_qCWYA_6Q",
-      "expire_date": "2021-02-22T20:50:23.154Z"
-    }
-  },
-  {
-    "model": "vrtic.vrtic",
-    "pk": 1,
-    "fields": {
-      "naziv": "Kindergarten",
-      "adresa": "Janka Polića Kamova 5",
-      "kontakt_broj": "+385 99 2421 285",
-      "kontakt_email": "info@kindergarten.com"
-    }
-  },
-  {
-    "model": "financije.clanarina",
-    "pk": 59,
-    "fields": {
-      "naziv": "1 - Lorena Marić",
-      "datum": "2021-02-15",
-      "iznos": 3840.0,
-      "PDV": 960.0,
-      "ukupno": 4800.0,
-      "dijete": 1,
-      "created_at": "2021-02-08T20:04:25.789Z"
-    }
-  },
-  {
-    "model": "financije.clanarina",
-    "pk": 60,
-    "fields": {
-      "naziv": "2 - Lorena Marić",
-      "datum": "2021-01-15",
-      "iznos": 3840.0,
-      "PDV": 960.0,
-      "ukupno": 4800.0,
-      "dijete": 1,
-      "created_at": "2021-02-08T20:04:25.798Z"
-    }
-  },
-  {
-    "model": "financije.clanarina",
-    "pk": 61,
-    "fields": {
-      "naziv": "3 - Lorena Marić",
-      "datum": "2020-12-15",
-      "iznos": 3840.0,
-      "PDV": 960.0,
-      "ukupno": 4800.0,
-      "dijete": 1,
-      "created_at": "2021-02-08T20:04:25.803Z"
-    }
-  },
-  {
-    "model": "financije.clanarina",
-    "pk": 62,
-    "fields": {
-      "naziv": "4 - Lorena Marić",
-      "datum": "2020-09-15",
-      "iznos": 3840.0,
-      "PDV": 960.0,
-      "ukupno": 4800.0,
-      "dijete": 1,
-      "created_at": "2021-02-08T20:04:25.806Z"
-    }
-  },
-  {
-    "model": "financije.placa",
-    "pk": 1,
-    "fields": {
-      "naziv": "1 - Ivanka Ivić",
-      "datum": "2021-02-15",
-      "bruto": 12000.0,
-      "neto": 9600.0,
-      "djelatnik": 2,
-      "created_at": "2021-02-08T20:20:42.089Z"
-    }
-  },
-  {
-    "model": "financije.placa",
-    "pk": 2,
-    "fields": {
-      "naziv": "2 - Ivanka Ivić",
-      "datum": "2021-01-15",
-      "bruto": 12000.0,
-      "neto": 9600.0,
-      "djelatnik": 2,
-      "created_at": "2021-02-08T20:20:42.095Z"
-    }
-  },
-  {
-    "model": "financije.placa",
-    "pk": 3,
-    "fields": {
-      "naziv": "3 - Ivanka Ivić",
-      "datum": "2020-12-15",
-      "bruto": 12000.0,
-      "neto": 9600.0,
-      "djelatnik": 2,
-      "created_at": "2021-02-08T20:20:42.098Z"
-    }
-  },
-  {
-    "model": "financije.placa",
-    "pk": 4,
-    "fields": {
-      "naziv": "4 - Ivanka Ivić",
-      "datum": "2020-09-15",
-      "bruto": 12000.0,
-      "neto": 9600.0,
-      "djelatnik": 2,
-      "created_at": "2021-02-08T20:20:42.102Z"
-    }
-  },
-  {
-    "model": "financije.placa",
-    "pk": 5,
-    "fields": {
-      "naziv": "1 - Marica Zović",
-      "datum": "2021-02-15",
-      "bruto": 9900.0,
-      "neto": 7920.0,
-      "djelatnik": 1,
-      "created_at": "2021-02-08T20:20:42.112Z"
-    }
-  },
-  {
-    "model": "financije.placa",
-    "pk": 6,
-    "fields": {
-      "naziv": "2 - Marica Zović",
-      "datum": "2021-01-15",
-      "bruto": 9900.0,
-      "neto": 7920.0,
-      "djelatnik": 1,
-      "created_at": "2021-02-08T20:20:42.115Z"
-    }
-  },
-  {
-    "model": "financije.placa",
-    "pk": 7,
-    "fields": {
-      "naziv": "3 - Marica Zović",
-      "datum": "2020-12-15",
-      "bruto": 9900.0,
-      "neto": 7920.0,
-      "djelatnik": 1,
-      "created_at": "2021-02-08T20:20:42.119Z"
-    }
-  },
-  {
-    "model": "financije.placa",
-    "pk": 8,
-    "fields": {
-      "naziv": "4 - Marica Zović",
-      "datum": "2020-09-15",
-      "bruto": 9900.0,
-      "neto": 7920.0,
-      "djelatnik": 1,
-      "created_at": "2021-02-08T20:20:42.126Z"
-    }
-  },
-  {
-    "model": "dogadjaji.suglasnost",
-    "pk": 1,
-    "fields": {
-      "dogadjaj": 1,
-      "dijete": 1,
-      "odobren": true,
-      "created_at": "2021-02-08T20:55:40.887Z",
-      "updated_at": "2021-02-08T20:57:10.167Z"
-    }
-  },
-  {
-    "model": "dogadjaji.dogadjaj",
-    "pk": 1,
-    "fields": {
-      "naziv": "Predstava",
-      "opis": "Predstava na trgu",
-      "adresa": "Trg Mladosti, Rijeka",
-      "datum_start": "2021-10-02",
-      "datum_kraj": "2021-10-02",
-      "vrijeme_start": "14:00:00",
-      "vrijeme_kraj": "17:00:00"
-    }
-  },
-  {
-    "model": "programi.vrstaprograma",
-    "pk": 1,
-    "fields": {
-      "naziv": "Redoviti programi",
-      "opis": "Redoviti program njege, odgoja, obrazovanja, zdravstvene zaštite, prehrane i socijalne skrbi djece rane i predškolske dobi koji je prilagođen razvojnim potrebama djece te njihovim mogućnostima i sposobnostima provodi se u svim Centrima predškolskog odgoja Dječjeg vrtića Rijeka.",
-      "clanstvo_cijena": 15.0,
-      "vrtic": 1,
-      "dogadjaji": []
-    }
-  },
-  {
-    "model": "programi.vrstaprograma",
-    "pk": 2,
-    "fields": {
-      "naziv": "Obogaćeni programi",
-      "opis": "U Dječjem vrtiću Kindergarten se uz redoviti program, u više oblika provode i razni redoviti programi obogaćeni specifičnim sadržajima.",
-      "clanstvo_cijena": 16.0,
-      "vrtic": 1,
-      "dogadjaji": [1]
-    }
-  },
-  {
-    "model": "programi.vrstaprograma",
-    "pk": 3,
-    "fields": {
-      "naziv": "Posebni programi",
-      "opis": "U odgojno-obrazovne skupine Dječjeg vrtića Rijeka s posebnim programom uključuju se djeca s težim teškoćama kojima se vrsta i stupanj teškoće utvrđuje prema posebnim propisima iz područja socijalne skrbi.",
-      "clanstvo_cijena": 16.0,
-      "vrtic": 1,
-      "dogadjaji": [1]
-    }
-  },
-  {
-    "model": "programi.vrstaprograma",
-    "pk": 4,
-    "fields": {
-      "naziv": "Kraći programi",
-      "opis": "Kao kraći programi u okviru Dječjeg vrtića Rijeka provode se razne igraonice.",
-      "clanstvo_cijena": 14.0,
-      "vrtic": 1,
-      "dogadjaji": []
-    }
-  },
-  {
-    "model": "programi.vrstaprograma",
-    "pk": 5,
-    "fields": {
-      "naziv": "Predškolski",
-      "opis": "Program predškole obvezan je program odgojno-obrazovnog rada s djecom u godini dana prije polaska u osnovnu školu te se provodi u trajanju od 250 sati.",
-      "clanstvo_cijena": 18.0,
-      "vrtic": 1,
-      "dogadjaji": []
-    }
-  },
-  {
-    "model": "programi.program",
-    "pk": 1,
-    "fields": {
-      "naziv": "Poludnevni",
-      "dodatni_boravak": true,
-      "max_broj_djece": 10,
-      "opis": "Redoviti program njege, odgoja, obrazovanja, zdravstvene zaštite, prehrane i socijalne skrbi djece rane i predškolske dobi koji je prilagođen razvojnim potrebama djece te njihovim mogućnostima i sposobnostima provodi se u svim Centrima predškolskog odgoja Dječjeg vrtića Rijeka.\r\n\r\nCiljevi i zadaće redovitog programa  usmjereni su na očuvanje tjelesnog i mentalnog zdravlja djeteta te poticanje cjelovitog razvoja svih funkcija i svih djetetovih aktualnih i potencijalnih sposobnosti i vještina (tjelesnih, intelektualnih, socio-emocionalnih i izražajnih), uz naglašenu komunikacijsku i interakcijsku komponentu.",
-      "vrsta_programa": 1,
-      "smjene": [1],
-      "dobne_skupine": [1, 2, 3]
-    }
-  },
-  {
-    "model": "programi.program",
-    "pk": 2,
-    "fields": {
-      "naziv": "Cjelodnevni",
-      "dodatni_boravak": false,
-      "max_broj_djece": 10,
-      "opis": "Redoviti program njege, odgoja, obrazovanja, zdravstvene zaštite, prehrane i socijalne skrbi djece rane i predškolske dobi koji je prilagođen razvojnim potrebama djece te njihovim mogućnostima i sposobnostima provodi se u svim Centrima predškolskog odgoja Dječjeg vrtića Rijeka.\r\n\r\nCiljevi i zadaće redovitog programa  usmjereni su na očuvanje tjelesnog i mentalnog zdravlja djeteta te poticanje cjelovitog razvoja svih funkcija i svih djetetovih aktualnih i potencijalnih sposobnosti i vještina (tjelesnih, intelektualnih, socio-emocionalnih i izražajnih), uz naglašenu komunikacijsku i interakcijsku komponentu.",
-      "vrsta_programa": 1,
-      "smjene": [3],
-      "dobne_skupine": [1, 2, 3]
-    }
-  },
-  {
-    "model": "programi.program",
-    "pk": 3,
-    "fields": {
-      "naziv": "Program ranog učenja engleskog jezika",
-      "dodatni_boravak": true,
-      "max_broj_djece": 10,
-      "opis": "Program se temelji na zadaćama koje polaze od humanističke koncepcije odgojno - obrazovnog rada, a od specifičnih zadaća izdvajamo: razvijati kod djeteta senzibilitet za engleski jezik, poticati i motivirati dijete na situacijsko učenje riječi, jezičnih i fonetskih formi,  poticati djetetovu samoaktivnost i interes za postupnim slušanjem, razumijevanjem i usvajanjem engleskog vokabulara, postupno razvijati kod djeteta vještinu komuniciranja na engleskom jeziku itd.",
-      "vrsta_programa": 2,
-      "smjene": [3],
-      "dobne_skupine": [3]
-    }
-  },
-  {
-    "model": "programi.program",
-    "pk": 4,
-    "fields": {
-      "naziv": "Program ranog učenja talijanskog jezika",
-      "dodatni_boravak": false,
-      "max_broj_djece": 10,
-      "opis": "Cilj ovoga Programa jest osigurati poticajno okruženje (prostor, oprema, stručni kadar, raznovrsne aktivnosti...) u kojem će dijete na prirodan i spontan način  učiti talijanski  jezik u  situacijskom kontekstu.\r\n\r\nZadaće Programa su, osim onih koje utječu na cjelokupni razvoj i proizlaze iz humanističke koncepcije,  specifične u smislu utjecaja na razvoj senzibilnosti za strani jezik, npr. razvijanje vještine komuniciranja na stranom jeziku, oblikovanje pojmova i predodžbi itd.\r\n\r\nProgram je namjenjen predškolskoj djeci u cjelodnevnom redovitom programu od 3. godine do polaska u školu, a djeca su uključena u mješovite skupine.",
-      "vrsta_programa": 2,
-      "smjene": [3],
-      "dobne_skupine": [3]
-    }
-  },
-  {
-    "model": "programi.program",
-    "pk": 5,
-    "fields": {
-      "naziv": "Program obogaćen specifičnim sadržajima sporta",
-      "dodatni_boravak": false,
-      "max_broj_djece": 8,
-      "opis": "Nositelji programa su kineziolozi i odgojitelji koji su završili dodatne edukacije iz područja kineziologije, sporta i tjelesnih aktivnosti djece predškolske dobi.\r\n\r\nVježbanje se provodi četiri puta tjedno po programu koji zajedno planiraju i provode kineziolozi i odgajatelji polazeći od načela integriranog učenja i psihofizičkih karakteristika dobi svakog pojedinog djeteta. Dnevno vrijeme vježbanja usklađeno je s potrebama i psihofizičkim karakteristikama djece.\r\n\r\nU okviru Programa planiraju se jednodnevni izleti sportskih druženja, posjete sportskim klubovima i susreti sa sportašima.",
-      "vrsta_programa": 2,
-      "smjene": [3],
-      "dobne_skupine": [3]
-    }
-  },
-  {
-    "model": "programi.program",
-    "pk": 6,
-    "fields": {
-      "naziv": "Program obogaćen katoličkim vjerskim odgojem",
-      "dodatni_boravak": false,
-      "max_broj_djece": 8,
-      "opis": "Planirani poticaji nude se djetetu prema ritmu liturgijske godine, godišnjih doba i prema kršćanskim blagdanima, ističući njihovo autentično, a ne sekularizirano značenje (osobito Dani kruha, Svi sveti, Sveti Nikola, Došašće, Božić, Korizma i Uskrs).\r\n\r\nZa stručno provođenje programa vjerskog odgoja  zaduženi su osposobljeni  i stručno kompetentni odgojitelji  predškolske djece sa završenim jednogodišnjim teološko-katehetskim dopunskim studijem i kanonskim mandatom.  Odgojiteljice u vjeri se trajno educiraju kroz individualno i zajedničko usavršavanje.",
-      "vrsta_programa": 2,
-      "smjene": [3],
-      "dobne_skupine": [3]
-    }
-  },
-  {
-    "model": "programi.program",
-    "pk": 7,
-    "fields": {
-      "naziv": "Program za djecu s motoričkim oštećenjima",
-      "dodatni_boravak": false,
-      "max_broj_djece": 6,
-      "opis": "U odgojno-obrazovne skupine Dječjeg vrtića Rijeka s posebnim programom uključuju se djeca s težim teškoćama kojima se vrsta i stupanj teškoće utvrđuje prema posebnim propisima iz područja socijalne skrbi.\r\n\r\nProgram ima razvojni karakter, što znači da svako dijete obuhvaćeno programom, počinje od elemenata programa i doseže razinu u skladu sa svojim individualnim sposobnostima i ograničenjima. Nadalje, program ima karakter istodobne stimulacije motornog, senzornog, govornog, intelektualnog, emocionalnog i socijalnog razvitka. Tijekom izvođenja cjelokupnog programa značajna je komponenta kontinuirani rad s roditeljima djece s posebnim potrebama. U ostvarivanju programa poštuje se princip timskog i interdisciplinarnog rada.",
-      "vrsta_programa": 3,
-      "smjene": [3],
-      "dobne_skupine": [1, 2, 3]
-    }
-  },
-  {
-    "model": "programi.program",
-    "pk": 8,
-    "fields": {
-      "naziv": "Program za djecu s poremećajima iz spektra autizma",
-      "dodatni_boravak": false,
-      "max_broj_djece": 6,
-      "opis": "U odgojno-obrazovne skupine vrtića Kindergarten s posebnim programom uključuju se djeca s težim teškoćama kojima se vrsta i stupanj teškoće utvrđuje prema posebnim propisima iz područja socijalne skrbi.\r\n\r\nProgram ima razvojni karakter, što znači da svako dijete obuhvaćeno programom, počinje od elemenata programa i doseže razinu u skladu sa svojim individualnim sposobnostima i ograničenjima. Nadalje, program ima karakter istodobne stimulacije motornog, senzornog, govornog, intelektualnog, emocionalnog i socijalnog razvitka. Tijekom izvođenja cjelokupnog programa značajna je komponenta kontinuirani rad s roditeljima djece s posebnim potrebama. U ostvarivanju programa poštuje se princip timskog i interdisciplinarnog rada.",
-      "vrsta_programa": 3,
-      "smjene": [3],
-      "dobne_skupine": [1, 2, 3]
-    }
-  },
-  {
-    "model": "programi.program",
-    "pk": 9,
-    "fields": {
-      "naziv": "Igraonica za poticanje razvoja darovite djece",
-      "dodatni_boravak": true,
-      "max_broj_djece": 8,
-      "opis": "Program rada za darovitu djecu provodi se s djecom od pet do šest godina starosti,  koju su njihovi roditelji, odgojitelji ili stručni suradnici u vrtiću prepoznali kao potencijalno darovite u logičko-matematičkom području, a stručni suradnici psiholozi potvrdili njihove iznimne intelektualne sposobnosti.\r\n\r\nCilj ove Igraonice je prepoznavanje i zadovoljavanje specifičnih odgojno-obrazovnih potreba potencijalno darovitog djeteta u maloj skupini (do 10) djece  sličnih sposobnosti i interesa.",
-      "vrsta_programa": 4,
-      "smjene": [3],
-      "dobne_skupine": [1, 2, 3]
-    }
-  },
-  {
-    "model": "programi.program",
-    "pk": 10,
-    "fields": {
-      "naziv": "Igraonica za učenje engleskog jezika",
-      "dodatni_boravak": true,
-      "max_broj_djece": 8,
-      "opis": "Cilj ove Igraonice je stvarati adekvatne poticaje putem kojih će se kod djece probuditi interes i pozitivan odnos prema učenju stranog (engleskog) jezika.\r\n\r\nSpecijalizirani kraći program Igraonice namjenjen je djeci predškolske dobi (od 4 godine do polaska u školu) polaznicima redovitog programa vrtića, s mogućnošću uključivanja i djece koja nisu polaznici Dječjeg vrtića Rijeka.\r\n\r\nNositelj programa su odgojitelji predškolske djece stručno osposobljeni u području znanja engleskog jezika i položenim testom profesionalnog znanja za poučavanje engleskog jezika u ranoj dobi.",
-      "vrsta_programa": 4,
-      "smjene": [3],
-      "dobne_skupine": [1, 2, 3]
-    }
-  },
-  {
-    "model": "programi.program",
-    "pk": 11,
-    "fields": {
-      "naziv": "Sportska igraonica \"Loptići\"nica \"Loptići\"",
-      "dodatni_boravak": false,
-      "max_broj_djece": 8,
-      "opis": "Sportska igraonica „Loptići“  temelji se na potrebi djeteta za kretanjem, a cilj iste je motivirati djecu da od najranije dobi budu aktivna i izgrađuju pozitivan stav prema tjelesnoj aktivnosti, pravilnoj prehrani i zdravom načinu života.\r\n\r\nProgram se provodi u CPO Zamet, PPO Srdoči, realiziraju ga odgojitelji koji su završili dodatne edukacije iz područja kineziologije, sporta i tjelesnih aktivnosti djece rane i predškolske dobi uz superviziju kineziologa, a provodi se dva puta tjedno u popodnevnim satima u trajanju od 45 minuta.\r\n\r\nProgram sportske igraonice za djecu 3 – godišnjake i starije čine i prezentacije naučenog, izleti, posjeti sportskim objektima, borilištima i manifestacijama, gostovanja sportaša, obuka neplivača, zimovanja, ljetovanja...",
-      "vrsta_programa": 4,
-      "smjene": [3],
-      "dobne_skupine": [1, 2, 3]
-    }
-  },
-  {
-    "model": "programi.program",
-    "pk": 12,
-    "fields": {
-      "naziv": "Predškola",
-      "dodatni_boravak": false,
-      "max_broj_djece": 12,
-      "opis": "Program predškole obvezan je program odgojno-obrazovnog rada s djecom u godini dana prije polaska u osnovnu školu te se provodi u trajanju od 250 sati.\r\n\r\nProgram predškole provodi se sukladno Pravilniku o sadržaju i trajanju programa predškole.\r\n\r\nKompetencije koje dijete u godini dana prije polaska u osnovnu školu treba steći i/ili unaprijediti odnose se na komunikaciju na materinskom jeziku, elementarnu komunikaciju na stranim jezicima, matematičke kompetencije i osnovne kompetencije u prirodoslovlju i tehnologiji, digitalne kompetencije, učiti kako učiti, socijalne i građanske kompetencije, inicijativnost i poduzetništvo, kulturnu svijest i izražavanje te motoričke kompetencije primjerene dobi.",
-      "vrsta_programa": 5,
-      "smjene": [3],
-      "dobne_skupine": [3]
-    }
-  },
-  {
-    "model": "racuni.racun",
-    "pk": 1,
-    "fields": {
-      "telefon": "0912314871",
-      "datum_rodjenja": "1973-03-14",
-      "created_at": "2020-10-01T17:15:00Z",
-      "updated_at": "2021-02-08T19:13:39.394Z",
-      "user": ["marica.zovic@email.com"],
-      "tip_racuna": 3
-    }
-  },
-  {
-    "model": "racuni.racun",
-    "pk": 2,
-    "fields": {
-      "telefon": "0912314871",
-      "datum_rodjenja": "1978-05-10",
-      "created_at": "2020-10-01T17:15:00Z",
-      "updated_at": "2021-02-08T19:04:10.239Z",
-      "user": ["ivanka.ivic@email.com"],
-      "tip_racuna": 2
-    }
-  },
-  {
-    "model": "racuni.racun",
-    "pk": 3,
-    "fields": {
-      "telefon": "+385 97753112",
-      "datum_rodjenja": "1989-12-06",
-      "created_at": "2020-10-01T17:15:00Z",
-      "updated_at": "2021-02-08T19:05:40.629Z",
-      "user": ["marko.maric@email.com"],
-      "tip_racuna": 1
-    }
-  },
-  {
-    "model": "racuni.tipracuna",
-    "pk": 1,
-    "fields": {
-      "naziv": "Roditelj",
-      "satnica": 0.0,
-      "je_djelatnik": false,
-      "je_roditelj": true,
-      "je_voditelj": false
-    }
-  },
-  {
-    "model": "racuni.tipracuna",
-    "pk": 2,
-    "fields": {
-      "naziv": "Voditeljica",
-      "satnica": 40.0,
-      "je_djelatnik": true,
-      "je_roditelj": false,
-      "je_voditelj": true
-    }
-  },
-  {
-    "model": "racuni.tipracuna",
-    "pk": 3,
-    "fields": {
-      "naziv": "Odgojateljica",
-      "satnica": 33.0,
-      "je_djelatnik": true,
-      "je_roditelj": false,
-      "je_voditelj": false
-    }
-  },
-  {
-    "model": "racuni.tipracuna",
-    "pk": 4,
-    "fields": {
-      "naziv": "Stručna suradnica pedagoginja",
-      "satnica": 35.0,
-      "je_djelatnik": true,
-      "je_roditelj": false,
-      "je_voditelj": false
-    }
-  },
-  {
-    "model": "racuni.tipracuna",
-    "pk": 5,
-    "fields": {
-      "naziv": "Stručna suradnica psihologinja",
-      "satnica": 36.0,
-      "je_djelatnik": true,
-      "je_roditelj": false,
-      "je_voditelj": false
-    }
-  },
-  {
-    "model": "racuni.tipracuna",
-    "pk": 6,
-    "fields": {
-      "naziv": "Stručna suradnica rehabilitatorica",
-      "satnica": 37.0,
-      "je_djelatnik": true,
-      "je_roditelj": false,
-      "je_voditelj": false
-    }
-  },
-  {
-    "model": "racuni.tipracuna",
-    "pk": 7,
-    "fields": {
-      "naziv": "Stručna suradnica psihologinja za djecu s teškoćama",
-      "satnica": 33.0,
-      "je_djelatnik": true,
-      "je_roditelj": false,
-      "je_voditelj": false
-    }
-  },
-  {
-    "model": "racuni.tipracuna",
-    "pk": 8,
-    "fields": {
-      "naziv": "Zdravstvena voditeljica",
-      "satnica": 35.0,
-      "je_djelatnik": true,
-      "je_roditelj": false,
-      "je_voditelj": false
-    }
-  },
-  {
-    "model": "djeca.dijete",
-    "pk": 1,
-    "fields": {
-      "ime": "Lorena",
-      "prezime": "Marić",
-      "datum_rodjenja": "2018-02-20",
-      "dodatne_informacije": "Nema dodatnih informacija",
-      "roditelj": 3,
-      "program": 7
-    }
-  },
-  {
-    "model": "djeca.dobnaskupina",
-    "pk": 1,
-    "fields": {
-      "naziv": "od 6 mjeseci do navršenih 12 mjeseci",
-      "godine_min": 0.5,
-      "godine_max": 1.0
-    }
-  },
-  {
-    "model": "djeca.dobnaskupina",
-    "pk": 2,
-    "fields": {
-      "naziv": "od 1 godine do 3 godine",
-      "godine_min": 1.0,
-      "godine_max": 3.0
-    }
-  },
-  {
-    "model": "djeca.dobnaskupina",
-    "pk": 3,
-    "fields": {
-      "naziv": "od 3 godine do polaska u školu",
-      "godine_min": 3.0,
-      "godine_max": 7.0
-    }
-  },
-  {
-    "model": "upisi.upis",
-    "pk": 1,
-    "fields": {
-      "roditelj_puno_ime": "Marko Marić",
-      "roditelj_email": "marko.maric@email.com",
-      "roditelj_datum_rodjenja": "1989-12-06",
-      "roditelj_telefon": "+385 97753112",
-      "dijete_puno_ime": "Lorena Marić",
-      "dijete_datum_rodjenja": "2018-02-20",
-      "dijete_dodatne_informacije": "Nema dodatnih informacija",
-      "odobren": true,
-      "obrazlozenje": "odobren",
-      "program": 7,
-      "created_at": "2021-02-08T19:01:27.307Z",
-      "updated_at": "2021-02-08T19:03:33.478Z"
-    }
-  },
-  {
-    "model": "smjene.smjena",
-    "pk": 1,
-    "fields": {
-      "naziv_smjene": "Jutarnja",
-      "vrijeme_start": "06:00:00",
-      "vrijeme_kraj": "14:00:00"
-    }
-  },
-  {
-    "model": "smjene.smjena",
-    "pk": 2,
-    "fields": {
-      "naziv_smjene": "Popodnevna",
-      "vrijeme_start": "13:00:00",
-      "vrijeme_kraj": "21:00:00"
-    }
-  },
-  {
-    "model": "smjene.smjena",
-    "pk": 3,
-    "fields": {
-      "naziv_smjene": "Cjelodnevna",
-      "vrijeme_start": "06:30:00",
-      "vrijeme_kraj": "17:00:00"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 1,
-    "fields": {
-      "action_time": "2021-02-08T17:46:50.553Z",
-      "user": ["admin"],
-      "content_type": ["vrtic", "vrtic"],
-      "object_id": "1",
-      "object_repr": "Kindergarten",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 2,
-    "fields": {
-      "action_time": "2021-02-08T17:47:19.053Z",
-      "user": ["admin"],
-      "content_type": ["auth", "user"],
-      "object_id": "1",
-      "object_repr": "admin",
-      "action_flag": 2,
-      "change_message": "[{\"changed\": {\"fields\": [\"First name\"]}}]"
-    }
-  }
-]
+  ]
+  
