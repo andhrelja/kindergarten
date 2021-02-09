@@ -1,5 +1,6 @@
 from django import template
 from vrtic.models import Vrtic
+from upisi.models import Upis
 
 register = template.Library()
 
@@ -24,3 +25,7 @@ def vrtic_adresa(name):
 @register.filter
 def vrtic_broj(name):
     return Vrtic.objects.get(naziv=name).kontakt_broj
+
+@register.filter
+def upisi_na_cekanju(extra=None):
+    return Upis.objects.filter(odobren__isnull=True).count()

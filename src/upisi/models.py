@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from djeca.models import Dijete
 
 
 class Upis(models.Model):
@@ -17,6 +18,7 @@ class Upis(models.Model):
     obrazlozenje = models.TextField("Obrazloženje zahtjeva", blank=True)
 
     program = models.ForeignKey("programi.Program", verbose_name="Program", on_delete=models.CASCADE)
+    smjena  = models.ForeignKey("smjene.Smjena", verbose_name="Smjena", null=True, blank=False, on_delete=models.CASCADE) # TODO: remove null
 
     created_at = models.DateTimeField("Datum stvaranja", auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField("Datum ažuriranja", auto_now=True, auto_now_add=False)
@@ -24,6 +26,15 @@ class Upis(models.Model):
     class Meta:
         verbose_name = "Upis"
         verbose_name_plural = "Upisi"
+    
+    def get_related_dijete(self):
+        ime = self.dijete_puno_ime.split(" ")[0],
+        prezime = self.dijete_puno_ime.split(" ")[1]
+
+        try:
+            return Dijete.objects.get(ime=ime, prezime=prezime, datum_rodjenja=self.dijete_datum_rodjenja)
+        except Dijete.DoesNotExist:
+            return Dijete()
 
     def __str__(self):
         return "Zahtjev za upis: " + self.roditelj_puno_ime

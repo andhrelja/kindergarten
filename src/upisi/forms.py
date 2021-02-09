@@ -1,10 +1,11 @@
 from django import forms
-from django.db.models.aggregates import Max, Min
+
 from racuni.forms import DateInput
 from programi.models import VrstaPrograma, Program
+from smjene.models import Smjena
 from .models import Upis
 
-from datetime import datetime, timedelta
+from datetime import datetime
 
 
 class UpisForm(forms.ModelForm):
@@ -23,6 +24,13 @@ class UpisForm(forms.ModelForm):
     program        = forms.ModelChoiceField(
         label="Program", 
         queryset=Program.objects.all(),
+        widget=forms.Select(attrs={
+            'class': 'custom-select'
+        })
+    )
+    smjena         = forms.ModelChoiceField(
+        label="Smjena", 
+        queryset=Smjena.objects.all(),
         widget=forms.Select(attrs={
             'class': 'custom-select'
         })
@@ -54,6 +62,7 @@ class UpisForm(forms.ModelForm):
         fields = (
             'vrsta_programa',
             'program',
+            'smjena',
             'roditelj_puno_ime', 
             'roditelj_email', 
             'roditelj_datum_rodjenja', 
@@ -118,6 +127,7 @@ class UpisCreateForm(UpisForm):
         fields = (
             'vrsta_programa',
             'program',
+            'smjena',
             'roditelj_puno_ime', 
             'roditelj_email', 
             'roditelj_datum_rodjenja', 
@@ -127,3 +137,13 @@ class UpisCreateForm(UpisForm):
             'dijete_dodatne_informacije'
         )
 
+    def __init__(self, *args, **kwargs):
+        roditelj = kwargs.pop('roditelj', None)
+        super(UpisCreateForm, self).__init__(*args, **kwargs)
+        
+        if roditelj:
+            for key, field in self.fields.items():
+                if key.startswith('roditelj'):
+                    field.disabled = True
+                    if key.endswith('email'):
+                        field.help_text = None

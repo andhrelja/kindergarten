@@ -16,7 +16,7 @@
                             <h4 class="h4 font-weight-bold">Odabir željenog programa</h4>
                         </div>
                         {% for field in form.visible_fields %}
-                        {% if forloop.counter <= 2 %}
+                        {% if forloop.counter <= 3 %}
                             {% include 'partials/form_field_snippet.html' %}
                         {% endif %}
                         {% endfor %}
@@ -41,13 +41,6 @@
                             </li>
                             <li class="list-group-item flex-column align-items-start">
                                 <div class="d-flex w-100">
-                                    <h5 class="mb-1">Smjene</h5>
-                                </div>
-                                <ul id="program_smjene" class="list">
-                                </ul>
-                            </li>
-                            <li class="list-group-item flex-column align-items-start">
-                                <div class="d-flex w-100">
                                     <h5 class="mb-1">Kapacitet</h5>
                                 </div>
                                 <ul id="program_upisana_djeca" class="list">
@@ -66,7 +59,7 @@
                             <h4 class="h4 font-weight-bold">Podaci o roditelju</h4>
                         </div>
                         {% for field in form.visible_fields %}
-                        {% if forloop.counter > 2 and forloop.counter <= 6 %}
+                        {% if forloop.counter > 3 and forloop.counter <= 7 %}
                             {% include 'partials/form_field_snippet.html' %}
                         {% endif %}
                         {% endfor %}
@@ -81,7 +74,7 @@
                             <h4 class="h4 font-weight-bold">Podaci o djetetu</h4>
                         </div>
                         {% for field in form.visible_fields %}
-                        {% if forloop.counter > 6 and forloop.counter <= 9 %}
+                        {% if forloop.counter > 7 and forloop.counter <= 10 %}
                             {% include 'partials/form_field_snippet.html' %}
                         {% endif %}
                         {% endfor %}

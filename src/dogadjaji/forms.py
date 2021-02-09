@@ -7,7 +7,8 @@ class DogadjajForm(forms.ModelForm):
     vrste_programa = forms.ModelMultipleChoiceField(
         label="Vrsta programa", 
         queryset=VrstaPrograma.objects.all(),
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-control'}))
+        help_text="Odabir više programa moguć je koristeći tipku CTRL za vrijeme odabiranja vrsti programa",
+        widget=forms.SelectMultiple(attrs={'class': 'form-control'}))
     
     class Meta:
         model = Dogadjaj

@@ -40,7 +40,7 @@
                                 <h4 class="h4 font-weight-bold">Detalji o odabranom programu</h4>
                             </div>
                             {% for field in detail_form.visible_fields %}
-                            {% if forloop.counter <= 2 %}
+                            {% if forloop.counter <= 3 %}
                             <div class="form-group">
                                 <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
                                 {{ field }}
@@ -55,7 +55,7 @@
                                 <h4 class="h4 font-weight-bold">Podaci o roditelju</h4>
                             </div>
                             {% for field in detail_form.visible_fields %}
-                            {% if forloop.counter > 2 and forloop.counter <= 6 %}
+                            {% if forloop.counter > 3 and forloop.counter <= 7 %}
                             <div class="form-group">
                                 <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
                                 {{ field }}
@@ -68,7 +68,7 @@
                                 <h4 class="h4 font-weight-bold">Podaci o djetetu</h4>
                             </div>
                             {% for field in detail_form.visible_fields %}
-                            {% if forloop.counter > 6 %}
+                            {% if forloop.counter > 7 %}
                             <div class="form-group">
                                 <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
                                 {{ field }}

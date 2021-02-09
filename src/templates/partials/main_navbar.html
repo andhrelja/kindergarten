@@ -22,7 +22,15 @@
                 </li>
                 {% if user.is_authenticated and user.is_staff or user.racun.tip_racuna.je_djelatnik %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'upisi:popis' %}">Upisi</a>
+                    {% if None|upisi_na_cekanju %}
+                    <a class="nav-link text-danger" href="{% url 'upisi:popis' %}" style="border-bottom: 2px solid #bd2130;">
+                        Upisi
+                    </a>
+                    {% else %}
+                    <a class="nav-link" href="{% url 'upisi:popis' %}" style="position:relative">
+                        Upisi
+                    </a>
+                    {% endif %}
                 </li>
                 {% else %}
                 <li class="nav-item">
@@ -41,7 +49,7 @@
 
                 {% if user.racun.ceka_suglasnost %}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="border-bottom: 2px solid #bd2130;">
                         Suglasnosti na čekanju
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">

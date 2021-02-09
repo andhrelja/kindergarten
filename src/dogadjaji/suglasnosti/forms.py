@@ -12,4 +12,5 @@ class SuglasnostForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(SuglasnostForm, self).__init__(*args, **kwargs)
-        self.fields['odobren'].label = "Jeste li sigurni da želite dati suglasnost za prisustvovanje djeteta u događaju?"
+        self.object = kwargs['instance']
+        self.fields['odobren'].label = "Jeste li sigurni da želite dati suglasnost za prisustvovanje djeteta '{}' u događaju '{}'?".format(self.object.dijete, self.object.dogadjaj)

@@ -8,34 +8,56 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-title d-flex justify-content-between">
-                        <h3 class="h3 font-weight-bold">Odobri/dodaj suglasnost</h3>
-                        <div class="upis-status">
-                            {% if object.odobren == True %}
-                            <i class="fas fa-check-circle text-success"></i>&nbsp;
-                            <strong>Odobren</strong>
-                            {% elif object.odobren == False %}
-                            <i class="fas fa-times-circle text-danger"></i>&nbsp;
-                            <strong>Nije odobren</strong>
-                            {% else %}
-                            <i class="fas fa-exclamation-circle text-warning"></i>&nbsp;
-                            <strong>Nije obrađen</strong>
-                            {% endif %}
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="card-title d-flex justify-content-between">
+                                <h3 class="h3 font-weight-bold">Suglasnost</h3>
+                                <div class="upis-status">
+                                    {% if object.odobren == True %}
+                                    <i class="fas fa-check-circle text-success"></i>&nbsp;
+                                    <strong>Odobrena</strong>
+                                    {% elif object.odobren == False %}
+                                    <i class="fas fa-times-circle text-danger"></i>&nbsp;
+                                    <strong>Nije odobrena</strong>
+                                    {% else %}
+                                    <i class="fas fa-exclamation-circle text-warning"></i>&nbsp;
+                                    <strong>Nije obrađena</strong>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row mt-4">
+                                <div class="col-lg-12">
+                                    <h5 class="h5 font-weight-bold">Opće informacije</h5>
+                                    <div class="form-group align-space-between">
+                                        <label for="datum_rodjenja" class="control-label">Događaj</label>
+                                        <input type="text" class="form-control" value="{{ object.dogadjaj }}" disabled>
+                                    </div>
+                                    <div class="form-group align-space-between">
+                                        <label for="datum_rodjenja" class="control-label">Dijete</label>
+                                        <input type="text" class="form-control" value="{{ object.dijete }}" disabled>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row mt-4">
-                        <div class="col-lg-12">
-                            <h5 class="h5 font-weight-bold">Opće informacije</h5>
+                </div>
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-body">
                             <div class="form-group align-space-between">
-                                <label for="datum_rodjenja" class="control-label">Događaj</label>
-                                <input type="text" class="form-control" value="{{ object.dogadjaj }}" disabled>
+                                <label class="control-label">Događaj</label>
+                                <input type="text" class="form-control" value="{{ object.dogadjaj.naziv }}" disabled>
                             </div>
                             <div class="form-group align-space-between">
-                                <label for="datum_rodjenja" class="control-label">Dijete</label>
-                                <input type="text" class="form-control" value="{{ object.dijete }}" disabled>
+                                <label class="control-label">Adresa</label>
+                                <input type="text" class="form-control" value="{{ object.dogadjaj.adresa }}" disabled>
+                            </div>
+                            <div class="form-group align-space-between">
+                                <label class="control-label">Detaljan opis</label>
+                                <textarea rows="4" class="form-control" disabled>{{ object.dogadjaj.opis }}</textarea>
                             </div>
                         </div>
                     </div>

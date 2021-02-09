@@ -5,7 +5,6 @@ const programSelect = getInputs(['id_program']);
 
 const vrstaProgramaCijena = getInputs(['vrsta_programa_cijena']);
 const programDobneSkupine = getInputs(['program_dobne_skupine']);
-const programSmjene = getInputs(['program_smjene']);
 const programUpisanaDjeca = getInputs(['program_upisana_djeca']);
 
 window.onload = main();
@@ -13,6 +12,7 @@ window.onload = main();
 function main() {
     let program = getSelectedVrstaPrograma(programSelect);
     let vrstaPrograma = getSelectedVrstaPrograma(vrstaProgramaSelect);
+    console.log(program && vrstaPrograma);
 
     if (program && vrstaPrograma) {
         fetchSelectedVrstaPrograma();
@@ -26,7 +26,6 @@ function main() {
 
 function fetchSelectedVrstaPrograma() {
     hideDobneSkupine();
-    hideSmjene();
     hideUpisanaDjeca();
     
     let vrstaPrograma = getSelectedVrstaPrograma(vrstaProgramaSelect);
@@ -41,10 +40,8 @@ function fetchSelectedVrstaPrograma() {
 
 function fetchSelectedProgram() {
     hideDobneSkupine();
-    hideSmjene();
     hideUpisanaDjeca();
     fetchSelectedProgram_DobneSkupine();
-    fetchSelectedProgram_Smjene();
     fetchSelectedProgram_UpisanaDjeca();
 }
 
@@ -59,16 +56,6 @@ function fetchSelectedProgram_DobneSkupine() {
     }
 }
 
-function fetchSelectedProgram_Smjene() {
-    let program = getSelectedVrstaPrograma(programSelect);
-    if (program) {
-        let url = '/programi/' + program.value + '/smjene/api';
-
-        fetch(url)
-            .then(response => response.json())
-            .then(data => toggleProgramSmjene(data));
-    }
-}
 
 function fetchSelectedProgram_UpisanaDjeca() {
     let program = getSelectedVrstaPrograma(programSelect);
@@ -108,29 +95,9 @@ function toggleProgramUpisanaDjeca(data) {
 }
 
 
-function getNazivSmjene(fields) {
-    let vrijeme_start = fields.vrijeme_start.slice(0, -3);
-    let vrijeme_kraj = fields.vrijeme_kraj.slice(0, -3);
-    return fields.naziv_smjene + ": " + vrijeme_start + " - " + vrijeme_kraj;
-}
-
-function toggleProgramSmjene(data) {
-    for (let smjena of data) {
-        let li = document.createElement('li');
-        li.innerHTML = getNazivSmjene(smjena.fields);
-        programSmjene.appendChild(li);
-    }
-}
-
 function hideDobneSkupine() {
     while (programDobneSkupine.firstChild) {
         programDobneSkupine.removeChild(programDobneSkupine.lastChild);
-    }
-}
-
-function hideSmjene() {
-    while (programSmjene.firstChild) {
-        programSmjene.removeChild(programSmjene.lastChild);
     }
 }
 

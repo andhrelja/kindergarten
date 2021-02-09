@@ -5,7 +5,13 @@ from django.views.generic import (
     ListView,
 )
 
+from django.contrib.auth.mixins import (
+    LoginRequiredMixin,
+    UserPassesTestMixin
+)
+
 from django.conf import settings
+from django.utils import timezone
 from django.core.mail import send_mail
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
@@ -39,14 +45,40 @@ class UpisDetailView(DetailView):
         return context
 
 
-class UpisCreateView(SuccessMessageMixin, CreateView):
+class UpisCreateView(
+    LoginRequiredMixin,
+    SuccessMessageMixin, 
+    CreateView
+):
     model = Upis
     form_class = UpisCreateForm
-    success_message = "Hvala Vam na poslanom zahtjevu!"
-    "Kroz sljedećih 7 dana ćete dobiti povratnu informaciju putem pružene email adrese"
-    
+    success_message = ("Hvala Vam na poslanom zahtjevu!"
+        "Kroz sljedećih 7 dana ćete dobiti povratnu informaciju putem pružene email adrese")
 
-class UpisUpdateView(UpdateView):
+    def get_form_kwargs(self):
+        kwargs = super(UpisCreateView, self).get_form_kwargs()
+        if self.request.user.racun and self.request.user.racun.tip_racuna.je_roditelj:
+            kwargs['roditelj'] = self.request.user.racun
+        return kwargs
+
+    def get_initial(self):
+        initial = super(UpisCreateView, self).get_initial()
+        if self.request.user.racun and self.request.user.racun.tip_racuna.je_roditelj:
+            roditelj = self.request.user.racun
+            initial.update({
+                'roditelj_puno_ime': roditelj.get_full_name(),
+                'roditelj_email': roditelj.user.email,
+                'roditelj_datum_rodjenja': roditelj.datum_rodjenja,
+                'roditelj_telefon': roditelj.telefon,
+            })
+        return initial 
+
+
+class UpisUpdateView(
+    LoginRequiredMixin,
+    UserPassesTestMixin,
+    UpdateView
+):
     model = Upis
     form_class = UpisForm
     template_name = 'upisi/upis_confirm_form.html'
@@ -89,24 +121,44 @@ class UpisUpdateView(UpdateView):
                 'datum_rodjenja': self.object.dijete_datum_rodjenja,
                 'dodatne_informacije': self.object.dijete_dodatne_informacije,
                 'roditelj': roditelj,
-                'program': self.object.program
+                'program': self.object.program,
+                'smjena': self.object.smjena
             }
-            Dijete.objects.get_or_create(**dijete)
+            dijete, _ = Dijete.objects.get_or_create(**dijete)
+            self.find_related_dogadjaji(dijete)
             
             html_message = ("<h2>Poštovani {roditelj},</h2><p>Obavještavamo Vas da je zahtjev za upisom odobren.</p>"
                 "<p>Omogućena Vam je prijava na Kindergarten stranice koristeći slijedeće podatke:</p>"
                 "<ul><li>Korisničko ime: {email}</li><li>{lozinka}</li></ul>"
+                "<p>Obrazloženje rješenja:</p>"
+                "<p>{obrazlozenje}</p>"
                 "<p>Želimo Vam ugodan boravak!</p><br>"
                 "<p>Srdačan podrav od Kindergarten tima</p>")
-            html_message = html_message.format(roditelj=roditelj.get_full_name(), email=roditelj.user.email, lozinka=password)
+            html_message = html_message.format(roditelj=roditelj.get_full_name(), email=roditelj.user.email, lozinka=password, obrazlozenje=self.object.obrazlozenje)
             send_mail(email_subject, message="", html_message=html_message, from_email=settings.EMAIL_HOST_USER, recipient_list=[roditelj.user.email])
             messages.success(self.request, "Zahtjev za upisom je odobren. Poslana je obavijest e-mailom")
             return redirect('racuni:popis')
         elif not self.object.odobren:
             html_message = ("<h2>Poštovani {roditelj},</h2><p>Obavještavamo Vas da zahtjev za upisom odbijen.</p>"
+                "<p>Obrazloženje rješenja:</p>"
+                "<p>{obrazlozenje}</p>"
                 "<p>Za sva dodatna pitanja molimo Vas da nas obavijestite putem broja +385 99 2421 285</p><br>"
                 "<p>Srdačan podrav od Kindergarten tima</p>")
-            html_message = html_message.format(roditelj=self.object.roditelj_puno_ime)
+            html_message = html_message.format(roditelj=self.object.roditelj_puno_ime, obrazlozenje=self.object.obrazlozenje)
             send_mail(email_subject, message="", html_message=html_message, from_email=settings.EMAIL_HOST_USER, recipient_list=[self.object.roditelj_email])
             messages.success(self.request, "Zahtjev za upisom je odbijen. Poslana je obavijest e-mailom")
             return super(UpisUpdateView, self).form_valid(form)
+    
+    def find_related_dogadjaji(self, dijete):
+        dogadjaji = dijete.program.vrsta_programa.dogadjaji.filter(datum_start__gte=timezone.now())
+        for dogadjaj in dogadjaji:
+            dogadjaj.create_consent(dijete)
+            dogadjaj.inform_parent(dijete)
+    
+    def test_func(self):
+        user = self.request.user
+        if ((hasattr(user, 'racun') or user.is_superuser)
+            or user.racun.tip_racuna.je_voditelj and user.is_authenticated):
+            return True
+        else:
+            return False

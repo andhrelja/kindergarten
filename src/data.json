@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$216000$sVfZHXoH7iFm$Jc3RvvIf+8RsnDLfXB2cBr54fw3hAfeQsUFrt15WvVE=",
-      "last_login": "2021-02-08T20:50:23.150Z",
+      "last_login": "2021-02-09T17:51:39.442Z",
       "is_superuser": true,
       "username": "admin",
       "first_name": "Administrator",
@@ -72,6 +72,24 @@
     }
   },
   {
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$V5jkS5UDCZ1e$rsoP6UeZnJZqlxdbjyY2FKVmOQ3ul/cqdebpNmJbDCU=",
+      "last_login": "2021-02-09T19:03:34.194Z",
+      "is_superuser": false,
+      "username": "ivan.dubroja@email.com",
+      "first_name": "Ivan",
+      "last_name": "Dubroja",
+      "email": "ivan.dubroja@email.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-02-09T18:14:15.089Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
     "model": "sessions.session",
     "pk": "4h1e3hquuuwvo1tew6xo78x3jiwy862j",
     "fields": {
@@ -81,10 +99,18 @@
   },
   {
     "model": "sessions.session",
-    "pk": "tkrezxfp3762xrrzr04oyxo90ksukn8q",
+    "pk": "k86k17508ze7ywop5wd3fdrp18jb9q0y",
     "fields": {
-      "session_data": ".eJxVy0EOwiAQQNG7sDYNA4TOuDTxHGQYxkDULoqsjHfXJl3U7X_5b5N4vGoaXdfUijkbMKdjyyx3XTZYWcbSpj306frk9rjs_PdU7vU3eLlFziUqzFmRCvrisTCJszojS2QExxTQiSPricEFIspBFSxgMJ8v2VQytg:1l9DUF:boRg9ctISoNbFTFWykx45VulWoPdDBHdoH_qCWYA_6Q",
-      "expire_date": "2021-02-22T20:50:23.154Z"
+      "session_data": ".eJxVy0EOwiAQQNG7sDYNA4TOuDTxHGQYxkDULoqsjHfXJl3U7X_5b5N4vGoaXdfUijkbMKdjyyx3XTZYWcbSpj306frk9rjs_PdU7vU3eLlFziUqzFmRCvrisTCJszojS2QExxTQiSPricEFIspBFSxgMJ8v2VQytg:1l9XAp:qbLpBMJ0nvLfw770IM0cjO4qdAGJ4QG-ft35N6l8oqk",
+      "expire_date": "2021-02-23T17:51:39.459Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "xzf5aflrnfnvp2yk5r2v2asjzltslrjm",
+    "fields": {
+      "session_data": ".eJxVy00OwiAQQOG7sDbNDD-FcWniOcgwQCBqF6VdGe-uJl3o9n15TxV531rcR1ljz-qsnDr9tsRyK8sXVpZ96dMRxnR9cL9fDv57Go_2GWqYyWBGSMGTrcEgYbWI3hmTLZEjFh0EoMxaZ7DghYRTRShYTAL1egOPBjHm:1l9YIQ:MfA3QcBVbLasdyhuJR7Jo_eY7_0BDMGrtnZxkS6PJxE",
+      "expire_date": "2021-02-23T19:03:34.197Z"
     }
   },
   {
@@ -257,6 +283,39 @@
     }
   },
   {
+    "model": "dogadjaji.suglasnost",
+    "pk": 2,
+    "fields": {
+      "dogadjaj": 2,
+      "dijete": 2,
+      "odobren": true,
+      "created_at": "2021-02-09T19:02:44.971Z",
+      "updated_at": "2021-02-09T19:51:53.968Z"
+    }
+  },
+  {
+    "model": "dogadjaji.suglasnost",
+    "pk": 3,
+    "fields": {
+      "dogadjaj": 2,
+      "dijete": 1,
+      "odobren": null,
+      "created_at": "2021-02-09T19:02:44.986Z",
+      "updated_at": "2021-02-09T19:02:44.986Z"
+    }
+  },
+  {
+    "model": "dogadjaji.suglasnost",
+    "pk": 4,
+    "fields": {
+      "dogadjaj": 1,
+      "dijete": 3,
+      "odobren": false,
+      "created_at": "2021-02-09T19:44:07.710Z",
+      "updated_at": "2021-02-09T19:52:07.725Z"
+    }
+  },
+  {
     "model": "dogadjaji.dogadjaj",
     "pk": 1,
     "fields": {
@@ -270,6 +329,19 @@
     }
   },
   {
+    "model": "dogadjaji.dogadjaj",
+    "pk": 2,
+    "fields": {
+      "naziv": "Igrokaz",
+      "opis": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+      "adresa": "Janka Polića Kamova 5",
+      "datum_start": "2021-02-26",
+      "datum_kraj": "2021-02-26",
+      "vrijeme_start": "18:00:00",
+      "vrijeme_kraj": "20:00:00"
+    }
+  },
+  {
     "model": "programi.vrstaprograma",
     "pk": 1,
     "fields": {
@@ -277,7 +349,7 @@
       "opis": "Redoviti program njege, odgoja, obrazovanja, zdravstvene zaštite, prehrane i socijalne skrbi djece rane i predškolske dobi koji je prilagođen razvojnim potrebama djece te njihovim mogućnostima i sposobnostima provodi se u svim Centrima predškolskog odgoja Dječjeg vrtića Rijeka.",
       "clanstvo_cijena": 15.0,
       "vrtic": 1,
-      "dogadjaji": []
+      "dogadjaji": [2]
     }
   },
   {
@@ -299,7 +371,7 @@
       "opis": "U odgojno-obrazovne skupine Dječjeg vrtića Rijeka s posebnim programom uključuju se djeca s težim teškoćama kojima se vrsta i stupanj teškoće utvrđuje prema posebnim propisima iz područja socijalne skrbi.",
       "clanstvo_cijena": 16.0,
       "vrtic": 1,
-      "dogadjaji": [1]
+      "dogadjaji": [1, 2]
     }
   },
   {
@@ -321,7 +393,7 @@
       "opis": "Program predškole obvezan je program odgojno-obrazovnog rada s djecom u godini dana prije polaska u osnovnu školu te se provodi u trajanju od 250 sati.",
       "clanstvo_cijena": 18.0,
       "vrtic": 1,
-      "dogadjaji": []
+      "dogadjaji": [1]
     }
   },
   {
@@ -474,7 +546,7 @@
       "naziv": "Predškola",
       "dodatni_boravak": false,
       "max_broj_djece": 12,
-      "opis": "Program predškole obvezan je program odgojno-obrazovnog rada s djecom u godini dana prije polaska u osnovnu školu te se provodi u trajanju od 250 sati.\r\n\r\nProgram predškole provodi se sukladno Pravilniku o sadržaju i trajanju programa predškole.\r\n\r\nKompetencije koje dijete u godini dana prije polaska u osnovnu školu treba steći i/ili unaprijediti odnose se na komunikaciju na materinskom jeziku, elementarnu komunikaciju na stranim jezicima, matematičke kompetencije i osnovne kompetencije u prirodoslovlju i tehnologiji, digitalne kompetencije, učiti kako učiti, socijalne i građanske kompetencije, inicijativnost i poduzetništvo, kulturnu svijest i izražavanje te motoričke kompetencije primjerene dobi.",
+      "opis": "Program predškole obvezan je program odgojno-obrazovnog rada s djecom u godini dana prije polaska u osnovnu školu te se provodi u trajanju od 250 sati.\r\n\r\nProgram predškole provodi se  sukladno Pravilniku o sadržaju i trajanju programa predškole.\r\n\r\nKompetencije koje dijete u godini dana prije polaska u osnovnu školu treba steći i/ili unaprijediti odnose se na komunikaciju na materinskom jeziku, elementarnu komunikaciju na stranim jezicima, matematičke kompetencije i osnovne kompetencije u prirodoslovlju i tehnologiji, digitalne kompetencije, učiti kako učiti, socijalne i građanske kompetencije, inicijativnost i poduzetništvo, kulturnu svijest i izražavanje te motoričke kompetencije primjerene dobi.",
       "vrsta_programa": 5,
       "smjene": [3],
       "dobne_skupine": [3]
@@ -513,6 +585,18 @@
       "created_at": "2020-10-01T17:15:00Z",
       "updated_at": "2021-02-08T19:05:40.629Z",
       "user": ["marko.maric@email.com"],
+      "tip_racuna": 1
+    }
+  },
+  {
+    "model": "racuni.racun",
+    "pk": 4,
+    "fields": {
+      "telefon": "+385 97753112",
+      "datum_rodjenja": "1990-04-01",
+      "created_at": "2021-02-09T18:14:15.439Z",
+      "updated_at": "2021-02-09T18:14:15.439Z",
+      "user": ["ivan.dubroja@email.com"],
       "tip_racuna": 1
     }
   },
@@ -613,7 +697,34 @@
       "datum_rodjenja": "2018-02-20",
       "dodatne_informacije": "Nema dodatnih informacija",
       "roditelj": 3,
-      "program": 7
+      "program": 7,
+      "smjena": null
+    }
+  },
+  {
+    "model": "djeca.dijete",
+    "pk": 2,
+    "fields": {
+      "ime": "Mara",
+      "prezime": "Dubroja",
+      "datum_rodjenja": "2017-05-19",
+      "dodatne_informacije": "",
+      "roditelj": 4,
+      "program": 2,
+      "smjena": 3
+    }
+  },
+  {
+    "model": "djeca.dijete",
+    "pk": 3,
+    "fields": {
+      "ime": "Marko",
+      "prezime": "Dubroja",
+      "datum_rodjenja": "2014-02-26",
+      "dodatne_informacije": "",
+      "roditelj": 4,
+      "program": 12,
+      "smjena": 3
     }
   },
   {
@@ -657,8 +768,47 @@
       "odobren": true,
       "obrazlozenje": "odobren",
       "program": 7,
+      "smjena": null,
       "created_at": "2021-02-08T19:01:27.307Z",
       "updated_at": "2021-02-08T19:03:33.478Z"
+    }
+  },
+  {
+    "model": "upisi.upis",
+    "pk": 2,
+    "fields": {
+      "roditelj_puno_ime": "Ivan Dubroja",
+      "roditelj_email": "ivan.dubroja@email.com",
+      "roditelj_datum_rodjenja": "1990-04-01",
+      "roditelj_telefon": "+385 97753112",
+      "dijete_puno_ime": "Mara Dubroja",
+      "dijete_datum_rodjenja": "2017-05-19",
+      "dijete_dodatne_informacije": "",
+      "odobren": true,
+      "obrazlozenje": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "program": 2,
+      "smjena": 3,
+      "created_at": "2021-02-09T17:50:27.664Z",
+      "updated_at": "2021-02-09T18:15:54.967Z"
+    }
+  },
+  {
+    "model": "upisi.upis",
+    "pk": 3,
+    "fields": {
+      "roditelj_puno_ime": "Ivan Dubroja",
+      "roditelj_email": "ivan.dubroja@email.com",
+      "roditelj_datum_rodjenja": "1990-04-01",
+      "roditelj_telefon": "+385 97753112",
+      "dijete_puno_ime": "Marko Dubroja",
+      "dijete_datum_rodjenja": "2014-02-26",
+      "dijete_dodatne_informacije": "",
+      "odobren": true,
+      "obrazlozenje": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "program": 12,
+      "smjena": 3,
+      "created_at": "2021-02-09T19:31:37.825Z",
+      "updated_at": "2021-02-09T19:44:07.177Z"
     }
   },
   {
