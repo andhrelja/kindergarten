@@ -31,13 +31,14 @@ class Clanarina(models.Model):
         djeca = Dijete.objects.all()
         now = timezone.now()
         for dijete in djeca:
+            range_start = 0
             time_since = now - dijete.roditelj.created_at
             months_since = int(time_since.days / 30)
             if now.day < 15:
-                months_since -= 1
+                range_start = 1
             month = now.month
             year = now.year
-            for i in range(0, months_since):
+            for i in range(range_start, months_since):
                 if i % 12 == now.month:
                     month = 12
                     year -= 1
@@ -65,13 +66,14 @@ class Clanarina(models.Model):
     def create_one(djeca):
         now = timezone.now()
         for dijete in djeca:
+            range_start = 0
             time_since = now - dijete.roditelj.created_at
             months_since = int(time_since.days / 30)
             if now.day < 15:
-                months_since -= 1
+                range_start = 1
             month = now.month
             year = now.year
-            for i in range(0, months_since):
+            for i in range(range_start, months_since):
                 if i % 12 == now.month:
                     month = 12
                     year -= 1
@@ -121,13 +123,14 @@ class Placa(models.Model):
         djelatnici = Racun.objects.filter(tip_racuna__in=tipovi)
         now = timezone.now()
         for djelatnik in djelatnici:
+            range_start = 0
             time_since = now - djelatnik.created_at
             months_since = int(time_since.days / 30)
             if now.day < 15:
-                months_since -= 1
+                range_start = 1
             month = now.month
             year = now.year
-            for i in range(0, months_since):
+            for i in range(range_start, months_since):
                 if i % 12 == now.month:
                     month = 12
                     year -= 1
@@ -152,14 +155,15 @@ class Placa(models.Model):
     @staticmethod
     def create_one(djelatnik):
         now = timezone.now()
+        range_start = 0
         
         time_since = now - djelatnik.created_at
         months_since = int(time_since.days / 30)
         if now.day < 15:
-            months_since -= 1
+            range_start = 1
         month = now.month
         year = now.year
-        for i in range(0, months_since):
+        for i in range(range_start, months_since):
             if i % 12 == now.month:
                 month = 12
                 year -= 1
