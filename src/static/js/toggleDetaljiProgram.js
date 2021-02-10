@@ -31,6 +31,9 @@ function hideAll() {
 
 
 function fetchSelectedProgram() {
+    hideDobneSkupine();
+    hideUpisanaDjeca();
+    hideSmjenaCijena();
     fetchSelectedProgram_DobneSkupine();
     fetchSelectedProgram_UpisanaDjeca();
     fetchSelectedSmjenaProgram_Cijena();
