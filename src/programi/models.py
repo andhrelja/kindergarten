@@ -9,7 +9,7 @@ class VrstaPrograma(models.Model):
     naziv           = models.CharField("Naziv programa", max_length=128)
     opis            = models.TextField("Opis vrste programa")
     clanstvo_cijena = models.FloatField(
-        "Cijena", help_text="Cijena mjesečne članarine")
+        "Cijena", help_text="Cijena članarine po satu programa")
 
     # Vanjski ključevi
     vrtic           = models.ForeignKey(
@@ -22,8 +22,8 @@ class VrstaPrograma(models.Model):
         verbose_name_plural = "Vrste programa"
     
     
-    def clanstvo_mjesecno(self):
-        return self.clanstvo_cijena * 30 * 8
+    def clanstvo_mjesecno(self, smjena):
+        return self.clanstvo_cijena * 30 * smjena.broj_sati()
     
 
     def __str__(self):

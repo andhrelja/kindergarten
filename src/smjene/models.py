@@ -1,6 +1,7 @@
 from django.db import models
-from django.db.models.fields import DateTimeCheckMixin
 from django.urls import reverse
+
+from datetime import datetime, date
 
 
 class Smjena(models.Model):
@@ -21,6 +22,12 @@ class Smjena(models.Model):
         vrijeme_od = self.vrijeme_start.strftime("%H:%M")
         vrijeme_do = self.vrijeme_kraj.strftime("%H:%M")
         return "{} - {}".format(vrijeme_od, vrijeme_do)
+    
+    def broj_sati(self):
+        start = datetime.combine(date.today(), self.vrijeme_start)
+        kraj = datetime.combine(date.today(), self.vrijeme_kraj)
+        tdelta = kraj - start
+        return tdelta.seconds / 3600
 
     def __str__(self):
         naziv = "{}: {}".format(self.naziv_smjene, self.vrijeme_od_do())
@@ -43,14 +50,15 @@ class DjelatnikSmjenaProgram(models.Model):
     class Meta:
         verbose_name = "Djelatnik - smjena i program"
         verbose_name_plural = "Djelatnici - smjene i programi"
+        unique_together = ['djelatnik', 'smjena']
 
     @property
     def satnica(self):
         pass
 
     def __str__(self):
-        naziv = "{} - {}".format(self.djelatnik.get_full_name(), self.smjena.naziv)
-        return naziv.trip()
+        naziv = "{} - {}".format(self.djelatnik.get_full_name(), self.smjena.naziv_smjene)
+        return naziv.strip()
 
     def get_absolute_url(self):
         return reverse("DjelatnikSmjenaProgram_detail", kwargs={"pk": self.pk})

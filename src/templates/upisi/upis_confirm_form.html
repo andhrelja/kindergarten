@@ -28,12 +28,6 @@
                             <h4 class="h4 font-weight-bold">Detalji o odabranom programu</h4>
                         </div>
                         <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Cijena
-                                <span id="vrsta_programa_cijena" class="badge badge-primary badge-pill">
-                                    {{ vrsta_programa.clanstvo_mjesecno|floatformat }} kn/mj.
-                                </span>
-                            </li>
                             <li class="list-group-item flex-column align-items-start">
                                 <div class="d-flex w-100">
                                     <h5 class="mb-1">Dobne skupine</h5>
@@ -53,6 +47,12 @@
                                     <li>{{ smjena }}</li>
                                 {% endfor %}
                                 </ul>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Cijena
+                                <span id="vrsta_programa_cijena" class="badge badge-primary badge-pill">
+                                    {{ vrsta_programa.clanstvo_mjesecno|floatformat }} kn/mj.
+                                </span>
                             </li>
                         </ul>
                     </div>

@@ -45,11 +45,7 @@ class UpisDetailView(DetailView):
         return context
 
 
-class UpisCreateView(
-    LoginRequiredMixin,
-    SuccessMessageMixin, 
-    CreateView
-):
+class UpisCreateView(SuccessMessageMixin, CreateView):
     model = Upis
     form_class = UpisCreateForm
     success_message = ("Hvala Vam na poslanom zahtjevu!"
@@ -57,13 +53,13 @@ class UpisCreateView(
 
     def get_form_kwargs(self):
         kwargs = super(UpisCreateView, self).get_form_kwargs()
-        if self.request.user.racun and self.request.user.racun.tip_racuna.je_roditelj:
+        if self.request.user.is_authenticated and self.request.user.racun and self.request.user.racun.tip_racuna.je_roditelj:
             kwargs['roditelj'] = self.request.user.racun
         return kwargs
 
     def get_initial(self):
         initial = super(UpisCreateView, self).get_initial()
-        if self.request.user.racun and self.request.user.racun.tip_racuna.je_roditelj:
+        if self.request.user.is_authenticated and self.request.user.racun and self.request.user.racun.tip_racuna.je_roditelj:
             roditelj = self.request.user.racun
             initial.update({
                 'roditelj_puno_ime': roditelj.get_full_name(),
@@ -71,7 +67,7 @@ class UpisCreateView(
                 'roditelj_datum_rodjenja': roditelj.datum_rodjenja,
                 'roditelj_telefon': roditelj.telefon,
             })
-        return initial 
+        return initial
 
 
 class UpisUpdateView(

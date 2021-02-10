@@ -48,7 +48,7 @@ class Clanarina(models.Model):
                 kwargs = {
                     'datum' : datetime(year, month, 15, 0, 0, tzinfo=pytz.UTC),
                     'naziv' : "{} - {}".format(i + 1, dijete.get_full_name()),
-                    'iznos' : dijete.program.vrsta_programa.clanstvo_mjesecno()
+                    'iznos' : dijete.program.vrsta_programa.clanstvo_mjesecno(dijete.smjena)
                 }
                 kwargs.update({
                     'PDV' : kwargs['iznos'] * 0.25,
@@ -83,7 +83,7 @@ class Clanarina(models.Model):
                 kwargs = {
                     'datum' : datetime(year, month, 15, 0, 0, tzinfo=pytz.UTC),
                     'naziv' : "C{} - {}".format(i + 1, dijete.get_full_name()),
-                    'iznos' : dijete.program.vrsta_programa.clanstvo_mjesecno()
+                    'iznos' : dijete.program.vrsta_programa.clanstvo_mjesecno(dijete.smjena)
                 }
                 kwargs.update({
                     'PDV' : kwargs['iznos'] * 0.25,

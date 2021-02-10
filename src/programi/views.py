@@ -63,4 +63,16 @@ class ProgramUpisanoDjeceJSONView(JSONResponseMixin, TemplateView):
             'max_broj_djece': program.max_broj_djece
         })
         return self.render_to_json_response(context, **response_kwargs)
+
+class ProgramSmjenaCijenaJSONView(JSONResponseMixin, TemplateView):
+    def render_to_response(self, context, **response_kwargs):
+        program_id = self.kwargs.get('program_id', None)
+        smjena_id = self.kwargs.get('smjena_id', None)
+        program = Program.objects.get(id=program_id)
+        smjena = Smjena.objects.get(id=smjena_id)
+        response_kwargs.update({
+            'clanstvo': program.vrsta_programa.clanstvo_cijena,
+            'broj_sati': smjena.broj_sati()
+        })
+        return self.render_to_json_response(context, **response_kwargs)
     
