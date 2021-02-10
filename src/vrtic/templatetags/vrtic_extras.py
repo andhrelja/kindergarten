@@ -29,3 +29,7 @@ def vrtic_broj(name):
 @register.filter
 def upisi_na_cekanju(extra=None):
     return Upis.objects.filter(odobren__isnull=True).count()
+
+@register.filter
+def clanstvo_mjesecno(vrsta_programa, smjena):
+    return vrsta_programa.clanstvo_mjesecno(smjena)

@@ -23,7 +23,7 @@ class VrstaPrograma(models.Model):
     
     
     def clanstvo_mjesecno(self, smjena):
-        return self.clanstvo_cijena * 30 * smjena.broj_sati()
+        return self.clanstvo_cijena * 20 * smjena.broj_sati()
     
 
     def __str__(self):

@@ -84,6 +84,7 @@ class UpisUpdateView(
         context = super(UpisUpdateView, self).get_context_data(**kwargs)
         context['vrsta_programa'] = VrstaPrograma.objects.get(program=self.object.program)
         context['program'] = self.object.program
+        context['object'] = self.object
         return context
     
     def get_initial(self):

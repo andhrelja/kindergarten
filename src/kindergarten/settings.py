@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'kindergarten.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'local': {
+    '': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'kindergarten',
         'USER': 'postgres',
