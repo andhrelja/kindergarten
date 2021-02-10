@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load vrtic_extras %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="jumbotron">
+                <h1 class="display-4">O nama</h1>
+                <hr class="my-4">
+                <p>
+                    U Dječjem vrtiću Kindergarten, temeljem članka 15. Zakona o predškolskom odgoju i naobrazbi, 
+                    ostvaruju se redoviti programi njege, odgoja, obrazovanja, zdravstvene zaštite, prehrane i socijalne skrbi
+                     djece rane i predškolske dobi koji su prilagođeni razvojnim potrebama djece te njihovim mogućnostima i sposobnostima. 
+                </p>
+                <p>
+                    Uz redovite programe provode se posebni i specijalizirani programi kao što su programi za djecu s teškoćama, programi predškole,
+                     te programi ranog učenja stranih jezika i drugi programi kulturnog, vjerskog i sportskog sadržaja. 
+                </p>
+                <p>
+                    Odgojno-obrazovni rad temelji se na humanističko-razvojnoj koncepciji, a temeljno ishodište svih programa čini Nacionalni kurikulum za rani i predškolski odgoj i obrazovanje.
+                </p>
+                <p>
+                    Predškolski odgoj organizira se i provodi za djecu od navršenih 6 mjeseci života do polaska u osnovnu školu, a ostvaruje se na temelju Državnog pedagoškog standarda predškolskog odgoja i naobrazbe.
+                </p>
+                <p> 
+                    Cijena usluga Dječjeg vrtića Kindergarten za roditelje djece koja vrtić pohađaju određena je Odlukom o mjerilima za naplatu usluga Dječjeg vrtića Kindergarten od roditelja-korisnika usluga koju je donijelo Gradsko vijeće Grada.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card no-shadow">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3 class="h3">{{ "Kindergarten"|vrtic }}</h3>
+                    </div>
+                    <hr class="my-4">
+                    <p class="lead">Kindergarten je vrtić izgrađen 1998. godine čija je misija pripremiti djecu predškolske, vrtićke i jasličke dobi na život nakon vrtića</p>
+                    <br>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span><a class="text-dark font-weight-bold" href="https://www.google.com/maps/place/Ul.+Janka+Poli%C4%87a+Kamova+5,+51000,+Rijeka">{{ "Kindergarten"|vrtic_adresa }}, Rijeka</a></span>
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <span><a class="text-dark font-weight-bold" href="mailto:{{ "Kindergarten"|vrtic_email }}">{{ "Kindergarten"|vrtic_email }}</a></span>
+                    </p>
+                    <p>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>{{ "Kindergarten"|vrtic_broj }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
