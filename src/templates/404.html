@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'partials/sub_navbar.html' with title="Resurs nije pronađen" type="list" type_name="access" %}
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-lg-5 m-auto mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="h4 font-weight-bold card-title">
+                        Resurs nije pronađen
+                    </h4>
+                    <div class="card-text">
+                        Molimo obratite se 
+                        <a href="mailto:kindergarten.rijeka@gmail.com">
+                            administratoru
+                        </a> 
+                        za pojašnjenje.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
