@@ -21,21 +21,7 @@ class UpisForm(forms.ModelForm):
             'class': 'custom-select'
         })
     )
-    program        = forms.ModelChoiceField(
-        label="Program", 
-        queryset=Program.objects.all(),
-        widget=forms.Select(attrs={
-            'class': 'custom-select'
-        })
-    )
-    smjena         = forms.ModelChoiceField(
-        label="Smjena", 
-        queryset=Smjena.objects.all(),
-        widget=forms.Select(attrs={
-            'class': 'custom-select'
-        })
-    )
-
+    
     password1   = forms.CharField(
         label="Lozinka za korisnika",
         strip=False,
@@ -79,6 +65,8 @@ class UpisForm(forms.ModelForm):
         widgets = {
             'roditelj_puno_ime': forms.TextInput(attrs={'class': 'form-control'}),
             'roditelj_email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'program': forms.Select(attrs={'class': 'custom-select'}),
+            'smjena': forms.Select(attrs={'class': 'custom-select'}),
             'roditelj_datum_rodjenja': DateInput(attrs={'class': 'form-control'}),
             'roditelj_telefon': forms.TextInput(attrs={'class': 'form-control'}),
             'dijete_puno_ime': forms.TextInput(attrs={'class': 'form-control'}),

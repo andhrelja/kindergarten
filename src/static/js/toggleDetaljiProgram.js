@@ -15,7 +15,6 @@ function main() {
     let vrstaPrograma = getSelectedVrstaPrograma(vrstaProgramaSelect);
 
     if (program && vrstaPrograma) {
-        fetchSelectedVrstaPrograma();
         fetchSelectedProgram();
     }
 
@@ -32,11 +31,9 @@ function hideAll() {
 
 
 function fetchSelectedProgram() {
-    hideDobneSkupine();
-    hideUpisanaDjeca();
-    hideSmjenaCijena();
     fetchSelectedProgram_DobneSkupine();
     fetchSelectedProgram_UpisanaDjeca();
+    fetchSelectedSmjenaProgram_Cijena();
 }
 
 function fetchSelectedSmjenaProgram_Cijena() {

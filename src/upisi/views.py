@@ -68,6 +68,7 @@ class UpisCreateView(SuccessMessageMixin, CreateView):
                 'roditelj_telefon': roditelj.telefon,
             })
         return initial
+    
 
 
 class UpisUpdateView(

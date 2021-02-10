@@ -102,8 +102,13 @@ function fetchSelectedSmjene() {
 }
 
 function main() {
-    toggleProgramOptions(null);
-    toggleSmjeneOptions(null);
+    let program = getSelectedVrstaPrograma(programSelect);
+    let vrstaPrograma = getSelectedVrstaPrograma(vrstaProgramaSelect);
+    
+    if (!program && !vrstaPrograma) {
+        toggleProgramOptions(null);
+        toggleSmjeneOptions(null);
+    }
     
     vrstaProgramaSelect.addEventListener('change', () => fetchSelectedPrograms());
     programSelect.addEventListener('change', () => fetchSelectedSmjene());

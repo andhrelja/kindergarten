@@ -14,7 +14,7 @@ class Dijete(models.Model):
     # Vanjski ključevi
     roditelj        = models.ForeignKey("racuni.Racun", verbose_name="Roditelj", on_delete=models.CASCADE)
     program         = models.ForeignKey("programi.Program", verbose_name="Upisani program", null=True, on_delete=models.CASCADE)
-    smjena          = models.ForeignKey("smjene.Smjena", verbose_name="Smjena čuvanja", null=True, blank=False, on_delete=models.CASCADE)
+    smjena          = models.ForeignKey("smjene.Smjena", verbose_name="Smjena čuvanja", blank=False, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Dijete"
