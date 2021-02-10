@@ -12,11 +12,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '-#%zdu172m41begbu@cnw)b8k$5dn9@^408$kggc5&y78z3gqn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost', 
-    'kindergarten.herokuapp.com'
+    'kindergartenn.herokuapp.com'
 ]
 
 LOGIN_URL = '/racuni/prijava/'
